@@ -1,0 +1,22 @@
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Géneros{% endblock %}
+{% block sub_titulo_caminho %}Categorias{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th>Nome do Género</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for g in itens %}
+    <tr>
+        <td><strong>{{ g.nome }}</strong></td>
+        <td style="text-align: right;">
+            <a href="{% url 'editar_item_admin' 'genero' g.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_item_admin' 'genero' g.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="2" class="text-center">Nenhum género encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="movie-card" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-3">
+                {% if filme.cartaz %}
+                    <img src="{{ filme.cartaz }}" alt="{{ filme.titulo }}" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.8);">
+                {% endif %}
+            </div>
+
+            <div class="col-md-9">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px;">{{ filme.titulo }}</h1>
+                    {% if user.is_staff %}
+                        <a href="{% url 'editar_filme' filme.id %}" class="btn-editar-filme-site">
+                            <i class="fas fa-edit"></i> Editar Filme
+                        </a>
+                    {% endif %}
+                </div>
+
+                <p style="color: #888; font-size: 1.1em; margin-bottom: 10px;">{{ filme.data_lancamento|date:"d M Y" }}</p>
+
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+                    <div class="sistema-classificacao">
+                        <span class="estrela {% if nota_user >= 1 %}preenchida{% endif %}" data-valor="1">★</span>
+                        <span class="estrela {% if nota_user >= 2 %}preenchida{% endif %}" data-valor="2">★</span>
+                        <span class="estrela {% if nota_user >= 3 %}preenchida{% endif %}" data-valor="3">★</span>
+                        <span class="estrela {% if nota_user >= 4 %}preenchida{% endif %}" data-valor="4">★</span>
+                        <span class="estrela {% if nota_user >= 5 %}preenchida{% endif %}" data-valor="5">★</span>
+                    </div>
+                    <span style="color: #666; font-size: 1.2em;">Nota: <strong id="nota-escolhida" style="color: #f5c518;">{{ nota_user|default:0 }}</strong>/5</span>
+                </div>
+
+                {% if filme.sinopse %}
+                    <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
+                {% endif %}
+
+                <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+                    <h2 style="color: #f5c518; font-size: 22px;">Ficha Técnica</h2>
+                    <div style="font-size: 1.2em; line-height: 1.8;">
+                        <p><strong>Realizador:</strong> <span style="color: #4da6ff;">{{ filme.realizador.nome }}</span></p>
+                        <p><strong>Elenco:</strong> <span style="color: #4da6ff;">{{ filme.atores.all|join:", " }}</span></p>
+                        <p><strong>Géneros:</strong> <span style="color: #4da6ff;">{{ filme.generos.all|join:", " }}</span></p>
+                    </div>
+                </div>
+
+                <div class="section-container" style="margin-top: 40px;">
+                    <h2 style="color: #f5c518; font-size: 22px;">Críticas e Comentários</h2>
+                    <hr style="border-color: #333; margin-top: 0; margin-bottom: 20px;">
+
+                    <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="color: #f5c518; margin: 0;">
+                                {% if minha_av %}A tua Crítica{% else %}Deixa a tua Crítica{% endif %}
+                            </h4>
+                            {% if minha_av %}
+                                <a href="{% url 'apagar_comentario' filme.id %}" class="text-danger" style="text-decoration: none; font-size: 11px; font-weight: bold;" onclick="return confirm('Apagar o teu comentário?');">
+                                    <i class="fas fa-trash-alt"></i> APAGAR A MINHA CRÍTICA
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        {% if user.is_authenticated %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="nota" id="input-nota" value="{{ nota_user }}">
+                                <textarea name="comentario" class="form-control" rows="3" placeholder="O que achaste deste filme?" style="background: #222; color: white; border: 1px solid #444; margin-bottom: 10px;">{{ comentario_user }}</textarea>
+                                <button type="submit" class="btn btn-warning btn-sm" style="font-weight: bold; width: 100%; border-radius: 50px;">
+                                    {% if minha_av %}Atualizar Comentário{% else %}Publicar Comentário{% endif %}
+                                </button>
+                            </form>
+                        {% else %}
+                            <p style="color: #888;">Faz <a href="{% url 'login' %}" style="color: #f5c518;">login</a> para comentar.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="comments-list">
+                        {% for av in avaliacoes %}
+                            <div style="border-bottom: 1px solid #222; margin-bottom: 15px; padding-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <strong style="color: #f5c518;">{{ av.utilizador.username }}</strong>
+                                        <span style="color: #666; font-size: 0.9em;">({{ av.nota }}/5 ★)</span>
+                                    </div>
+
+                                    {% if is_moderador %}
+                                        <a href="{% url 'moderar_apagar_comentario' av.id %}" style="color: #ff4d4d;" onclick="return confirm('Apagar este comentário como moderador?');">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <p style="margin: 5px 0; color: #ccc;">{{ av.comentario }}</p>
+                                <small style="color: #444;">{{ av.data_postagem|date:"d/m/Y H:i" }}</small>
+                            </div>
+                        {% empty %}
+                            {% if not minha_av %}<p style="color: #666;">Ainda não há comentários.</p>{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    {% if origem == 'admin_avaliacoes' %}
+                        <a href="{% url 'admin_avaliacoes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Críticas</a>
+                    {% elif origem == 'admin_filmes' %}
+                        <a href="{% url 'admin_filmes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Lista Admin</a>
+                    {% else %}
+                        <a href="{% url 'lista_filmes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Ver Catálogo</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'content/script.js' %}"></script>
+{% endblock %}

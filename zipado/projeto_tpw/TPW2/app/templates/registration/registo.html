@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="register-container">
+    <h2 class="section-title">Criar Conta - MOVIEZ</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+
+        <button type="submit" style="color: black; background-color: #f5c518">Registar</button>
+    </form>
+</div>
+{% endblock %}

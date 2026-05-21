@@ -1,0 +1,3206 @@
+================================================================================
+1. ESTRUTURA COMPLETA DE PASTAS E FICHEIROS
+================================================================================
+
+📁 [Raiz do Projeto]
+  📄 .gitignore
+  📄 db.sqlite3
+  📄 manage.py
+  📄 requirements.txt
+  📄 resumo_projeto.txt
+  📄 tudo.py
+  📁 app/
+    📄 admin.py
+    📄 apps.py
+    📄 forms.py
+    📄 models.py
+    📄 tests.py
+    📄 urls.py
+    📄 views.py
+    📄 __init__.py
+    📁 management/
+      📄 __init__.py
+      📁 commands/
+        📄 importar_filmes.py
+        📄 __init__.py
+    📁 migrations/
+      📄 0001_initial.py
+      📄 0002_avaliacao.py
+      📄 0003_avaliacao_comentario_avaliacao_data_postagem_and_more.py
+      📄 0004_remove_filme_genero_filme_generos_alter_ator_id_and_more.py
+      📄 0005_favorito_guardado.py
+      📄 __init__.py
+    📁 static/
+      📁 content/
+        📄 script.js
+        📄 style.css
+    📁 templates/
+      📄 adicionar_filme.html
+      📄 dashboard_admin.html
+      📄 detalhe_filme.html
+      📄 editar_perfil.html
+      📄 layout.html
+      📄 lista_filmes.html
+      📄 meus_favoritos.html
+      📄 meus_guardados.html
+      📄 perfil.html
+      📁 registration/
+        📄 login.html
+        📄 registo.html
+      📁 relAdmin/
+        📄 admin_atores.html
+        📄 admin_avaliacoes.html
+        📄 admin_base_gestao.html
+        📄 admin_filmes.html
+        📄 admin_generos.html
+        📄 admin_permissoes.html
+        📄 admin_realizadores.html
+        📄 admin_utilizadores.html
+        📄 detalhe_grupo.html
+        📄 editar_grupo.html
+        📄 editar_item_admin.html
+        📄 form_simples.html
+  📁 staticfiles/
+    📁 admin/
+      📁 css/
+        📄 autocomplete.css
+        📄 base.css
+        📄 changelists.css
+        📄 dark_mode.css
+        📄 dashboard.css
+        📄 forms.css
+        📄 login.css
+        📄 nav_sidebar.css
+        📄 responsive.css
+        📄 responsive_rtl.css
+        📄 rtl.css
+        📄 unusable_password_field.css
+        📄 widgets.css
+        📁 vendor/
+          📁 select2/
+            📄 LICENSE-SELECT2.md
+            📄 select2.css
+            📄 select2.min.css
+      📁 img/
+        📄 calendar-icons.svg
+        📄 icon-addlink.svg
+        📄 icon-alert.svg
+        📄 icon-calendar.svg
+        📄 icon-changelink.svg
+        📄 icon-clock.svg
+        📄 icon-deletelink.svg
+        📄 icon-hidelink.svg
+        📄 icon-no.svg
+        📄 icon-unknown-alt.svg
+        📄 icon-unknown.svg
+        📄 icon-viewlink.svg
+        📄 icon-yes.svg
+        📄 inline-delete.svg
+        📄 LICENSE
+        📄 README.txt
+        📄 search.svg
+        📄 selector-icons.svg
+        📄 sorting-icons.svg
+        📄 tooltag-add.svg
+        📄 tooltag-arrowright.svg
+        📁 gis/
+          📄 move_vertex_off.svg
+          📄 move_vertex_on.svg
+      📁 js/
+        📄 actions.js
+        📄 autocomplete.js
+        📄 calendar.js
+        📄 cancel.js
+        📄 change_form.js
+        📄 core.js
+        📄 filters.js
+        📄 inlines.js
+        📄 jquery.init.js
+        📄 nav_sidebar.js
+        📄 popup_response.js
+        📄 prepopulate.js
+        📄 prepopulate_init.js
+        📄 SelectBox.js
+        📄 SelectFilter2.js
+        📄 theme.js
+        📄 unusable_password_field.js
+        📄 urlify.js
+        📁 admin/
+          📄 DateTimeShortcuts.js
+          📄 RelatedObjectLookups.js
+        📁 vendor/
+          📁 jquery/
+            📄 jquery.js
+            📄 jquery.min.js
+            📄 LICENSE.txt
+          📁 select2/
+            📄 LICENSE.md
+            📄 select2.full.js
+            📄 select2.full.min.js
+            📁 i18n/
+              📄 af.js
+              📄 ar.js
+              📄 az.js
+              📄 bg.js
+              📄 bn.js
+              📄 bs.js
+              📄 ca.js
+              📄 cs.js
+              📄 da.js
+              📄 de.js
+              📄 dsb.js
+              📄 el.js
+              📄 en.js
+              📄 es.js
+              📄 et.js
+              📄 eu.js
+              📄 fa.js
+              📄 fi.js
+              📄 fr.js
+              📄 gl.js
+              📄 he.js
+              📄 hi.js
+              📄 hr.js
+              📄 hsb.js
+              📄 hu.js
+              📄 hy.js
+              📄 id.js
+              📄 is.js
+              📄 it.js
+              📄 ja.js
+              📄 ka.js
+              📄 km.js
+              📄 ko.js
+              📄 lt.js
+              📄 lv.js
+              📄 mk.js
+              📄 ms.js
+              📄 nb.js
+              📄 ne.js
+              📄 nl.js
+              📄 pl.js
+              📄 ps.js
+              📄 pt-BR.js
+              📄 pt.js
+              📄 ro.js
+              📄 ru.js
+              📄 sk.js
+              📄 sl.js
+              📄 sq.js
+              📄 sr-Cyrl.js
+              📄 sr.js
+              📄 sv.js
+              📄 th.js
+              📄 tk.js
+              📄 tr.js
+              📄 uk.js
+              📄 vi.js
+              📄 zh-CN.js
+              📄 zh-TW.js
+          📁 xregexp/
+            📄 LICENSE.txt
+            📄 xregexp.js
+            📄 xregexp.min.js
+    📁 content/
+      📄 script.js
+      📄 style.css
+  📁 static_cdn/
+    📁 admin/
+      📁 css/
+        📄 autocomplete.css
+        📄 base.css
+        📄 changelists.css
+        📄 dark_mode.css
+        📄 dashboard.css
+        📄 forms.css
+        📄 login.css
+        📄 nav_sidebar.css
+        📄 responsive.css
+        📄 responsive_rtl.css
+        📄 rtl.css
+        📄 unusable_password_field.css
+        📄 widgets.css
+        📁 vendor/
+          📁 select2/
+            📄 LICENSE-SELECT2.md
+            📄 select2.css
+            📄 select2.min.css
+      📁 img/
+        📄 calendar-icons.svg
+        📄 icon-addlink.svg
+        📄 icon-alert.svg
+        📄 icon-calendar.svg
+        📄 icon-changelink.svg
+        📄 icon-clock.svg
+        📄 icon-deletelink.svg
+        📄 icon-hidelink.svg
+        📄 icon-no.svg
+        📄 icon-unknown-alt.svg
+        📄 icon-unknown.svg
+        📄 icon-viewlink.svg
+        📄 icon-yes.svg
+        📄 inline-delete.svg
+        📄 LICENSE
+        📄 README.txt
+        📄 search.svg
+        📄 selector-icons.svg
+        📄 sorting-icons.svg
+        📄 tooltag-add.svg
+        📄 tooltag-arrowright.svg
+        📁 gis/
+          📄 move_vertex_off.svg
+          📄 move_vertex_on.svg
+      📁 js/
+        📄 actions.js
+        📄 autocomplete.js
+        📄 calendar.js
+        📄 cancel.js
+        📄 change_form.js
+        📄 core.js
+        📄 filters.js
+        📄 inlines.js
+        📄 jquery.init.js
+        📄 nav_sidebar.js
+        📄 popup_response.js
+        📄 prepopulate.js
+        📄 prepopulate_init.js
+        📄 SelectBox.js
+        📄 SelectFilter2.js
+        📄 theme.js
+        📄 unusable_password_field.js
+        📄 urlify.js
+        📁 admin/
+          📄 DateTimeShortcuts.js
+          📄 RelatedObjectLookups.js
+        📁 vendor/
+          📁 jquery/
+            📄 jquery.js
+            📄 jquery.min.js
+            📄 LICENSE.txt
+          📁 select2/
+            📄 LICENSE.md
+            📄 select2.full.js
+            📄 select2.full.min.js
+            📁 i18n/
+              📄 af.js
+              📄 ar.js
+              📄 az.js
+              📄 bg.js
+              📄 bn.js
+              📄 bs.js
+              📄 ca.js
+              📄 cs.js
+              📄 da.js
+              📄 de.js
+              📄 dsb.js
+              📄 el.js
+              📄 en.js
+              📄 es.js
+              📄 et.js
+              📄 eu.js
+              📄 fa.js
+              📄 fi.js
+              📄 fr.js
+              📄 gl.js
+              📄 he.js
+              📄 hi.js
+              📄 hr.js
+              📄 hsb.js
+              📄 hu.js
+              📄 hy.js
+              📄 id.js
+              📄 is.js
+              📄 it.js
+              📄 ja.js
+              📄 ka.js
+              📄 km.js
+              📄 ko.js
+              📄 lt.js
+              📄 lv.js
+              📄 mk.js
+              📄 ms.js
+              📄 nb.js
+              📄 ne.js
+              📄 nl.js
+              📄 pl.js
+              📄 ps.js
+              📄 pt-BR.js
+              📄 pt.js
+              📄 ro.js
+              📄 ru.js
+              📄 sk.js
+              📄 sl.js
+              📄 sq.js
+              📄 sr-Cyrl.js
+              📄 sr.js
+              📄 sv.js
+              📄 th.js
+              📄 tk.js
+              📄 tr.js
+              📄 uk.js
+              📄 vi.js
+              📄 zh-CN.js
+              📄 zh-TW.js
+          📁 xregexp/
+            📄 LICENSE.txt
+            📄 xregexp.js
+            📄 xregexp.min.js
+    📁 content/
+      📄 script.js
+      📄 style.css
+  📁 templates/
+  📁 tp1/
+    📄 asgi.py
+    📄 settings.py
+    📄 urls.py
+    📄 wsgi.py
+    📄 __init__.py
+
+
+================================================================================
+2. CONTEÚDO DOS FICHEIROS PYTHON (.py) E HTML (.html)
+================================================================================
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: manage.py
+--------------------------------------------------------------------------------
+
+#!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
+import os
+import sys
+
+def main():
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tp1.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+
+if __name__ == '__main__':
+    main()
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: tudo.py
+--------------------------------------------------------------------------------
+
+import os
+
+ARQUIVO_SAIDA = "estrutura_e_conteudo.txt"
+
+# Pastas que serão totalmente ignoradas pelo script
+PASTAS_IGNORADAS = {
+    ".git", "node_modules", "__pycache__", "venv", ".venv",
+    "env", "dist", "build", ".next", ".idea", ".vscode"
+}
+
+# Ficheiros específicos a ignorar
+ARQUIVOS_IGNORADOS = {
+    ARQUIVO_SAIDA, "estrutura_e_codigo.py", "package-lock.json",
+    "yarn.lock", "pnpm-lock.yaml", ".DS_Store"
+}
+
+# FILTRO CRÍTICO: Só leremos o conteúdo em texto destas duas extensões
+EXTENSOES_CONTEUDO = {".py", ".html"}
+
+
+def gerar_arvore(f_saida):
+    """Escreve a estrutura visual completa do projeto no ficheiro de saída."""
+    f_saida.write(f"{'=' * 80}\n")
+    f_saida.write("1. ESTRUTURA COMPLETA DE PASTAS E FICHEIROS\n")
+    f_saida.write(f"{'=' * 80}\n\n")
+
+    for raiz, pastas, arquivos in os.walk("."):
+        # Modifica as pastas para evitar entrar nas ignoradas
+        pastas[:] = [p for p in pastas if p not in PASTAS_IGNORADAS]
+
+        caminho_relativo = os.path.relpath(raiz, ".")
+        if caminho_relativo == ".":
+            nivel = 0
+            f_saida.write("📁 [Raiz do Projeto]\n")
+        else:
+            nivel = caminho_relativo.count(os.sep) + 1
+            indentacao = "  " * nivel
+            f_saida.write(f"{indentacao}📁 {os.path.basename(raiz)}/\n")
+
+        indentacao_arq = "  " * (nivel + 1)
+        for arquivo in arquivos:
+            if arquivo not in ARQUIVOS_IGNORADOS:
+                # Mostra todos os ficheiros na árvore para mapeamento
+                f_saida.write(f"{indentacao_arq}📄 {arquivo}\n")
+    f_saida.write("\n\n")
+
+
+def mapear_conteudo_selecionado():
+    print("A mapear estrutura e a recolher código Python e HTML...")
+    arquivos_processados = 0
+
+    with open(ARQUIVO_SAIDA, "w", encoding="utf-8") as f_saida:
+        # Parte 1: Desenhar o mapa do projeto
+        gerar_arvore(f_saida)
+
+        # Parte 2: Inserir o conteúdo na íntegra de Python e HTML
+        f_saida.write(f"{'=' * 80}\n")
+        f_saida.write("2. CONTEÚDO DOS FICHEIROS PYTHON (.py) E HTML (.html)\n")
+        f_saida.write(f"{'=' * 80}\n\n")
+
+        for raiz, pastas, arquivos in os.walk("."):
+            pastas[:] = [p for p in pastas if p not in PASTAS_IGNORADAS]
+
+            for arquivo in arquivos:
+                caminho_completo = os.path.join(raiz, arquivo)
+                caminho_relativo = os.path.relpath(caminho_completo, ".")
+                _, extensao = os.path.splitext(arquivo)
+
+                # Ignora se estiver na lista negra ou se não for .py/.html
+                if arquivo in ARQUIVOS_IGNORADOS or extensao.lower() not in EXTENSOES_CONTEUDO:
+                    continue
+
+                try:
+                    with open(caminho_completo, "r", encoding="utf-8") as f_entrada:
+                        conteudo = f_entrada.read()
+
+                    # Cabeçalho de separação para cada ficheiro encontrado
+                    f_saida.write(f"\n{'-' * 80}\n")
+                    f_saida.write(f"FICHEIRO: {caminho_relativo}\n")
+                    f_saida.write(f"{'-' * 80}\n\n")
+                    f_saida.write(conteudo)
+                    f_saida.write("\n")
+
+                    print(f"✓ Conteúdo adicionado: {caminho_relativo}")
+                    arquivos_processados += 1
+                except Exception as e:
+                    print(f"✗ Erro ao ler {caminho_relativo}: {e}")
+
+    print(f"\nPronto! Relatório gerado em '{ARQUIVO_SAIDA}' com {arquivos_processados} ficheiros detalhados.")
+
+
+if __name__ == "__main__":
+    mapear_conteudo_selecionado()
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\admin.py
+--------------------------------------------------------------------------------
+
+from django.contrib import admin
+from app.models import Realizador, Ator, Filme, Genero, Avaliacao
+
+admin.site.register(Realizador)
+admin.site.register(Ator)
+admin.site.register(Filme)
+admin.site.register(Genero)
+
+@admin.register(Avaliacao)
+class AvaliacaoAdmin(admin.ModelAdmin):
+    list_display = ('utilizador', 'filme', 'nota', 'data_postagem')
+    list_filter = ('nota', 'filme')
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\apps.py
+--------------------------------------------------------------------------------
+
+from django.apps import AppConfig
+
+
+class AppConfig(AppConfig):
+    name = 'app'
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\forms.py
+--------------------------------------------------------------------------------
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Filme, Realizador, Ator
+
+class PesquisaFilmeForm(forms.Form):
+    query = forms.CharField(
+        label='',
+        max_length=100,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Search for a movie, tv show, person...',
+            'style': 'border: none; background: transparent; color: black; outline: none; box-shadow: none;'
+        })
+    )
+
+class RegistoForm(UserCreationForm):
+    first_name = forms.CharField(label="Primeiro Nome", max_length=30, required=True)
+    last_name = forms.CharField(label="Último Nome", max_length=30, required=True)
+    email = forms.EmailField(label="Email", required=True)
+
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ("username", "first_name", "last_name", "email")
+
+class FilmeForm(forms.ModelForm):
+    class Meta:
+        model = Filme
+        fields = ['titulo', 'data_lancamento', 'sinopse', 'cartaz', 'realizador', 'atores', 'generos']
+        widgets = {
+            'data_lancamento': forms.DateInput(attrs={'type': 'date'}),
+        }
+
+
+class EditarPerfilForm(forms.ModelForm):
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Nova password (deixa em branco para manter a atual)'}),
+        required=False,
+        label="Redefinir Password"
+    )
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+        labels = {
+            'username': 'Nome de Utilizador',
+            'first_name': 'Primeiro Nome',
+            'last_name': 'Último Nome',
+            'email': 'E-mail',
+        }
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        nova_password = self.cleaned_data.get('password')
+        if nova_password:
+            user.set_password(nova_password)
+        if commit:
+            user.save()
+        return user
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\models.py
+--------------------------------------------------------------------------------
+
+from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+
+class Genero(models.Model):
+    nome = models.CharField(max_length=50)
+    def __str__(self): return self.nome
+
+class Realizador(models.Model):
+    nome = models.CharField(max_length=70)
+    def __str__(self): return self.nome
+
+class Ator(models.Model):
+    nome = models.CharField(max_length=70)
+    def __str__(self): return self.nome
+
+class Filme(models.Model):
+    titulo = models.CharField(max_length=100)
+    data_lancamento = models.DateField()
+    sinopse = models.TextField(blank=True, null=True)
+    cartaz = models.URLField(max_length=500, null=True, blank=True)
+    realizador = models.ForeignKey(Realizador, on_delete=models.CASCADE)
+    generos = models.ManyToManyField(Genero, related_name='filmes')
+    atores = models.ManyToManyField(Ator)
+
+    def __str__(self): return self.titulo
+
+class Avaliacao(models.Model):
+    filme = models.ForeignKey(Filme, on_delete=models.CASCADE, related_name='avaliacoes')
+    utilizador = models.ForeignKey(User, on_delete=models.CASCADE)
+    nota = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
+    comentario = models.TextField(blank=True, null=True)
+    data_postagem = models.DateTimeField(default=timezone.now)
+    class Meta:
+        unique_together = ('filme', 'utilizador')
+
+    def __str__(self):
+        return f"{self.utilizador.username} - {self.filme.titulo}: {self.nota}"
+
+
+class Guardado(models.Model):
+    utilizador = models.ForeignKey(User, on_delete=models.CASCADE)
+    filme = models.ForeignKey('Filme', on_delete=models.CASCADE)
+    data_adicionado = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('utilizador', 'filme')
+
+class Favorito(models.Model):
+    utilizador = models.ForeignKey(User, on_delete=models.CASCADE)
+    filme = models.ForeignKey('Filme', on_delete=models.CASCADE)
+    data_adicionado = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('utilizador', 'filme')
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\tests.py
+--------------------------------------------------------------------------------
+
+from django.test import TestCase
+
+# Create your tests here.
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\urls.py
+--------------------------------------------------------------------------------
+
+from django.urls import path
+from . import views
+from django.contrib.auth import views as auth_views
+
+urlpatterns = [
+    path('', views.lista_filmes, name='lista_filmes'),
+    path('filme/<int:filme_id>/', views.detalhe_filme, name='detalhe_filme'),
+    path('filme/adicionar/', views.adicionar_filme, name='adicionar_filme'),
+    path('editar-filme/<int:id>/', views.editar_filme, name='editar_filme'),
+
+    path('registo/', views.registo, name='registo'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('verificar-login/', views.redirecionar_apos_login, name='verificar_login'),
+
+    path('perfil/', views.ver_perfil, name='perfil'),
+
+    path('perfil/<int:user_id>/', views.ver_perfil, name='perfil_detalhado'),
+
+    path('perfil/<int:user_id>/', views.ver_perfil, name='perfil_utilizador'),    # Edição de perfil (agora aceita ID opcional na view para servir a todos)
+    path('perfil/editar/<int:user_id>/', views.editar_perfil, name='editar_perfil'),
+
+    path('favoritos/', views.meus_favoritos, name='meus_favoritos'),
+    path('guardados/', views.meus_guardados, name='meus_guardados'),
+    path('favorito/toggle/<int:filme_id>/', views.toggle_favorito, name='toggle_favorito'),
+    path('guardado/toggle/<int:filme_id>/', views.toggle_guardado, name='toggle_guardado'),
+
+    path('dashboard/', views.dashboard_admin, name='dashboard_admin'),
+    path('dashboard/utilizadores/', views.admin_utilizadores, name='admin_utilizadores'),
+
+    path('dashboard/grupos/', views.lista_grupos, name='lista_grupos'),
+    # Grupos
+    path('dashboard/grupos/novo/', views.criar_grupo, name='criar_grupo'),
+    path('dashboard/grupos/editar/<int:grupo_id>/', views.editar_grupo, name='editar_grupo'),
+    path('dashboard/grupos/apagar/<int:grupo_id>/', views.apagar_grupo, name='apagar_grupo'),
+    path('dashboard/grupos/<int:grupo_id>/', views.detalhe_grupo, name='detalhe_grupo'),
+    path('dashboard/grupos/<int:grupo_id>/remover/<int:user_id>/', views.remover_utilizador_grupo,
+         name='remover_user_grupo'),
+    path('dashboard/filmes/', views.admin_filmes, name='admin_filmes'),
+    path('dashboard/atores/', views.admin_atores, name='admin_atores'),
+    path('dashboard/realizadores/', views.admin_realizadores, name='admin_realizadores'),
+    path('dashboard/generos/', views.admin_generos, name='admin_generos'),
+    path('dashboard/avaliacoes/', views.admin_avaliacoes, name='admin_avaliacoes'),
+
+    path('dashboard/editar/<str:modelo>/<int:item_id>/', views.editar_item, name='editar_item_admin'),
+
+    path('dashboard/filmes/apagar/<int:filme_id>/', views.apagar_filme, name='apagar_filme_admin'),
+
+
+    path('dashboard/avaliacoes/apagar/<int:av_id>/', views.apagar_avaliacao, name='apagar_avaliacao'),
+
+    path('dashboard/utilizadores/apagar/<int:user_id>/', views.apagar_utilizador, name='apagar_utilizador'),
+
+
+    path('dashboard/apagar/<str:modelo>/<int:item_id>/', views.apagar_item, name='apagar_item_admin'),
+
+    path('dashboard/filmes/importar-api/', views.importar_filmes_api, name='importar_filmes_api'),
+
+    path('filme/<int:filme_id>/comentario/apagar/', views.apagar_comentario, name='apagar_comentario'),
+
+    path('comentario/moderar/apagar/<int:avaliacao_id>/', views.moderar_apagar_comentario, name='moderar_apagar_comentario'),
+]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\views.py
+--------------------------------------------------------------------------------
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Filme, Ator, Realizador, Genero, Avaliacao, Favorito, Guardado
+from .forms import PesquisaFilmeForm, RegistoForm, FilmeForm
+from django.urls import reverse
+from django.contrib.auth.models import User, Group, Permission
+from django.db.models import Q
+import requests
+from django.contrib import messages
+
+import random
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def importar_filmes_api(request):
+
+    API_KEY = '8e831ce268683e2c393d39b71fbdd357'
+    LANGUAGE = 'pt-PT'
+
+    ano_sorteado = random.randint(1980, 2024)
+    pagina_sorteada = random.randint(1, 10)
+
+    url_discover = (
+        f'https://api.themoviedb.org/3/discover/movie?'
+        f'api_key={API_KEY}&language={LANGUAGE}&sort_by=popularity.desc'
+        f'&primary_release_year={ano_sorteado}&page={pagina_sorteada}'
+        f'&include_adult=false'
+    )
+
+    try:
+        resposta = requests.get(url_discover, timeout=10)
+        if resposta.status_code != 200:
+            messages.error(request, "Erro ao conectar com a API do TMDB.")
+            return redirect('admin_filmes')
+
+        dados_filmes = resposta.json().get('results', [])
+        contagem_novos = 0
+
+        for item in dados_filmes:
+            if contagem_novos >= 10:
+                break
+
+            titulo = item.get('title')[:100]
+
+            if Filme.objects.filter(titulo=titulo).exists():
+                continue
+
+            sinopse = item.get('overview', 'Sem sinopse disponível.')
+            data_lancamento = item.get('release_date')
+            poster_path = item.get('poster_path')
+            filme_id_tmdb = item.get('id')
+
+            if not data_lancamento or not poster_path:
+                continue
+
+            cartaz_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
+
+            url_creditos = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}/credits?api_key={API_KEY}&language={LANGUAGE}'
+            creditos_resp = requests.get(url_creditos).json()
+
+            nome_realizador = "Desconhecido"
+            for crew in creditos_resp.get('crew', []):
+                if crew.get('job') == 'Director':
+                    nome_realizador = crew.get('name')[:70]
+                    break
+
+            realizador_obj, _ = Realizador.objects.get_or_create(nome=nome_realizador)
+
+            novo_filme = Filme.objects.create(
+                titulo=titulo,
+                data_lancamento=data_lancamento,
+                sinopse=sinopse,
+                cartaz=cartaz_url,
+                realizador=realizador_obj
+            )
+
+            for ator in creditos_resp.get('cast', [])[:4]:
+                ator_obj, _ = Ator.objects.get_or_create(nome=ator.get('name')[:70])
+                novo_filme.atores.add(ator_obj)
+
+            url_detalhes = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}?api_key={API_KEY}&language={LANGUAGE}'
+            detalhes_resp = requests.get(url_detalhes).json()
+            for genre in detalhes_resp.get('genres', []):
+                genero_obj, _ = Genero.objects.get_or_create(nome=genre.get('name')[:50])
+                novo_filme.generos.add(genero_obj)
+
+            contagem_novos += 1
+
+        if contagem_novos > 0:
+            messages.success(request,
+                             f"Sucesso! {contagem_novos} filmes de {ano_sorteado} foram importados com sucesso.")
+        else:
+            messages.info(request,
+                          f"Todos os filmes populares de {ano_sorteado} (página {pagina_sorteada}) já existem na tua base de dados.")
+
+    except Exception as e:
+        messages.error(request, f"Ocorreu um erro inesperado: {e}")
+
+    return redirect('admin_filmes')
+
+def lista_filmes(request):
+    form = PesquisaFilmeForm(request.GET)
+    filmes = Filme.objects.all()
+
+    if form.is_valid():
+        query = form.cleaned_data.get('query')
+        if query:
+            filmes = filmes.filter(
+                Q(titulo__icontains=query) |
+                Q(atores__nome__icontains=query) |
+                Q(realizador__nome__icontains=query)
+            ).distinct()
+
+    ordenar = request.GET.get('ordenar')
+    if ordenar == 'recentes':
+        filmes = filmes.order_by('-data_lancamento')
+    elif ordenar == 'antigos':
+        filmes = filmes.order_by('data_lancamento')
+    elif ordenar == 'alfabetica':
+        filmes = filmes.order_by('titulo')
+
+    ids_favoritos = []
+    ids_guardados = []
+    if request.user.is_authenticated:
+        ids_favoritos = Favorito.objects.filter(utilizador=request.user).values_list('filme_id', flat=True)
+        ids_guardados = Guardado.objects.filter(utilizador=request.user).values_list('filme_id', flat=True)
+
+    return render(request, 'lista_filmes.html', {
+        'filmes': filmes,
+        'form': form,
+        'ids_favoritos': ids_favoritos,
+        'ids_guardados': ids_guardados
+    })
+
+
+def detalhe_filme(request, filme_id):
+    filme = get_object_or_404(Filme, id=filme_id)
+    origem = request.GET.get('origem')
+
+    is_moderador = False
+    if request.user.is_authenticated:
+        is_moderador = request.user.is_superuser or request.user.has_perm('app.delete_avaliacao')
+
+    if request.method == "POST" and request.user.is_authenticated:
+        nova_nota = request.POST.get('nota')
+        novo_comentario = request.POST.get('comentario')
+        if nova_nota:
+            Avaliacao.objects.update_or_create(
+                filme=filme, utilizador=request.user,
+                defaults={'nota': int(nova_nota), 'comentario': novo_comentario}
+            )
+            messages.success(request, "Crítica guardada!")
+            return redirect(reverse('detalhe_filme', args=[filme.id]) + (f"?origem={origem}" if origem else ""))
+
+    minha_avaliacao = None
+    if request.user.is_authenticated:
+        minha_avaliacao = Avaliacao.objects.filter(filme=filme, utilizador=request.user).first()
+
+    outras_avaliacoes = Avaliacao.objects.filter(filme=filme).order_by('-data_postagem')
+    if minha_avaliacao:
+        outras_avaliacoes = outras_avaliacoes.exclude(id=minha_avaliacao.id)
+
+    return render(request, 'detalhe_filme.html', {
+        'filme': filme,
+        'avaliacoes': outras_avaliacoes,
+        'minha_av': minha_avaliacao,
+        'is_moderador': is_moderador,  # Esta variável agora é verdadeira para a Pessoa1
+        'nota_user': minha_avaliacao.nota if minha_avaliacao else 0,
+        'comentario_user': minha_avaliacao.comentario if minha_avaliacao else "",
+        'origem': origem
+    })
+
+
+
+def registo(request):
+    if request.method == 'POST':
+        form = RegistoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = RegistoForm()
+    return render(request, 'registration/registo.html', {'form': form})
+
+
+def redirecionar_apos_login(request):
+    if request.user.is_superuser:
+        return redirect('dashboard_admin')
+    return redirect('lista_filmes')
+
+
+def ver_perfil(request, user_id=None):
+    target_user = get_object_or_404(User, id=user_id) if user_id else request.user
+    origem = request.GET.get('origem')
+    grupo_id = request.GET.get('grupo_id')
+
+    return render(request, 'perfil.html', {
+        'perfil_user': target_user,
+        'origem': origem,
+        'grupo_id': grupo_id
+    })
+
+
+@login_required
+def editar_perfil(request, user_id):
+    perfil_user = get_object_or_404(User, id=user_id)
+
+    if request.method == "POST":
+        perfil_user.username = request.POST.get('username')
+        perfil_user.first_name = request.POST.get('first_name')
+        perfil_user.last_name = request.POST.get('last_name')
+        perfil_user.email = request.POST.get('email')
+
+        nova_pw = request.POST.get('password')
+        if not perfil_user.is_superuser and nova_pw:
+            perfil_user.set_password(nova_pw)
+            if request.user == perfil_user:
+                update_session_auth_hash(request, perfil_user)
+
+        perfil_user.save()
+        messages.success(request, "Perfil atualizado!")
+        return redirect('perfil' if not request.user.is_superuser else 'admin_utilizadores')
+
+    return render(request, 'editar_perfil.html', {'perfil_user': perfil_user, 'grupos': Group.objects.all()})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def dashboard_admin(request):
+    context = {
+        'total_users': User.objects.count(),
+        'total_grupos': Group.objects.count(),
+        'total_filmes': Filme.objects.count(),
+        'total_atores': Ator.objects.count(),
+        'total_realizadores': Realizador.objects.count(),
+        'total_generos': Genero.objects.count(),
+        'total_avaliacoes': Avaliacao.objects.count(),
+    }
+    return render(request, 'dashboard_admin.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_utilizadores(request):
+    query = request.GET.get('q')
+    usuarios = User.objects.all().order_by('-date_joined')
+
+    if query:
+        usuarios = usuarios.filter(
+            Q(username__icontains=query) |
+            Q(email__icontains=query)
+        )
+
+    return render(request, 'relAdmin/admin_utilizadores.html', {'itens': usuarios, 'query': query})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_atores(request):
+    query = request.GET.get('q')
+    atores = Ator.objects.all().order_by('nome')
+
+    if query:
+        atores = atores.filter(nome__icontains=query)
+
+    return render(request, 'relAdmin/admin_atores.html', {'itens': atores, 'query': query})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_realizadores(request):
+    query = request.GET.get('q')
+    realizadores = Realizador.objects.all().order_by('nome')
+
+    if query:
+        realizadores = realizadores.filter(nome__icontains=query)
+
+    return render(request, 'relAdmin/admin_realizadores.html', {'itens': realizadores, 'query': query})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_generos(request):
+    query = request.GET.get('q')
+    generos = Genero.objects.all().order_by('nome')
+
+    if query:
+        generos = generos.filter(nome__icontains=query)
+
+    return render(request, 'relAdmin/admin_generos.html', {'itens': generos, 'query': query})
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_filmes(request):
+    query = request.GET.get('q')
+    filmes = Filme.objects.all().order_by('-id')
+    if query:
+        filmes = filmes.filter(Q(titulo__icontains=query) | Q(realizador__nome__icontains=query))
+    return render(request, 'relAdmin/admin_filmes.html', {'itens': filmes, 'query': query})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def admin_avaliacoes(request):
+    query = request.GET.get('q')
+    avaliacoes = Avaliacao.objects.all().order_by('-data_postagem')
+
+    if query:
+        avaliacoes = avaliacoes.filter(
+            Q(utilizador__username__icontains=query) |
+            Q(filme__titulo__icontains=query) |
+            Q(comentario__icontains=query)
+        )
+
+    return render(request, 'relAdmin/admin_avaliacoes.html', {'itens': avaliacoes, 'query': query})
+
+@user_passes_test(lambda u: u.is_superuser)
+def adicionar_filme(request):
+    if request.method == 'POST':
+        dados = request.POST.copy()
+        r_val = dados.get('realizador')
+        if r_val and not r_val.isdigit():
+            obj, _ = Realizador.objects.get_or_create(nome=r_val)
+            dados['realizador'] = str(obj.id)
+        for field in ['atores', 'generos']:
+            vals = dados.getlist(field)
+            new_ids = []
+            for v in vals:
+                if v.isdigit():
+                    new_ids.append(v)
+                else:
+                    model = Ator if field == 'atores' else Genero
+                    obj, _ = model.objects.get_or_create(nome=v.strip())
+                    new_ids.append(str(obj.id))
+            dados.setlist(field, new_ids)
+        form = FilmeForm(dados, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_filmes')
+    else:
+        form = FilmeForm()
+    return render(request, 'adicionar_filme.html', {'form': form})
+
+
+@login_required
+@user_passes_test(lambda u: u.is_staff)
+def editar_filme(request, id):
+    filme = get_object_or_404(Filme, id=id)
+    if request.method == 'POST':
+        form = FilmeForm(request.POST, request.FILES, instance=filme)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_filmes')
+    else:
+        form = FilmeForm(instance=filme)
+    return render(request, 'adicionar_filme.html', {'form': form, 'editando': True})
+
+
+@login_required
+def meus_favoritos(request):
+    favs = Favorito.objects.filter(utilizador=request.user)
+    return render(request, 'meus_favoritos.html', {'favoritos': favs})
+
+
+@login_required
+def meus_guardados(request):
+    gs = Guardado.objects.filter(utilizador=request.user)
+    return render(request, 'meus_guardados.html', {'guardados': gs})
+
+
+@login_required
+def toggle_favorito(request, filme_id):
+    filme = get_object_or_404(Filme, id=filme_id)
+    fav, created = Favorito.objects.get_or_create(utilizador=request.user, filme=filme)
+    if not created: fav.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'lista_filmes'))
+
+
+@login_required
+def toggle_guardado(request, filme_id):
+    filme = get_object_or_404(Filme, id=filme_id)
+    g, created = Guardado.objects.get_or_create(utilizador=request.user, filme=filme)
+    if not created: g.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'lista_filmes'))
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def editar_item(request, modelo, item_id):
+    modelos = {'ator': Ator, 'genero': Genero, 'realizador': Realizador}
+    model_class = modelos.get(modelo)
+
+    item = get_object_or_404(model_class, id=item_id)
+
+    if request.method == "POST":
+        novo_nome = request.POST.get('nome')
+        if novo_nome:
+            item.nome = novo_nome
+            item.save()
+            messages.success(request, f"{modelo.capitalize()} atualizado com sucesso!")
+        return redirect(f'admin_{modelo}es' if modelo != 'ator' else 'admin_atores')
+
+    return render(request, 'relAdmin/editar_item_admin.html', {'item': item, 'tipo': modelo})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def apagar_item(request, modelo, item_id):
+    modelos = {'ator': Ator, 'genero': Genero, 'realizador': Realizador}
+    model_class = modelos.get(modelo)
+
+    item = get_object_or_404(model_class, id=item_id)
+    item.delete()
+    messages.success(request, f"{modelo.capitalize()} removido da base de dados.")
+    url_redirect = f'admin_{modelo}es' if modelo != 'ator' else 'admin_atores'
+
+    return redirect(url_redirect)
+
+@user_passes_test(lambda u: u.is_superuser)
+def apagar_filme(request, filme_id):
+    filme = get_object_or_404(Filme, id=filme_id)
+    nome_filme = filme.titulo
+    filme.delete()
+    messages.success(request, f"O filme '{nome_filme}' foi apagado com sucesso.")
+    return redirect('admin_filmes')
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def lista_grupos(request):
+    grupos = Group.objects.all().order_by('name')
+    return render(request, 'relAdmin/admin_permissoes.html', {'grupos': grupos})
+
+@user_passes_test(lambda u: u.is_superuser)
+def criar_grupo(request):
+    todas_permissoes = Permission.objects.all()
+    if request.method == "POST":
+        nome = request.POST.get('nome')
+        perms_selecionadas = request.POST.getlist('permissoes')
+        if nome:
+            novo_grupo = Group.objects.create(name=nome)
+            novo_grupo.permissions.set(perms_selecionadas)
+            messages.success(request, f"Grupo '{nome}' criado!")
+            return redirect('lista_grupos')
+    return render(request, 'relAdmin/editar_grupo.html', {'todas_permissoes': todas_permissoes, 'modo': 'Criar'})
+
+@user_passes_test(lambda u: u.is_superuser)
+def editar_grupo(request, grupo_id):
+    grupo = get_object_or_404(Group, id=grupo_id)
+    todas_permissoes = Permission.objects.all()
+    if request.method == "POST":
+        grupo.name = request.POST.get('nome')
+        perms_selecionadas = request.POST.getlist('permissoes')
+        grupo.permissions.set(perms_selecionadas)
+        grupo.save()
+        messages.success(request, f"Grupo '{grupo.name}' atualizado!")
+        return redirect('lista_grupos')
+    return render(request, 'relAdmin/editar_grupo.html', {'grupo': grupo, 'todas_permissoes': todas_permissoes, 'modo': 'Editar'})
+
+@user_passes_test(lambda u: u.is_superuser)
+def detalhe_grupo(request, grupo_id):
+    grupo = get_object_or_404(Group, id=grupo_id)
+    utilizadores = grupo.user_set.all()
+    permissoes = grupo.permissions.all().select_related('content_type')
+    return render(request, 'relAdmin/detalhe_grupo.html', {'grupo': grupo, 'utilizadores': utilizadores, 'permissoes': permissoes})
+
+@user_passes_test(lambda u: u.is_superuser)
+def apagar_grupo(request, grupo_id):
+    grupo = get_object_or_404(Group, id=grupo_id)
+    grupo.delete()
+    messages.success(request, "Grupo removido com sucesso.")
+    return redirect('lista_grupos')
+
+@user_passes_test(lambda u: u.is_superuser)
+def remover_utilizador_grupo(request, grupo_id, user_id):
+    grupo = get_object_or_404(Group, id=grupo_id)
+    u = get_object_or_404(User, id=user_id)
+    grupo.user_set.remove(u)
+    messages.success(request, f"Utilizador {u.username} removido do grupo.")
+    return redirect('detalhe_grupo', grupo_id=grupo_id)
+
+@user_passes_test(lambda u: u.is_superuser)
+def apagar_avaliacao(request, av_id):
+    avaliacao = get_object_or_404(Avaliacao, id=av_id)
+    avaliacao.delete()
+    messages.success(request, "Comentário removido com sucesso.")
+    return redirect('admin_avaliacoes')
+
+@user_passes_test(lambda u: u.is_superuser)
+def apagar_utilizador(request, user_id):
+    u = get_object_or_404(User, id=user_id)
+    if u.is_superuser:
+        messages.error(request, "Não é possível apagar um Superutilizador.")
+    else:
+        u.delete()
+        messages.success(request, "Utilizador removido do sistema.")
+    return redirect('admin_utilizadores')
+
+
+@login_required
+def apagar_comentario(request, filme_id):
+    # Procura a avaliação do utilizador logado para este filme
+    avaliacao = Avaliacao.objects.filter(filme_id=filme_id, utilizador=request.user).first()
+
+    if avaliacao:
+        avaliacao.delete()
+        messages.success(request, "A tua crítica foi removida com sucesso.")
+    else:
+        messages.error(request, "Não foi possível encontrar a tua crítica.")
+
+    return redirect('detalhe_filme', filme_id=filme_id)
+
+
+@login_required
+def moderar_apagar_comentario(request, avaliacao_id):
+    avaliacao = get_object_or_404(Avaliacao, id=avaliacao_id)
+    filme_id = avaliacao.filme.id
+
+    # Verifica permissão no Python por segurança
+    if request.user.is_superuser or request.user.has_perm('app.delete_avaliacao'):
+        avaliacao.delete()
+        messages.success(request, "Comentário removido pela moderação.")
+    else:
+        messages.error(request, "Não tens permissão para isto.")
+
+    return redirect('detalhe_filme', filme_id=filme_id)
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\__init__.py
+--------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\management\__init__.py
+--------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\management\commands\importar_filmes.py
+--------------------------------------------------------------------------------
+
+import requests
+import time
+from django.core.management.base import BaseCommand
+from app.models import Filme, Ator, Realizador, Genero
+
+class Command(BaseCommand):
+    help = 'Importa milhares de filmes do TMDB para a base de dados'
+
+    def handle(self, *args, **kwargs):
+        API_KEY = '8e831ce268683e2c393d39b71fbdd357'
+        LANGUAGE = 'pt-PT'
+        PAGES = 50
+
+        self.stdout.write(self.style.WARNING(f'A iniciar a importação de {PAGES * 20} filmes. Vai beber um café, isto pode demorar uns minutos...'))
+
+        for page in range(1, PAGES + 1):
+            url_filmes = f'https://api.themoviedb.org/3/movie/top_rated?api_key={API_KEY}&language={LANGUAGE}&page={page}'
+            resposta = requests.get(url_filmes)
+            
+            if resposta.status_code != 200:
+                self.stdout.write(self.style.ERROR(f'Erro na página {page}. A abortar.'))
+                break
+
+            dados_filmes = resposta.json().get('results', [])
+
+            for item in dados_filmes:
+                titulo = item.get('title')[:100]
+                sinopse = item.get('overview', 'Sem sinopse disponível.')
+                data_lancamento = item.get('release_date')
+                poster_path = item.get('poster_path')
+                filme_id_tmdb = item.get('id')
+
+                if not data_lancamento or not poster_path:
+                    continue
+
+                cartaz_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
+
+                time.sleep(0.1)
+
+                url_creditos = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}/credits?api_key={API_KEY}&language={LANGUAGE}'
+                creditos_resp = requests.get(url_creditos).json()
+                
+                nome_realizador = "Desconhecido"
+                for crew in creditos_resp.get('crew', []):
+                    if crew.get('job') == 'Director':
+                        nome_realizador = crew.get('name')[:70]
+                        break
+                
+                realizador_obj, _ = Realizador.objects.get_or_create(nome=nome_realizador)
+
+                filme_obj, criado = Filme.objects.get_or_create(
+                    titulo=titulo,
+                    defaults={
+                        'data_lancamento': data_lancamento,
+                        'sinopse': sinopse,
+                        'cartaz': cartaz_url,
+                        'realizador': realizador_obj
+                    }
+                )
+
+                if criado:
+                    atores_lista = creditos_resp.get('cast', [])[:4]
+                    for ator in atores_lista:
+                        ator_obj, _ = Ator.objects.get_or_create(nome=ator.get('name')[:70])
+                        filme_obj.atores.add(ator_obj)
+
+                    url_detalhes = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}?api_key={API_KEY}&language={LANGUAGE}'
+                    detalhes_resp = requests.get(url_detalhes).json()
+                    
+                    for genre in detalhes_resp.get('genres', []):
+                        genero_obj, _ = Genero.objects.get_or_create(nome=genre.get('name')[:50])
+                        filme_obj.generos.add(genero_obj)
+                    
+                    self.stdout.write(self.style.SUCCESS(f" Adicionado: {titulo}"))
+                else:
+                    self.stdout.write(f"Já existe: {titulo}")
+
+        self.stdout.write(self.style.SUCCESS('Importação em massa concluída com sucesso!'))
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\management\commands\__init__.py
+--------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\0001_initial.py
+--------------------------------------------------------------------------------
+
+# Generated by Django 5.2.12 on 2026-04-06 22:31
+
+import django.db.models.deletion
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    initial = True
+
+    dependencies = []
+
+    operations = [
+        migrations.CreateModel(
+            name="Ator",
+            fields=[
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=70)),
+            ],
+        ),
+        migrations.CreateModel(
+            name="Genero",
+            fields=[
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=50)),
+            ],
+        ),
+        migrations.CreateModel(
+            name="Realizador",
+            fields=[
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome", models.CharField(max_length=70)),
+            ],
+        ),
+        migrations.CreateModel(
+            name="Filme",
+            fields=[
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=100)),
+                ("data_lancamento", models.DateField()),
+                ("sinopse", models.TextField(blank=True, null=True)),
+                ("cartaz", models.URLField(blank=True, max_length=500, null=True)),
+                ("atores", models.ManyToManyField(to="app.ator")),
+                (
+                    "genero",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="app.genero",
+                    ),
+                ),
+                (
+                    "realizador",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="app.realizador"
+                    ),
+                ),
+            ],
+        ),
+    ]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\0002_avaliacao.py
+--------------------------------------------------------------------------------
+
+# Generated by Django 5.2.12 on 2026-04-06 22:53
+
+import django.db.models.deletion
+from django.conf import settings
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ("app", "0001_initial"),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name="Avaliacao",
+            fields=[
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "nota",
+                    models.IntegerField(
+                        choices=[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+                    ),
+                ),
+                (
+                    "filme",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="avaliacoes",
+                        to="app.filme",
+                    ),
+                ),
+                (
+                    "utilizador",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+            ],
+            options={
+                "unique_together": {("filme", "utilizador")},
+            },
+        ),
+    ]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\0003_avaliacao_comentario_avaliacao_data_postagem_and_more.py
+--------------------------------------------------------------------------------
+
+# Generated by Django 6.0.3 on 2026-04-08 13:15
+
+import django.utils.timezone
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('app', '0002_avaliacao'),
+    ]
+
+    operations = [
+        migrations.AddField(
+            model_name='avaliacao',
+            name='comentario',
+            field=models.TextField(blank=True, null=True),
+        ),
+        migrations.AddField(
+            model_name='avaliacao',
+            name='data_postagem',
+            field=models.DateTimeField(default=django.utils.timezone.now),
+        ),
+        migrations.AlterField(
+            model_name='ator',
+            name='id',
+            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='avaliacao',
+            name='id',
+            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='filme',
+            name='id',
+            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='genero',
+            name='id',
+            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='realizador',
+            name='id',
+            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+    ]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\0004_remove_filme_genero_filme_generos_alter_ator_id_and_more.py
+--------------------------------------------------------------------------------
+
+# Generated by Django 5.2.12 on 2026-04-09 17:16
+
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('app', '0003_avaliacao_comentario_avaliacao_data_postagem_and_more'),
+    ]
+
+    operations = [
+        migrations.RemoveField(
+            model_name='filme',
+            name='genero',
+        ),
+        migrations.AddField(
+            model_name='filme',
+            name='generos',
+            field=models.ManyToManyField(related_name='filmes', to='app.genero'),
+        ),
+        migrations.AlterField(
+            model_name='ator',
+            name='id',
+            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='avaliacao',
+            name='id',
+            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='filme',
+            name='id',
+            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='genero',
+            name='id',
+            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+        migrations.AlterField(
+            model_name='realizador',
+            name='id',
+            field=models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+        ),
+    ]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\0005_favorito_guardado.py
+--------------------------------------------------------------------------------
+
+# Generated by Django 5.2.12 on 2026-04-09 17:50
+
+import django.db.models.deletion
+from django.conf import settings
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('app', '0004_remove_filme_genero_filme_generos_alter_ator_id_and_more'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Favorito',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('data_adicionado', models.DateTimeField(auto_now_add=True)),
+                ('filme', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.filme')),
+                ('utilizador', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'unique_together': {('utilizador', 'filme')},
+            },
+        ),
+        migrations.CreateModel(
+            name='Guardado',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('data_adicionado', models.DateTimeField(auto_now_add=True)),
+                ('filme', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.filme')),
+                ('utilizador', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'unique_together': {('utilizador', 'filme')},
+            },
+        ),
+    ]
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\migrations\__init__.py
+--------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\adicionar_filme.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<div class="movie-card" style="max-width: 700px; margin: 30px auto; background: #1a1a1a; padding: 40px; border-radius: 15px;">
+    <h1>{% if editando %}Editar Filme: {{ form.instance.titulo }}{% else %}Adicionar Novo Filme{% endif %}</h1>
+    <hr style="border-color: #333; margin-bottom: 30px;">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div style="display: flex; gap: 15px; margin-top: 40px;">
+«            <button type="submit" class="btn btn-warning" style="flex: 2; border-radius: 50px; font-weight: bold; padding: 12px;">
+                <i class="fas fa-save"></i> Guardar Filme
+            </button>
+
+            <a href="javascript:history.back()" class="btn-voltar-custom" style="flex: 1; justify-content: center;">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{% static 'content/script.js' %}"></script>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\dashboard_admin.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 50px;">
+    <h1 style="color: #f5c518; text-align: center; font-weight: 800; margin-bottom: 50px;">PAINEL DE CONTROLO</h1>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Segurança e Acessos</h3>
+    <div class="dashboard-grid">
+        <a href="{% url 'admin_utilizadores' %}" class="admin-card-new">
+            <i class="fas fa-users"></i>
+            <h4>Utilizadores</h4>
+            <p>{{ total_users }} registados</p>
+        </a>
+        <a href="{% url 'lista_grupos' %}" class="admin-card-new">
+            <i class="fas fa-user-shield"></i>
+            <h4>Grupos</h4>
+            <p>{{ total_grupos }} criados</p>
+        </a>
+    </div>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px;">Conteúdo da Aplicação</h3>
+    <div class="dashboard-grid">
+        <a href="{% url 'admin_filmes' %}" class="admin-card-new">
+            <i class="fas fa-film"></i>
+            <h4>Filmes</h4>
+            <p>{{ total_filmes }} na base</p>
+        </a>
+        <a href="{% url 'admin_atores' %}" class="admin-card-new">
+            <i class="fas fa-user-tie"></i>
+            <h4>Atores</h4>
+            <p>{{ total_atores }} nomes</p>
+        </a>
+        <a href="{% url 'admin_realizadores' %}" class="admin-card-new">
+            <i class="fas fa-video"></i>
+            <h4>Realizadores</h4>
+            <p>{{ total_realizadores }} nomes</p>
+        </a>
+        <a href="{% url 'admin_generos' %}" class="admin-card-new">
+            <i class="fas fa-tags"></i>
+            <h4>Géneros</h4>
+            <p>{{ total_generos }} categorias</p>
+        </a>
+        <a href="{% url 'admin_avaliacoes' %}" class="admin-card-new">
+            <i class="fas fa-star"></i>
+            <h4>Avaliações</h4>
+            <p>{{ total_avaliacoes }} críticas</p>
+        </a>
+    </div>
+
+    <div class="text-center" style="margin-top: 60px;">
+        <a href="{% url 'lista_filmes' %}" class="btn-voltar-custom" style="padding: 12px 40px;">
+            <i class="fas fa-external-link-alt"></i> Ir para o Site Público
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\detalhe_filme.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="movie-card" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-3">
+                {% if filme.cartaz %}
+                    <img src="{{ filme.cartaz }}" alt="{{ filme.titulo }}" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.8);">
+                {% endif %}
+            </div>
+
+            <div class="col-md-9">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px;">{{ filme.titulo }}</h1>
+                    {% if user.is_staff %}
+                        <a href="{% url 'editar_filme' filme.id %}" class="btn-editar-filme-site">
+                            <i class="fas fa-edit"></i> Editar Filme
+                        </a>
+                    {% endif %}
+                </div>
+
+                <p style="color: #888; font-size: 1.1em; margin-bottom: 10px;">{{ filme.data_lancamento|date:"d M Y" }}</p>
+
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+                    <div class="sistema-classificacao">
+                        <span class="estrela {% if nota_user >= 1 %}preenchida{% endif %}" data-valor="1">★</span>
+                        <span class="estrela {% if nota_user >= 2 %}preenchida{% endif %}" data-valor="2">★</span>
+                        <span class="estrela {% if nota_user >= 3 %}preenchida{% endif %}" data-valor="3">★</span>
+                        <span class="estrela {% if nota_user >= 4 %}preenchida{% endif %}" data-valor="4">★</span>
+                        <span class="estrela {% if nota_user >= 5 %}preenchida{% endif %}" data-valor="5">★</span>
+                    </div>
+                    <span style="color: #666; font-size: 1.2em;">Nota: <strong id="nota-escolhida" style="color: #f5c518;">{{ nota_user|default:0 }}</strong>/5</span>
+                </div>
+
+                {% if filme.sinopse %}
+                    <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
+                {% endif %}
+
+                <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+                    <h2 style="color: #f5c518; font-size: 22px;">Ficha Técnica</h2>
+                    <div style="font-size: 1.2em; line-height: 1.8;">
+                        <p><strong>Realizador:</strong> <span style="color: #4da6ff;">{{ filme.realizador.nome }}</span></p>
+                        <p><strong>Elenco:</strong> <span style="color: #4da6ff;">{{ filme.atores.all|join:", " }}</span></p>
+                        <p><strong>Géneros:</strong> <span style="color: #4da6ff;">{{ filme.generos.all|join:", " }}</span></p>
+                    </div>
+                </div>
+
+                <div class="section-container" style="margin-top: 40px;">
+                    <h2 style="color: #f5c518; font-size: 22px;">Críticas e Comentários</h2>
+                    <hr style="border-color: #333; margin-top: 0; margin-bottom: 20px;">
+
+                    <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="color: #f5c518; margin: 0;">
+                                {% if minha_av %}A tua Crítica{% else %}Deixa a tua Crítica{% endif %}
+                            </h4>
+                            {% if minha_av %}
+                                <a href="{% url 'apagar_comentario' filme.id %}" class="text-danger" style="text-decoration: none; font-size: 11px; font-weight: bold;" onclick="return confirm('Apagar o teu comentário?');">
+                                    <i class="fas fa-trash-alt"></i> APAGAR A MINHA CRÍTICA
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        {% if user.is_authenticated %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="nota" id="input-nota" value="{{ nota_user }}">
+                                <textarea name="comentario" class="form-control" rows="3" placeholder="O que achaste deste filme?" style="background: #222; color: white; border: 1px solid #444; margin-bottom: 10px;">{{ comentario_user }}</textarea>
+                                <button type="submit" class="btn btn-warning btn-sm" style="font-weight: bold; width: 100%; border-radius: 50px;">
+                                    {% if minha_av %}Atualizar Comentário{% else %}Publicar Comentário{% endif %}
+                                </button>
+                            </form>
+                        {% else %}
+                            <p style="color: #888;">Faz <a href="{% url 'login' %}" style="color: #f5c518;">login</a> para comentar.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="comments-list">
+                        {% for av in avaliacoes %}
+                            <div style="border-bottom: 1px solid #222; margin-bottom: 15px; padding-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <strong style="color: #f5c518;">{{ av.utilizador.username }}</strong>
+                                        <span style="color: #666; font-size: 0.9em;">({{ av.nota }}/5 ★)</span>
+                                    </div>
+
+                                    {% if is_moderador %}
+                                        <a href="{% url 'moderar_apagar_comentario' av.id %}" style="color: #ff4d4d;" onclick="return confirm('Apagar este comentário como moderador?');">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <p style="margin: 5px 0; color: #ccc;">{{ av.comentario }}</p>
+                                <small style="color: #444;">{{ av.data_postagem|date:"d/m/Y H:i" }}</small>
+                            </div>
+                        {% empty %}
+                            {% if not minha_av %}<p style="color: #666;">Ainda não há comentários.</p>{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    {% if origem == 'admin_avaliacoes' %}
+                        <a href="{% url 'admin_avaliacoes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Críticas</a>
+                    {% elif origem == 'admin_filmes' %}
+                        <a href="{% url 'admin_filmes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Lista Admin</a>
+                    {% else %}
+                        <a href="{% url 'lista_filmes' %}" class="btn-voltar-custom"><i class="fas fa-arrow-left"></i> Ver Catálogo</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'content/script.js' %}"></script>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\editar_perfil.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 50px; max-width: 600px;">
+    <div class="movie-card" style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333;">
+        <h2 style="color: #f5c518; margin-bottom: 30px;">Editar Dados do Perfil</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group mb-3">
+                <label>Nome de Utilizador:</label>
+                <input type="text" name="username" class="form-control" value="{{ perfil_user.username }}">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Primeiro Nome:</label>
+                    <input type="text" name="first_name" class="form-control" value="{{ perfil_user.first_name }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Último Nome:</label>
+                    <input type="text" name="last_name" class="form-control" value="{{ perfil_user.last_name }}">
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label>E-mail:</label>
+                <input type="email" name="email" class="form-control" value="{{ perfil_user.email }}">
+            </div>
+            {% if not perfil_user.is_superuser %}
+            <div class="form-group mb-4">
+                <label>Nova Palavra-Passe (deixe vazio para não alterar):</label>
+                <input type="password" name="password" class="form-control" placeholder="••••••••"
+                       style="background: #2a2a2a; color: white; border: 1px solid #444;">
+            </div>
+            {% endif %}
+
+            {% if request.user.is_superuser %}
+            <div style="border-top: 1px solid #333; padding-top: 20px; margin-top: 10px; margin-bottom: 20px;">
+                <label>Gerir Grupo:</label>
+                <select name="grupo" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;">
+                    <option value="">-- Sem Grupo / Utilizador Comum --</option>
+                    {% for g in grupos %}
+                        <option value="{{ g.id }}" {% if g in perfil_user.groups.all %} selected {% endif %}>
+                            {{ g.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button type="submit" class="btn btn-warning" style="flex: 1; font-weight: bold; border-radius: 50px;">
+                    Guardar Alterações
+                </button>
+                <a href="javascript:history.back()" class="btn-voltar-custom" style="flex: 1; justify-content: center;">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\layout.html
+--------------------------------------------------------------------------------
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>MOVIEZ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'content/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'lista_filmes' %}">MOVIEZ
+                <i class="fas fa-film icone-rolo-animado"></i></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center; margin: 0;">
+                    {% if user.is_authenticated %}
+
+                        {% if not user.is_superuser %}
+                            <li>
+                                <a href="{% url 'meus_favoritos' %}" style="color: #f39c12; padding: 15px 15px; display: flex; align-items: center;">
+                                    <i class="fa-solid fa-heart" style="margin-right: 5px;"></i> Favoritos
+                                </a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{% url 'dashboard_admin' %}" style="padding: 15px 20px; color: #f5c518; font-weight: bold;">
+                                    <i class="fas fa-user-shield"></i> Painel Admin
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                               style="display: flex; align-items: center; background: transparent !important; color: white; padding: 15px 10px; text-decoration: none;">
+                                <span style="margin-right: 10px;">{{ user.username }}</span>
+                                <span class="avatar-circle" style="margin: 0;">{{ user.username.0|upper }}</span>
+                            </a>
+
+
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                {% if not user.is_superuser %}
+                                    <li><a href="{% url 'perfil' %}"><i class="fas fa-user"></i> Meu Perfil</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'dashboard_admin' %}"><i class="fas fa-th-large"></i> Painel Admin</a></li>
+                                {% endif %}
+
+                                {% if not user.is_superuser %}
+                                    <li><a href="{% url 'editar_perfil' user.id %}"><i class="fas fa-user-edit"></i> Editar Dados</a></li>
+                                {% endif %}
+                                {% if not user.is_superuser %}
+                                    <li><a href="{% url 'meus_guardados' %}"><i class="fas fa-bookmark"></i> Guardados</a></li>
+                                {% endif %}
+                                <li class="divider"></li>
+
+                                <li>
+                                    <form action="{% url 'logout' %}" method="post" style="margin: 0;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="logout-btn-custom">
+                                            <i class="fas fa-sign-out-alt"></i> Sair
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                    {% else %}
+                       <li><a href="{% url 'login' %}" class="btn btn-login-nav">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible" style="margin-top: 20px;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\lista_filmes.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; border: none; padding: 0;">Filmes em Destaque</h2>
+
+    </div>
+
+    <div style="margin-bottom: 30px;">
+        <form method="GET" action="{% url 'lista_filmes' %}"
+              style="display: flex; align-items: center; background: white; border-radius: 50px; padding: 5px 10px; overflow: hidden; width: 100%; max-width: 1000px; margin: 0 auto;">
+
+            <div style="flex-grow: 1; padding-left: 15px;">
+                {{ form.query }}
+            </div>
+
+            <a href="{% url 'lista_filmes' %}"
+               style="text-decoration: none; color: #999; font-size: 20px; padding: 0 15px; font-family: sans-serif;"
+               title="Limpar">
+               &times;
+            </a>
+
+            <button type="submit" class="btn"
+                    style="background: linear-gradient(90deg, black 0%, #f5c518 100%); color: white; border-radius: 50px; padding: 10px 30px; border: none; font-weight: bold;">
+                Search
+            </button>
+        </form>
+    </div>
+
+    <div class="filtros-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
+        <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
+
+        <a href="?ordenar=recentes" class="filtro-btn {% if request.GET.ordenar == 'recentes' %}active{% endif %}">
+            Mais Recentes
+        </a>
+
+        <a href="?ordenar=antigos" class="filtro-btn {% if request.GET.ordenar == 'antigos' %}active{% endif %}">
+            Mais Antigos
+        </a>
+
+        <a href="?ordenar=alfabetica" class="filtro-btn {% if request.GET.ordenar == 'alfabetica' %}active{% endif %}">
+            A-Z
+        </a>
+
+        <a href="{% url 'lista_filmes' %}" class="filtro-btn btn-limpar">
+            <i class="fas fa-sync-alt"></i> Limpar
+        </a>
+    </div>
+
+    <div class="row">
+    {% for filme in filmes %}
+        <div class="col-md-6">
+            <div class="movie-card" style="display: flex; gap: 20px; position: relative; margin-bottom: 20px; background: #1a1a1a; padding: 15px; border-radius: 8px;">
+                {% if user.is_authenticated and not user.is_superuser %}
+                <div class="movie-actions" style="position: absolute; top: 15px; right: 15px; z-index: 10; display: flex; gap: 15px;">
+                    <a href="{% url 'toggle_guardado' filme.id %}" style="text-decoration: none;">
+                        <i class="{% if filme.id in ids_guardados %}fas{% else %}far{% endif %} fa-bookmark" style="color: white; font-size: 20px;"></i>
+                    </a>
+
+                    <a href="{% url 'toggle_favorito' filme.id %}" style="text-decoration: none;">
+                        <i class="{% if filme.id in ids_favoritos %}fas{% else %}far{% endif %} fa-heart"
+                           style="font-size: 20px; {% if filme.id in ids_favoritos %}color: #f39c12;{% else %}color: white;{% endif %}"></i>
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if filme.cartaz %}
+                    <a href="{% url 'detalhe_filme' filme.id %}">
+                        <img src="{{ filme.cartaz }}" alt="{{ filme.titulo }}" class="movie-poster" style="width: 120px; border-radius: 5px;">
+                    </a>
+                {% endif %}
+
+                <div>
+                    <a href="{% url 'detalhe_filme' filme.id %}" style="text-decoration: none; color: inherit;">
+                        <h3 class="movie-title" style="margin-top: 0;">{{ filme.titulo }} <small style="color: #888;">({{ filme.data_lancamento|date:"Y" }})</small></h3>
+                    </a>
+                    <p><strong>Realizador:</strong> {{ filme.realizador.nome }}</p>
+                    <p><strong>Atores:</strong> {{ filme.atores.all|join:", " }}</p>
+                    <p><strong>Géneros:</strong> {{ filme.generos.all|join:", "}}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center" style="color: #888;">Nenhum filme encontrado.</p>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\meus_favoritos.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 30px;">
+    <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <h2><i class="fas fa-heart" style="color: #f39c12;"></i> Meus Favoritos</h2>
+        <hr style="border-color: #333;">
+
+        {% if favoritos %}
+            <a href="javascript:history.back()" class="btn-voltar-custom">
+                <i class="fas fa-arrow-left"></i> Voltar aos Filmes
+            </a>
+        {% endif %}
+    </div>
+
+
+    <div class="row">
+        {% for favorito in favoritos %}
+            <div class="col-md-6">
+                <div class="movie-card" style="display: flex; gap: 20px; position: relative; background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    
+                    <div style="position: absolute; top: 10px; right: 10px;">
+                        <a href="{% url 'toggle_favorito' favorito.filme.id %}" title="Remover dos favoritos">
+                            <i class="fas fa-heart" style="color: #f39c12; font-size: 20px;"></i>
+                        </a>
+                    </div>
+
+                    {% if favorito.filme.cartaz %}
+                        <a href="{% url 'detalhe_filme' favorito.filme.id %}">
+                            <img src="{{ favorito.filme.cartaz }}" alt="{{ favorito.filme.titulo }}" style="width: 100px; border-radius: 5px;">
+                        </a>
+                    {% endif %}
+
+                    <div>
+                        <h3 style="margin-top: 0;">
+                            <a href="{% url 'detalhe_filme' favorito.filme.id %}" style="color: #f5c518; text-decoration: none;">
+                                {{ favorito.filme.titulo }}
+                            </a>
+                        </h3>
+                        <p style="color: #888;">Adicionado em: {{ favorito.data_adicionado|date:"d/m/Y" }}</p>
+                        <p><strong>Realizador:</strong> {{ favorito.filme.realizador.nome }}</p>
+                        <p><strong>Atores:</strong> {{ favorito.filme.atores.all|join:", " }}</p>
+                        <p><strong>Géneros:</strong> {{ favorito.filme.generos.all|join:", " }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-md-12 text-center" style="margin-top: 50px;">
+                <i class="far fa-heart" style="font-size: 50px; color: #333; margin-bottom: 20px;"></i>
+                <p style="color: #888; font-size: 18px;">Ainda não adicionaste nenhum filme aos favoritos.</p>
+                <a href="{% url 'lista_filmes' %}" class="btn btn-warning">Explorar Filmes</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\meus_guardados.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 30px;">
+
+    <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="color: white;"><i class="fas fa-bookmark"></i> Guardados para depois</h2>
+
+        {% if guardados %}
+            <a href="javascript:history.back()" class="btn-voltar-custom">
+                <i class="fas fa-arrow-left"></i> Voltar aos Filmes
+            </a>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        {% for item in guardados %}
+            <div class="col-md-6">
+                <div class="movie-card" style="display: flex; gap: 20px; position: relative; background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    
+                    <div style="position: absolute; top: 10px; right: 10px;">
+                        <a href="{% url 'toggle_guardado' item.filme.id %}" title="Remover da lista">
+                            <i class="fas fa-bookmark" style="color: white; font-size: 20px;"></i>
+                        </a>
+                    </div>
+
+                    {% if item.filme.cartaz %}
+                        <a href="{% url 'detalhe_filme' item.filme.id %}">
+                            <img src="{{ item.filme.cartaz }}" alt="{{ item.filme.titulo }}" style="width: 100px; border-radius: 5px;">
+                        </a>
+                    {% endif %}
+
+                    <div>
+                        <h3 style="margin-top: 0;">
+                            <a href="{% url 'detalhe_filme' item.filme.id %}" style="color: #f5c518; text-decoration: none;">
+                                {{ item.filme.titulo }}
+                            </a>
+                        </h3>
+                        <p style="color: #888;">Guardado em: {{ item.data_adicionado|date:"d/m/Y" }}</p>
+                        <p><strong>Realizador:</strong> {{ item.filme.realizador.nome }}</p>
+                        <p><strong>Atores:</strong> {{ item.filme.atores.all|join:", " }}</p>
+                        <p><strong>Géneros:</strong> {{ item.filme.generos.all|join:", " }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-md-12 text-center" style="margin-top: 50px;">
+                <i class="far fa-bookmark" style="font-size: 50px; color: #333; margin-bottom: 20px;"></i>
+                <p style="color: #888; font-size: 18px;">A tua lista de leitura está vazia.</p>
+                <a href="{% url 'lista_filmes' %}" class="btn btn-warning">Procurar Filmes</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\perfil.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 50px; max-width: 800px;">
+    <div style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 style="color: #f5c518; margin: 0;">Perfil de {{ perfil_user.username }}</h2>
+            <a href="javascript:history.back()" class="btn-voltar-custom">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+        </div>
+
+        {% if perfil_user.groups.all %}
+        <div style="background: #f5c518; color: black; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+                <i class="fas fa-id-badge"></i> Grupo / Permissões:
+            </span>
+            <span style="font-weight: 900; font-size: 16px;">
+                {% for g in perfil_user.groups.all %}{{ g.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            </span>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div style="width: 150px; height: 150px; background: #333; border: 3px solid #f5c518; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                    <span style="font-size: 80px; color: #f5c518; font-weight: bold;">{{ perfil_user.username|first|upper }}</span>
+                </div>
+                <a href="{% url 'editar_perfil' perfil_user.id %}" class="btn btn-warning btn-block" style="font-weight: bold; border-radius: 50px;">Editar Dados</a>
+            </div>
+
+            <div class="col-md-8">
+                <table class="table" style="color: #ccc; border: none; margin-top: 10px;">
+                    <tr>
+                        <td style="border:none; color:#f5c518; width: 35%;"><b>Nome Completo:</b></td>
+                        <td style="border:none;">{{ perfil_user.first_name }} {{ perfil_user.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:#f5c518;"><b>E-mail:</b></td>
+                        <td style="border:none;">{{ perfil_user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:#f5c518;"><b>Membro desde:</b></td>
+                        <td style="border:none;">{{ perfil_user.date_joined|date:"d/m/Y" }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\registration\login.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="movie-card" style="max-width: 400px; margin: 50px auto;">
+    <h2 class="section-title">Login - MOVIEZ</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-warning btn-block">Entrar</button>
+    </form>
+
+    <p style="font-family: sans-serif; font-size: 14px; margin-top: 15px; text-align: center;">
+        Não tem conta?
+        <a href="{% url 'registo' %}" style="color: #f5c518; text-decoration: none; font-weight: bold;">
+            Registe-se aqui
+        </a>
+    </p>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\registration\registo.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="register-container">
+    <h2 class="section-title">Criar Conta - MOVIEZ</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+
+        <button type="submit" style="color: black; background-color: #f5c518">Registar</button>
+    </form>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_atores.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Atores{% endblock %}
+{% block sub_titulo_caminho %}Atores{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th>Nome do Ator</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for ator in itens %}
+    <tr>
+        <td><strong>{{ ator.nome }}</strong></td>
+        <td style="text-align: right;">
+            <a href="{% url 'editar_item_admin' 'ator' ator.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_item_admin' 'ator' ator.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="2" class="text-center">Nenhum resultado encontrado para "{{ query }}".</td></tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_avaliacoes.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Críticas{% endblock %}
+{% block sub_titulo_caminho %}Avaliações{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th style="width: 20%;">Utilizador / Filme</th>
+    <th style="width: 10%;">Nota</th>
+    <th>Comentário</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for av in itens %}
+    <tr>
+        <td>
+            <span style="color: white;">{{ av.utilizador.username }}</span><br>
+            <small style="color: #f5c518;">{{ av.filme.titulo }}</small>
+        </td>
+        <td>
+            <span class="badge" style="background: #f5c518; color: black; font-weight: bold;">
+                {{ av.nota }} <i class="fas fa-star"></i>
+            </span>
+        </td>
+        <td>
+            <div class="review-quote">"{{ av.comentario|default:"Sem comentário." }}"</div>
+            <small style="color: #555;">{{ av.data_postagem|date:"d/m/Y H:i" }}</small>
+        </td>
+        <td style="text-align: right;">
+            <a href="{% url 'detalhe_filme' av.filme.id %}?origem=admin_avaliacoes" class="btn-acao"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'apagar_avaliacao' av.id %}" class="btn-acao btn-delete" onclick="return confirm('Eliminar crítica?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_base_gestao.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 30px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+            <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">
+                {% block titulo_pagina %}{% endblock %}
+            </h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">
+                Painel de Controlo > {% block sub_titulo_caminho %}{% endblock %}
+            </p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            {% block botao_acao_topo %}{% endblock %}
+            <a href="{% url 'dashboard_admin' %}" class="btn-voltar-custom">
+                <i class="fas fa-chevron-left"></i> Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <form method="GET" style="display: flex; gap: 10px; max-width: 500px;">
+            <div style="position: relative; flex-grow: 1;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 12px; color: #666;"></i>
+                <input type="text" name="q" value="{{ query|default:'' }}"
+                       placeholder="Pesquisar nesta lista..."
+                       style="width: 100%; padding: 10px 15px 10px 40px; background: #1a1a1a; border: 1px solid #333; border-radius: 50px; color: white; outline: none;">
+            </div>
+            <button type="submit" class="btn-adicionar-custom" style="padding: 10px 25px;">Buscar</button>
+            {% if query %}
+                <a href="?" class="btn btn-link" style="color: #d9534f; text-decoration: none; padding-top: 10px;">Limpar</a>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="admin-table-container">
+        <div class="table-responsive">
+            <table class="table table-admin-custom">
+                <thead>
+                    <tr>
+                        {% block cabecalhos_tabela %}{% endblock %}
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% block linhas_tabela %}{% endblock %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_filmes.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Filmes{% endblock %}
+{% block sub_titulo_caminho %}Filmes{% endblock %}
+
+{% block botao_acao_topo %}
+    <a href="{% url 'importar_filmes_api' %}" class="btn-adicionar-custom" style="background-color: #444 !important; color: #f5c518 !important; margin-right: 5px;" onclick="return confirm('Esta operação pode demorar alguns segundos. Continuar?');">
+        <i class="fas fa-cloud-download-alt"></i> Importar 10 Filmes
+    </a>
+
+    <a href="{% url 'adicionar_filme' %}" class="btn-adicionar-custom">
+        <i class="fas fa-plus"></i> Adicionar Filme
+    </a>
+{% endblock %}
+
+
+
+{% block cabecalhos_tabela %}
+    <th>Poster</th>
+    <th>Título</th>
+    <th>Ano</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for filme in itens %}
+    <tr>
+        <td>
+            {% if filme.cartaz %}
+                <img src="{{ filme.cartaz }}" style="width: 45px; height: 65px; object-fit: cover; border-radius: 4px;">
+            {% else %}
+                <i class="fas fa-film" style="color: #333;"></i>
+            {% endif %}
+        </td>
+        <td><strong>{{ filme.titulo }}</strong></td>
+        <td>{{ filme.data_lancamento|date:"Y" }}</td>
+        <td style="text-align: right;">
+            <a href="{% url 'detalhe_filme' filme.id %}?origem=admin_filmes" class="btn-acao"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'editar_filme' filme.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_filme_admin' filme.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="4" class="text-center">Nenhum filme encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_generos.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Géneros{% endblock %}
+{% block sub_titulo_caminho %}Categorias{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th>Nome do Género</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for g in itens %}
+    <tr>
+        <td><strong>{{ g.nome }}</strong></td>
+        <td style="text-align: right;">
+            <a href="{% url 'editar_item_admin' 'genero' g.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_item_admin' 'genero' g.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="2" class="text-center">Nenhum género encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_permissoes.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Grupos{% endblock %}
+{% block sub_titulo_caminho %}Grupos e Acessos{% endblock %}
+
+{% block botao_acao_topo %}
+    <a href="{% url 'criar_grupo' %}" class="btn-adicionar-custom">
+        <i class="fas fa-plus"></i> Novo Grupo
+    </a>
+{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th>Nome do Grupo</th>
+    <th>Nº de Membros</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for g in grupos %}
+    <tr>
+        <td><strong>{{ g.name }}</strong></td>
+        <td><span class="badge" style="background: #333; color: #f5c518;">{{ g.user_set.count }} utilizadores</span></td>
+        <td style="text-align: right;">
+            <a href="{% url 'detalhe_grupo' g.id %}" class="btn-acao"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'editar_grupo' g.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_grupo' g.id %}" class="btn-acao btn-delete" onclick="return confirm('Eliminar grupo?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="3" class="text-center">Nenhum grupo encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_realizadores.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Realizadores{% endblock %}
+{% block sub_titulo_caminho %}Realizadores{% endblock %}
+
+{% block cabecalhos_tabela %}
+    <th>Nome do Realizador</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for r in itens %}
+    <tr>
+        <td><strong>{{ r.nome }}</strong></td>
+        <td style="text-align: right;">
+            <a href="{% url 'editar_item_admin' 'realizador' r.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_item_admin' 'realizador' r.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="2" class="text-center">Nenhum realizador encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\admin_utilizadores.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Utilizadores{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'dashboard_admin' %}">Painel Administrativo</a></li>
+    <li class="breadcrumb-item active">Utilizadores</li>
+{% endblock %}
+
+{% block sub_titulo %}Lista de Contas Registadas{% endblock %}
+
+
+
+{% block cabecalhos_tabela %}
+    <th>Username</th>
+    <th>Email</th>
+    <th>Tipo</th>
+    <th>Data de Entrada</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for u in itens %}
+        <tr>
+            <td><strong>{{ u.username }}</strong></td>
+            <td>{{ u.email }}</td>
+            <td>
+                {% if u.is_superuser %}
+                    <span class="label label-danger" style="background-color: #d9534f;">Superuser</span>
+                {% elif u.is_staff %}
+                    <span class="label label-info" style="background-color: #5bc0de;">Staff</span>
+                {% else %}
+                    <span class="label label-default">User</span>
+                {% endif %}
+            </td>
+            <td style="color: #666;">{{ u.date_joined|date:"d/m/Y" }}</td>
+            <td style="text-align: right;">
+                <a href="{% url 'perfil_detalhado' u.id %}?origem=admin" class="btn-acao"><i class="fas fa-eye"></i></a>
+                <a href="{% url 'editar_perfil' u.id %}" class="btn-acao"><i class="fas fa-user-edit"></i></a>
+
+                {% if not u.is_superuser %}
+                    <a href="{% url 'apagar_utilizador' u.id %}" class="btn-acao btn-delete"
+                       onclick="return confirm('Apagar utilizador?')">
+                       <i class="fas fa-trash"></i>
+                    </a>
+                {% else %}
+                    <span class="btn-acao" style="opacity: 0.3; cursor: not-allowed;" title="Superuser Protegido">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\detalhe_grupo.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+
+
+{% block content %}
+<div class="main-container" style="background: #121212; padding: 25px; min-height: 100vh;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+        <h2 style="margin: 0;">Membros do Grupo: <span style="color: #ffc107;">{{ grupo.name }}</span></h2>
+
+        <a href="{% url 'lista_grupos' %}" class="btn-voltar-dark">
+            <i class="fas fa-chevron-left"></i> Voltar aos Grupos
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7" style="border-right: 1px solid #333;">
+            <h4 class="mb-4"><i class="fas fa-users"></i> Utilizadores</h4>
+            <table class="table" style="color: white;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in utilizadores %}
+                    <tr style="border-bottom: 1px solid #222;">
+                        <td><strong>{{ u.username }}</strong></td>
+                        <td>{{ u.email }}</td>
+                        <td style="text-align: right;">
+                            <a href="{% url 'perfil_detalhado' u.id %}?origem=grupo&grupo_id={{ grupo.id }}" class="btn-acao"><i class="fas fa-eye"></i></a>
+                            <a href="{% url 'remover_user_grupo' grupo.id u.id %}" class="btn-acao btn-delete" onclick="return confirm('Remover?')"><i class="fas fa-user-minus"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-5">
+            <h4 class="mb-4"><i class="fas fa-lock"></i> Permissões</h4>
+            <div style="background: #1e1e1e; padding: 15px; border-radius: 5px; border: 1px solid #333;">
+                {% for perm in permissoes %}
+                    <div style="padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9em;">
+                        <i class="fas fa-check text-success mr-2"></i> {{ perm.name }}
+                    </div>
+                {% empty %}
+                    <p class="text-muted">Sem permissões.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\editar_grupo.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block content %}
+<style>
+    body, .content-wrapper, .edit-container {
+        background-color: #121212 !important;
+        color: white !important;
+    }
+
+    .form-card {
+        background-color: #1e1e1e !important;
+        border: 1px solid #333 !important;
+        padding: 25px;
+        border-radius: 8px;
+    }
+
+    .form-control {
+        background-color: #2a2a2a !important;
+        border: 1px solid #444 !important;
+        color: white !important;
+    }
+
+    .permissions-scroll {
+        max-height: 400px;
+        overflow-y: auto;
+        background: #252525;
+        padding: 15px;
+        border: 1px solid #444;
+        border-radius: 4px;
+    }
+
+    .permission-item {
+        padding: 5px 0;
+        border-bottom: 1px solid #333;
+        display: flex;
+        align-items: center;
+    }
+
+    .permission-item input {
+        margin-right: 10px;
+        accent-color: #ffc107;
+    }
+
+    .btn-guardar-admin {
+        background-color: #ffc107 !important;
+        color: #000 !important;
+        border: none !important;
+        padding: 10px 25px !important;
+        border-radius: 4px !important;
+        font-weight: bold !important;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .btn-cancelar-dark {
+        background-color: #333 !important;
+        color: white !important;
+        border: none !important;
+        padding: 10px 25px !important;
+        border-radius: 4px !important;
+        font-weight: bold !important;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none !important;
+    }
+</style>
+
+<div class="edit-container" style="padding-top: 20px;">
+
+    <div style="margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+        <h2 style="color: white !important; margin-bottom: 5px;">{{ modo }} Grupo</h2>
+        <div style="color: #888; font-size: 0.9em;">
+            Painel Administrativo > Grupos > <span style="color: #ffc107;">{{ modo }}</span>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group mb-4">
+                <label style="color: white !important; font-weight: bold; display: block; margin-bottom: 10px;">
+                    Nome do Grupo:
+                </label>
+                <input type="text" name="nome" class="form-control"
+                       value="{{ grupo.name }}" placeholder="Ex: Moderadores, Editores..." required>
+            </div>
+
+            <div class="form-group mb-4">
+                <label style="color: white !important; font-weight: bold; display: block; margin-bottom: 10px;">
+                    Atribuir Permissões:
+                </label>
+                <div class="permissions-scroll">
+                    {% for perm in todas_permissoes %}
+                    <div class="permission-item">
+                        <input type="checkbox" name="permissoes" value="{{ perm.id }}" id="perm_{{ perm.id }}"
+                            {% if perm in grupo.permissions.all %} checked {% endif %}>
+                        <label for="perm_{{ perm.id }}" style="margin: 0; cursor: pointer; font-size: 0.9em;">
+                            <strong>{{ perm.content_type.model|capfirst }}</strong> | {{ perm.name }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; margin-top: 30px;">
+                <button type="submit" class="btn-guardar-admin">
+                    <i class="fas fa-save" style="margin-right: 8px;"></i> Guardar Grupo
+                </button>
+
+                <a href="{% url 'lista_grupos' %}" class="btn-cancelar-dark">
+                    <i class="fas fa-times" style="margin-right: 8px;"></i> Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\editar_item_admin.html
+--------------------------------------------------------------------------------
+
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block content %}
+<style>
+    body, .content-wrapper, .main-footer, .edit-container {
+        background-color: #121212 !important;
+        color: white !important;
+    }
+
+    .form-card {
+        background-color: #1e1e1e !important;
+        border: 1px solid #333 !important;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .form-control {
+        background-color: #2a2a2a !important;
+        border: 1px solid #444 !important;
+        color: white !important;
+    }
+
+    .form-control:focus {
+        background-color: #333 !important;
+        border-color: #ffc107 !important;
+        color: white !important;
+    }
+
+    .btn-guardar-admin {
+        background-color: #ffc107 !important;
+        color: #000 !important;
+        border: none !important;
+        padding: 10px 25px !important;
+        border-radius: 4px !important;
+        font-weight: bold !important;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .btn-cancelar-dark {
+        background-color: #333 !important;
+        color: white !important;
+        border: none !important;
+        padding: 10px 25px !important;
+        border-radius: 4px !important;
+        font-weight: bold !important;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none !important;
+    }
+
+    .btn-cancelar-dark:hover {
+        background-color: #444 !important;
+        color: white !important;
+    }
+
+    .breadcrumb-text {
+        color: #888 !important;
+        font-size: 0.9em;
+    }
+</style>
+
+<div class="edit-container" style="padding-top: 20px;">
+
+    <div style="margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+        <h2 style="color: white !important; margin-bottom: 5px;">{{ modo }} {{ tipo|capfirst }}</h2>
+        <div class="breadcrumb-text">
+            Painel Administrativo > {{ tipo|capfirst }}s > <span style="color: #ffc107;">{{ modo }}</span>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group mb-4">
+                <label style="color: white !important; font-weight: bold; display: block; margin-bottom: 10px;">
+                    Nome do {{ tipo|capfirst }}:
+                </label>
+                <input type="text" name="nome" class="form-control"
+                       value="{% if item %}{{ item.nome }}{% endif %}"
+                       placeholder="Introduza o nome aqui..." required>
+            </div>
+
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 30px;">
+                <button type="submit" class="btn-guardar-admin">
+                    <i class="fas fa-save" style="margin-right: 8px;"></i> Guardar Alterações
+                </button>
+
+                <a href="javascript:history.back()" class="btn-cancelar-dark">
+                    <i class="fas fa-times" style="margin-right: 8px;"></i> Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: app\templates\relAdmin\form_simples.html
+--------------------------------------------------------------------------------
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 50px; max-width: 500px;">
+    <div style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333;">
+        <h3 style="color: #f5c518; margin-bottom: 25px;">{{ titulo }}</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label style="color: #f5c518;">Nome:</label>
+                <input type="text" name="nome" value="{{ item.nome }}" class="form-control" style="background: #222; color: white; border: 1px solid #444;" required>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 30px;">
+                <button type="submit" class="btn btn-warning" style="flex: 2; font-weight: bold;">Confirmar</button>
+                <a href="{% url url_back %}" class="btn btn-default" style="flex: 1; background: #333; color: white; border: none;">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+--------------------------------------------------------------------------------
+FICHEIRO: tp1\asgi.py
+--------------------------------------------------------------------------------
+
+"""
+ASGI config for tp1 project.
+
+It exposes the ASGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/6.0/howto/deployment/asgi/
+"""
+
+import os
+
+from django.core.asgi import get_asgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tp1.settings')
+
+application = get_asgi_application()
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: tp1\settings.py
+--------------------------------------------------------------------------------
+
+"""
+Django settings for tp1 project.
+
+Generated by 'django-admin startproject' using Django 6.0.3.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/6.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/6.0/ref/settings/
+"""
+
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-f2w5q7%iy$=g%wv%g47#s+y8x-eucoi8gfoc^)&u%2r_ml0=*f'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['escorcio.pythonanywhere.com', 'localhost', '127.0.0.1']
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'app.apps.AppConfig',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'tp1.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': []
+        ,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'tp1.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+# Password validation
+# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/6.0/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_TZ = True
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/6.0/howto/static-files/
+
+import os
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'verificar_login'
+LOGOUT_REDIRECT_URL = 'lista_filmes'
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: tp1\urls.py
+--------------------------------------------------------------------------------
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('app.urls')),
+]
+
+--------------------------------------------------------------------------------
+FICHEIRO: tp1\wsgi.py
+--------------------------------------------------------------------------------
+
+"""
+WSGI config for tp1 project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tp1.settings')
+
+application = get_wsgi_application()
+
+
+--------------------------------------------------------------------------------
+FICHEIRO: tp1\__init__.py
+--------------------------------------------------------------------------------
+
+

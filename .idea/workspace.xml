@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Feitoo" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alexandre-pereira-UA&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/escorcio05/trabalho_pratico1.git&quot;,
+    &quot;accountId&quot;: &quot;04d94c90-0276-47b8-9a84-6029604f28d8&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3C1jn9AKJCoVJ04DJGvVn0BwzBQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.Projeto_TPW.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.gerar_resumo.executor": "Run",
+    "Python.tudo.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/ASUS.LAPTOP-54TN8OAA/Desktop/tentar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS.LAPTOP-54TN8OAA\Desktop\Projeto_TPW\zipado\projeto_tpw\tp1\app\templates\relAdmin" />
+      <recent name="C:\Users\ASUS.LAPTOP-54TN8OAA\Desktop\Projeto_TPW\zipado\projeto_tpw\tp1\app\templates\registration" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.tudo">
+    <configuration name="gerar_resumo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projeto_TPW" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/zipado/projeto_tpw/tp1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zipado/projeto_tpw/tp1/gerar_resumo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tudo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projeto_TPW" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/zipado/projeto_tpw/tp1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zipado/projeto_tpw/tp1/tudo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Projeto_TPW" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Projeto_TPW" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="tp1.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tudo" />
+        <item itemvalue="Python.gerar_resumo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="" />
+      <created>1775560135514</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775560135514</updated>
+      <workItem from="1775560137055" duration="1234000" />
+      <workItem from="1775567353489" duration="15990000" />
+      <workItem from="1775652745309" duration="94000" />
+      <workItem from="1775652956748" duration="2307000" />
+      <workItem from="1775750657912" duration="12319000" />
+      <workItem from="1775936595971" duration="11301000" />
+      <workItem from="1775985957055" duration="6975000" />
+      <workItem from="1775996832937" duration="21231000" />
+      <workItem from="1776021107190" duration="2892000" />
+      <workItem from="1776031304900" duration="1798000" />
+      <workItem from="1776039349854" duration="916000" />
+      <workItem from="1776070497468" duration="3704000" />
+      <workItem from="1776088803519" duration="40000" />
+    </task>
+    <task id="LOCAL-00001" summary="Again">
+      <option name="closed" value="true" />
+      <created>1775560224489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775560224489</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Again">
+      <option name="closed" value="true" />
+      <created>1775560252183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775560252183</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adicionei o Registo e compos as coias">
+      <option name="closed" value="true" />
+      <created>1775572382161</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775572382161</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Base de dados funciona, é só alterar algumas coisas">
+      <option name="closed" value="true" />
+      <created>1775578856113</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775578856113</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Funciona o básico, BD também">
+      <option name="closed" value="true" />
+      <created>1775582493876</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775582493876</updated>
+    </task>
+    <task id="LOCAL-00006" summary="simbolo">
+      <option name="closed" value="true" />
+      <created>1775584460703</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775584460703</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Deu">
+      <option name="closed" value="true" />
+      <created>1775660048844</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775660048844</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Deu">
+      <option name="closed" value="true" />
+      <created>1775669317629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1775669317629</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add controlaFilmes e Add meter filmes">
+      <option name="closed" value="true" />
+      <created>1775671135516</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1775671135516</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add controlaFilmes e Add meter filmes">
+      <option name="closed" value="true" />
+      <created>1775671954826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775671954826</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Muitas coisas">
+      <option name="closed" value="true" />
+      <created>1775763663169</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1775763663169</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Muitas coisas">
+      <option name="closed" value="true" />
+      <created>1775763674746</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1775763674746</updated>
+    </task>
+    <task id="LOCAL-00013" summary="mini">
+      <option name="closed" value="true" />
+      <created>1775764303209</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1775764303209</updated>
+    </task>
+    <task id="LOCAL-00014" summary="dashboard do admin">
+      <option name="closed" value="true" />
+      <created>1775985987937</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1775985987937</updated>
+    </task>
+    <task id="LOCAL-00015" summary="againnnnn">
+      <option name="closed" value="true" />
+      <created>1775989697504</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1775989697504</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Tecnicamente está feito">
+      <option name="closed" value="true" />
+      <created>1775993841200</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1775993841200</updated>
+    </task>
+    <task id="LOCAL-00017" summary="voi la">
+      <option name="closed" value="true" />
+      <created>1776006885382</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1776006885382</updated>
+    </task>
+    <task id="LOCAL-00018" summary="voi la">
+      <option name="closed" value="true" />
+      <created>1776017470461</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1776017470461</updated>
+    </task>
+    <task id="LOCAL-00019" summary="anda">
+      <option name="closed" value="true" />
+      <created>1776018118739</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776018118739</updated>
+    </task>
+    <task id="LOCAL-00020" summary="yooo">
+      <option name="closed" value="true" />
+      <created>1776029578532</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1776029578532</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Feito">
+      <option name="closed" value="true" />
+      <created>1776072031176</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1776072031176</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Feito">
+      <option name="closed" value="true" />
+      <created>1776072111432</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1776072111432</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Feito">
+      <option name="closed" value="true" />
+      <created>1776072392567</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1776072392567</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Feitoo">
+      <option name="closed" value="true" />
+      <created>1776073076200</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1776073076200</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Feitoo">
+      <option name="closed" value="true" />
+      <created>1776074188684</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1776074188684</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Colocar no git" />
+    <MESSAGE value="Again" />
+    <MESSAGE value="Adicionei o Registo e compos as coias" />
+    <MESSAGE value="Base de dados funciona, é só alterar algumas coisas" />
+    <MESSAGE value="Funciona o básico, BD também" />
+    <MESSAGE value="simbolo" />
+    <MESSAGE value="Deu" />
+    <MESSAGE value="Add controlaFilmes e Add meter filmes" />
+    <MESSAGE value="Muitas coisas" />
+    <MESSAGE value="mini" />
+    <MESSAGE value="dashboard do admin" />
+    <MESSAGE value="againnnnn" />
+    <MESSAGE value="Tecnicamente está feito" />
+    <MESSAGE value="voi la" />
+    <MESSAGE value="anda" />
+    <MESSAGE value="yooo" />
+    <MESSAGE value="Feito" />
+    <MESSAGE value="Feitoo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feitoo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/zipado/projeto_tpw/tp1/tp1/urls.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Projeto_TPW$gerar_resumo.coverage" NAME="gerar_resumo Coverage Results" MODIFIED="1776008336504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/zipado/projeto_tpw/tp1" />
+  </component>
+</project>

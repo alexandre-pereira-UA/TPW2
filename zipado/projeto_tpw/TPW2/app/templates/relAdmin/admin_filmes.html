@@ -1,0 +1,45 @@
+{% extends "relAdmin/admin_base_gestao.html" %}
+
+{% block titulo_pagina %}Gestão de Filmes{% endblock %}
+{% block sub_titulo_caminho %}Filmes{% endblock %}
+
+{% block botao_acao_topo %}
+    <a href="{% url 'importar_filmes_api' %}" class="btn-adicionar-custom" style="background-color: #444 !important; color: #f5c518 !important; margin-right: 5px;" onclick="return confirm('Esta operação pode demorar alguns segundos. Continuar?');">
+        <i class="fas fa-cloud-download-alt"></i> Importar 10 Filmes
+    </a>
+
+    <a href="{% url 'adicionar_filme' %}" class="btn-adicionar-custom">
+        <i class="fas fa-plus"></i> Adicionar Filme
+    </a>
+{% endblock %}
+
+
+
+{% block cabecalhos_tabela %}
+    <th>Poster</th>
+    <th>Título</th>
+    <th>Ano</th>
+{% endblock %}
+
+{% block linhas_tabela %}
+    {% for filme in itens %}
+    <tr>
+        <td>
+            {% if filme.cartaz %}
+                <img src="{{ filme.cartaz }}" style="width: 45px; height: 65px; object-fit: cover; border-radius: 4px;">
+            {% else %}
+                <i class="fas fa-film" style="color: #333;"></i>
+            {% endif %}
+        </td>
+        <td><strong>{{ filme.titulo }}</strong></td>
+        <td>{{ filme.data_lancamento|date:"Y" }}</td>
+        <td style="text-align: right;">
+            <a href="{% url 'detalhe_filme' filme.id %}?origem=admin_filmes" class="btn-acao"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'editar_filme' filme.id %}" class="btn-acao"><i class="fas fa-edit"></i></a>
+            <a href="{% url 'apagar_filme_admin' filme.id %}" class="btn-acao btn-delete" onclick="return confirm('Apagar?');"><i class="fas fa-trash"></i></a>
+        </td>
+    </tr>
+    {% empty %}
+        <tr><td colspan="4" class="text-center">Nenhum filme encontrado.</td></tr>
+    {% endfor %}
+{% endblock %}

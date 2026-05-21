@@ -1,0 +1,1080 @@
+================================================================================
+1. ESTRUTURA DE PASTAS DO PROJETO
+================================================================================
+
+📁 [Raiz do Projeto]
+  📄 manage.py
+  📄 tudo.py
+  📁 app/
+    📄 admin.py
+    📄 apps.py
+    📄 forms.py
+    📄 models.py
+    📄 tests.py
+    📄 urls.py
+    📄 views.py
+    📄 __init__.py
+    📁 management/
+      📄 __init__.py
+      📁 commands/
+        📄 importar_filmes.py
+        📄 __init__.py
+    📁 migrations/
+      📄 0001_initial.py
+      📄 0002_avaliacao.py
+      📄 0003_avaliacao_comentario_avaliacao_data_postagem_and_more.py
+      📄 0004_remove_filme_genero_filme_generos_alter_ator_id_and_more.py
+      📄 0005_favorito_guardado.py
+      📄 __init__.py
+    📁 static/
+      📁 content/
+        📄 script.js
+        📄 style.css
+    📁 templates/
+      📄 adicionar_filme.html
+      📄 dashboard_admin.html
+      📄 detalhe_filme.html
+      📄 editar_perfil.html
+      📄 layout.html
+      📄 lista_filmes.html
+      📄 meus_favoritos.html
+      📄 meus_guardados.html
+      📄 perfil.html
+      📁 registration/
+        📄 login.html
+        📄 registo.html
+      📁 relAdmin/
+        📄 admin_atores.html
+        📄 admin_avaliacoes.html
+        📄 admin_base_gestao.html
+        📄 admin_filmes.html
+        📄 admin_generos.html
+        📄 admin_permissoes.html
+        📄 admin_realizadores.html
+        📄 admin_utilizadores.html
+        📄 detalhe_grupo.html
+        📄 editar_grupo.html
+        📄 editar_item_admin.html
+        📄 form_simples.html
+  📁 staticfiles/
+    📁 admin/
+      📁 css/
+        📄 autocomplete.css
+        📄 base.css
+        📄 changelists.css
+        📄 dark_mode.css
+        📄 dashboard.css
+        📄 forms.css
+        📄 login.css
+        📄 nav_sidebar.css
+        📄 responsive.css
+        📄 responsive_rtl.css
+        📄 rtl.css
+        📄 unusable_password_field.css
+        📄 widgets.css
+        📁 vendor/
+          📁 select2/
+            📄 LICENSE-SELECT2.md
+            📄 select2.css
+            📄 select2.min.css
+      📁 img/
+        📁 gis/
+      📁 js/
+        📄 actions.js
+        📄 autocomplete.js
+        📄 calendar.js
+        📄 cancel.js
+        📄 change_form.js
+        📄 core.js
+        📄 filters.js
+        📄 inlines.js
+        📄 jquery.init.js
+        📄 nav_sidebar.js
+        📄 popup_response.js
+        📄 prepopulate.js
+        📄 prepopulate_init.js
+        📄 SelectBox.js
+        📄 SelectFilter2.js
+        📄 theme.js
+        📄 unusable_password_field.js
+        📄 urlify.js
+        📁 admin/
+          📄 DateTimeShortcuts.js
+          📄 RelatedObjectLookups.js
+        📁 vendor/
+          📁 jquery/
+            📄 jquery.js
+            📄 jquery.min.js
+          📁 select2/
+            📄 LICENSE.md
+            📄 select2.full.js
+            📄 select2.full.min.js
+            📁 i18n/
+              📄 af.js
+              📄 ar.js
+              📄 az.js
+              📄 bg.js
+              📄 bn.js
+              📄 bs.js
+              📄 ca.js
+              📄 cs.js
+              📄 da.js
+              📄 de.js
+              📄 dsb.js
+              📄 el.js
+              📄 en.js
+              📄 es.js
+              📄 et.js
+              📄 eu.js
+              📄 fa.js
+              📄 fi.js
+              📄 fr.js
+              📄 gl.js
+              📄 he.js
+              📄 hi.js
+              📄 hr.js
+              📄 hsb.js
+              📄 hu.js
+              📄 hy.js
+              📄 id.js
+              📄 is.js
+              📄 it.js
+              📄 ja.js
+              📄 ka.js
+              📄 km.js
+              📄 ko.js
+              📄 lt.js
+              📄 lv.js
+              📄 mk.js
+              📄 ms.js
+              📄 nb.js
+              📄 ne.js
+              📄 nl.js
+              📄 pl.js
+              📄 ps.js
+              📄 pt-BR.js
+              📄 pt.js
+              📄 ro.js
+              📄 ru.js
+              📄 sk.js
+              📄 sl.js
+              📄 sq.js
+              📄 sr-Cyrl.js
+              📄 sr.js
+              📄 sv.js
+              📄 th.js
+              📄 tk.js
+              📄 tr.js
+              📄 uk.js
+              📄 vi.js
+              📄 zh-CN.js
+              📄 zh-TW.js
+          📁 xregexp/
+            📄 xregexp.js
+            📄 xregexp.min.js
+    📁 content/
+      📄 script.js
+      📄 style.css
+  📁 static_cdn/
+    📁 admin/
+      📁 css/
+        📄 autocomplete.css
+        📄 base.css
+        📄 changelists.css
+        📄 dark_mode.css
+        📄 dashboard.css
+        📄 forms.css
+        📄 login.css
+        📄 nav_sidebar.css
+        📄 responsive.css
+        📄 responsive_rtl.css
+        📄 rtl.css
+        📄 unusable_password_field.css
+        📄 widgets.css
+        📁 vendor/
+          📁 select2/
+            📄 LICENSE-SELECT2.md
+            📄 select2.css
+            📄 select2.min.css
+      📁 img/
+        📁 gis/
+      📁 js/
+        📄 actions.js
+        📄 autocomplete.js
+        📄 calendar.js
+        📄 cancel.js
+        📄 change_form.js
+        📄 core.js
+        📄 filters.js
+        📄 inlines.js
+        📄 jquery.init.js
+        📄 nav_sidebar.js
+        📄 popup_response.js
+        📄 prepopulate.js
+        📄 prepopulate_init.js
+        📄 SelectBox.js
+        📄 SelectFilter2.js
+        📄 theme.js
+        📄 unusable_password_field.js
+        📄 urlify.js
+        📁 admin/
+          📄 DateTimeShortcuts.js
+          📄 RelatedObjectLookups.js
+        📁 vendor/
+          📁 jquery/
+            📄 jquery.js
+            📄 jquery.min.js
+          📁 select2/
+            📄 LICENSE.md
+            📄 select2.full.js
+            📄 select2.full.min.js
+            📁 i18n/
+              📄 af.js
+              📄 ar.js
+              📄 az.js
+              📄 bg.js
+              📄 bn.js
+              📄 bs.js
+              📄 ca.js
+              📄 cs.js
+              📄 da.js
+              📄 de.js
+              📄 dsb.js
+              📄 el.js
+              📄 en.js
+              📄 es.js
+              📄 et.js
+              📄 eu.js
+              📄 fa.js
+              📄 fi.js
+              📄 fr.js
+              📄 gl.js
+              📄 he.js
+              📄 hi.js
+              📄 hr.js
+              📄 hsb.js
+              📄 hu.js
+              📄 hy.js
+              📄 id.js
+              📄 is.js
+              📄 it.js
+              📄 ja.js
+              📄 ka.js
+              📄 km.js
+              📄 ko.js
+              📄 lt.js
+              📄 lv.js
+              📄 mk.js
+              📄 ms.js
+              📄 nb.js
+              📄 ne.js
+              📄 nl.js
+              📄 pl.js
+              📄 ps.js
+              📄 pt-BR.js
+              📄 pt.js
+              📄 ro.js
+              📄 ru.js
+              📄 sk.js
+              📄 sl.js
+              📄 sq.js
+              📄 sr-Cyrl.js
+              📄 sr.js
+              📄 sv.js
+              📄 th.js
+              📄 tk.js
+              📄 tr.js
+              📄 uk.js
+              📄 vi.js
+              📄 zh-CN.js
+              📄 zh-TW.js
+          📁 xregexp/
+            📄 xregexp.js
+            📄 xregexp.min.js
+    📁 content/
+      📄 script.js
+      📄 style.css
+  📁 templates/
+  📁 tp1/
+    📄 asgi.py
+    📄 settings.py
+    📄 urls.py
+    📄 wsgi.py
+    📄 __init__.py
+
+
+================================================================================
+2. RESUMO DOS COMPONENTES E FUNÇÕES
+================================================================================
+
+📄 FICHEIRO: manage.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tudo.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\admin.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\apps.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\forms.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\models.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\tests.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\urls.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\views.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\__init__.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\management\__init__.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\management\commands\importar_filmes.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\management\commands\__init__.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\0001_initial.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\0002_avaliacao.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\0003_avaliacao_comentario_avaliacao_data_postagem_and_more.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\0004_remove_filme_genero_filme_generos_alter_ator_id_and_more.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\0005_favorito_guardado.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\migrations\__init__.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\static\content\script.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\static\content\style.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\adicionar_filme.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\dashboard_admin.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\detalhe_filme.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\editar_perfil.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\layout.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\lista_filmes.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\meus_favoritos.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\meus_guardados.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\perfil.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\registration\login.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\registration\registo.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_atores.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_avaliacoes.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_base_gestao.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_filmes.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_generos.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_permissoes.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_realizadores.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\admin_utilizadores.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\detalhe_grupo.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\editar_grupo.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\editar_item_admin.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: app\templates\relAdmin\form_simples.html (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\autocomplete.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\base.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\changelists.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\dark_mode.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\dashboard.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\forms.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\login.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\nav_sidebar.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\responsive.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\responsive_rtl.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\rtl.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\unusable_password_field.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\widgets.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\vendor\select2\LICENSE-SELECT2.md (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\vendor\select2\select2.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\css\vendor\select2\select2.min.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\actions.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\autocomplete.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\calendar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\cancel.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\change_form.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\core.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\filters.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\inlines.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\jquery.init.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\nav_sidebar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\popup_response.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\prepopulate.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\prepopulate_init.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\SelectBox.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\SelectFilter2.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\theme.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\unusable_password_field.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\urlify.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\admin\DateTimeShortcuts.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\admin\RelatedObjectLookups.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\jquery\jquery.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\jquery\jquery.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\LICENSE.md (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\select2.full.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\select2.full.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\af.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\az.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\bg.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\bn.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\bs.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ca.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\cs.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\da.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\de.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\dsb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\el.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\en.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\es.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\et.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\eu.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\fa.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\fi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\fr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\gl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\he.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\hi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\hr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\hsb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\hu.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\hy.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\id.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\is.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\it.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ja.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ka.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\km.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ko.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\lt.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\lv.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\mk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ms.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\nb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ne.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\nl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\pl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ps.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\pt-BR.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\pt.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ro.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\ru.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sq.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sr-Cyrl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\sv.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\th.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\tk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\tr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\uk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\vi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\zh-CN.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\select2\i18n\zh-TW.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\xregexp\xregexp.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\admin\js\vendor\xregexp\xregexp.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\content\script.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: staticfiles\content\style.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\autocomplete.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\base.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\changelists.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\dark_mode.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\dashboard.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\forms.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\login.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\nav_sidebar.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\responsive.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\responsive_rtl.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\rtl.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\unusable_password_field.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\widgets.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\vendor\select2\LICENSE-SELECT2.md (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\vendor\select2\select2.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\css\vendor\select2\select2.min.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\actions.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\autocomplete.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\calendar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\cancel.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\change_form.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\core.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\filters.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\inlines.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\jquery.init.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\nav_sidebar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\popup_response.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\prepopulate.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\prepopulate_init.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\SelectBox.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\SelectFilter2.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\theme.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\unusable_password_field.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\urlify.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\admin\DateTimeShortcuts.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\admin\RelatedObjectLookups.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\jquery\jquery.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\jquery\jquery.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\LICENSE.md (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\select2.full.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\select2.full.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\af.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ar.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\az.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\bg.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\bn.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\bs.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ca.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\cs.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\da.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\de.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\dsb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\el.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\en.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\es.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\et.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\eu.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\fa.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\fi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\fr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\gl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\he.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\hi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\hr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\hsb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\hu.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\hy.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\id.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\is.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\it.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ja.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ka.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\km.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ko.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\lt.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\lv.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\mk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ms.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\nb.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ne.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\nl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\pl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ps.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\pt-BR.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\pt.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ro.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\ru.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sq.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sr-Cyrl.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\sv.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\th.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\tk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\tr.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\uk.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\vi.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\zh-CN.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\select2\i18n\zh-TW.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\xregexp\xregexp.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\admin\js\vendor\xregexp\xregexp.min.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\content\script.js (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: static_cdn\content\style.css (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tp1\asgi.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tp1\settings.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tp1\urls.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tp1\wsgi.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------
+📄 FICHEIRO: tp1\__init__.py (0 linhas)
+   (Não foi possível ler o conteúdo - ficheiro binário ou erro)
+----------------------------------------

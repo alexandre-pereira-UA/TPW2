@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container" style="margin-top: 50px;">
+    <h1 style="color: #f5c518; text-align: center; font-weight: 800; margin-bottom: 50px;">PAINEL DE CONTROLO</h1>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Segurança e Acessos</h3>
+    <div class="dashboard-grid">
+        <a href="{% url 'admin_utilizadores' %}" class="admin-card-new">
+            <i class="fas fa-users"></i>
+            <h4>Utilizadores</h4>
+            <p>{{ total_users }} registados</p>
+        </a>
+        <a href="{% url 'lista_grupos' %}" class="admin-card-new">
+            <i class="fas fa-user-shield"></i>
+            <h4>Grupos</h4>
+            <p>{{ total_grupos }} criados</p>
+        </a>
+    </div>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px;">Conteúdo da Aplicação</h3>
+    <div class="dashboard-grid">
+        <a href="{% url 'admin_filmes' %}" class="admin-card-new">
+            <i class="fas fa-film"></i>
+            <h4>Filmes</h4>
+            <p>{{ total_filmes }} na base</p>
+        </a>
+        <a href="{% url 'admin_atores' %}" class="admin-card-new">
+            <i class="fas fa-user-tie"></i>
+            <h4>Atores</h4>
+            <p>{{ total_atores }} nomes</p>
+        </a>
+        <a href="{% url 'admin_realizadores' %}" class="admin-card-new">
+            <i class="fas fa-video"></i>
+            <h4>Realizadores</h4>
+            <p>{{ total_realizadores }} nomes</p>
+        </a>
+        <a href="{% url 'admin_generos' %}" class="admin-card-new">
+            <i class="fas fa-tags"></i>
+            <h4>Géneros</h4>
+            <p>{{ total_generos }} categorias</p>
+        </a>
+        <a href="{% url 'admin_avaliacoes' %}" class="admin-card-new">
+            <i class="fas fa-star"></i>
+            <h4>Avaliações</h4>
+            <p>{{ total_avaliacoes }} críticas</p>
+        </a>
+    </div>
+
+    <div class="text-center" style="margin-top: 60px;">
+        <a href="{% url 'lista_filmes' %}" class="btn-voltar-custom" style="padding: 12px 40px;">
+            <i class="fas fa-external-link-alt"></i> Ir para o Site Público
+        </a>
+    </div>
+</div>
+{% endblock %}
