@@ -1,0 +1,53 @@
+@if (filme) {
+    <div class="container" style="margin-top: 30px; color: white;">
+        <div class="movie-card" style="background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333;">
+            <div class="row">
+                <div class="col-md-3">
+                    @if (filme.cartaz) {
+                        <img [src]="filme.cartaz" [alt]="filme.titulo" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.8);">
+                    }
+                </div>
+
+                <div class="col-md-9">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px;">{{ filme.titulo }}</h1>
+                    </div>
+
+                    <p style="color: #888; font-size: 1.1em; margin-bottom: 10px;">{{ filme.data_lancamento }}</p>
+
+                    @if (filme.sinopse) {
+                        <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
+                    }
+
+                    <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+                        <h2 style="color: #f5c518; font-size: 22px;">Ficha Técnica</h2>
+                        <div style="font-size: 1.2em; line-height: 1.8;">
+                            <p><strong>Realizador:</strong> <span style="color: #4da6ff;">{{ filme.realizador.nome }}</span></p>
+                            <p><strong>Elenco:</strong> <span style="color: #4da6ff;">
+                                @for (ator of filme.atores; track ator.id) {
+                                    {{ ator.nome }}{{ !$last ? ', ' : '' }}
+                                }
+                            </span></p>
+                            <p><strong>Géneros:</strong> <span style="color: #4da6ff;">
+                                @for (genero of filme.generos; track genero.id) {
+                                    {{ genero.nome }}{{ !$last ? ', ' : '' }}
+                                }
+                            </span></p>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Voltar -->
+                    <div style="margin-top: 40px;">
+                        <a routerLink="/" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                            <i class="fas fa-arrow-left"></i> Voltar ao Catálogo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+} @else {
+    <div class="container text-center" style="margin-top: 100px; color: #888;">
+        <h3>A carregar detalhes do filme...</h3>
+    </div>
+}

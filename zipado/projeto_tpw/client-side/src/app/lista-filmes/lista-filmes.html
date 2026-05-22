@@ -1,0 +1,61 @@
+<div class="container" style="margin-top: 30px;">
+    <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; border: none; padding: 0; color: white;">Filmes em Destaque</h2>
+    </div>
+
+    <!-- Barra de Pesquisa -->
+    <div style="margin-bottom: 30px;">
+        <div style="display: flex; align-items: center; background: white; border-radius: 50px; padding: 5px 10px; overflow: hidden; width: 100%; max-width: 1000px; margin: 0 auto;">
+            <div style="flex-grow: 1; padding-left: 15px;">
+                <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" class="form-control" placeholder="Procurar filmes, atores, realizadores..." style="border: none; background: transparent; color: black; outline: none; box-shadow: none;">
+            </div>
+            <a (click)="limparPesquisa()" style="text-decoration: none; color: #999; font-size: 20px; padding: 0 15px; cursor: pointer;">&times;</a>
+            <button (click)="onSearch()" class="btn" style="background: linear-gradient(90deg, black 0%, #f5c518 100%); color: white; border-radius: 50px; padding: 10px 30px; border: none; font-weight: bold;">Search</button>
+        </div>
+    </div>
+
+    <!-- Filtros rápidos -->
+    <div class="filtros-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
+        <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
+        <button (click)="ordenar('recentes')" class="filtro-btn" [class.active]="filtroAtivo === 'recentes'">Mais Recentes</button>
+        <button (click)="ordenar('antigos')" class="filtro-btn" [class.active]="filtroAtivo === 'antigos'">Mais Antigos</button>
+        <button (click)="ordenar('alfabetica')" class="filtro-btn" [class.active]="filtroAtivo === 'alfabetica'">A-Z</button>
+        <button (click)="limparPesquisa()" class="filtro-btn btn-limpar"><i class="fas fa-sync-alt"></i> Limpar</button>
+    </div>
+
+    <!-- Grelha de Filmes -->
+    <div class="row">
+    @for (filme of filmesFiltrados; track filme.id) {
+        <div class="col-md-6">
+            <div class="movie-card" style="display: flex; gap: 20px; position: relative; margin-bottom: 20px; background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; color: white;">
+
+                @if (filme.cartaz) {
+                    <!-- O routerLink substitui os links {% url %} do Django -->
+                    <a [routerLink]="['/filme', filme.id]">
+                        <img [src]="filme.cartaz" [alt]="filme.titulo" class="movie-poster" style="width: 120px; border-radius: 5px; height: 170px; object-fit: cover;">
+                    </a>
+                }
+
+                <div>
+                    <a [routerLink]="['/filme', filme.id]" style="text-decoration: none; color: inherit;">
+                        <h3 class="movie-title" style="margin-top: 0; color: #f5c518;">{{ filme.titulo }} <small style="color: #888;">({{ filme.data_lancamento | slice:0:4 }})</small></h3>
+                    </a>
+                    <p><strong>Realizador:</strong> {{ filme.realizador.nome }}</p>
+                    <p><strong>Atores:</strong>
+                        @for (ator of filme.atores; track ator.id) {
+                            {{ ator.nome }}{{ !$last ? ', ' : '' }}
+                        }
+                    </p>
+                    <p><strong>Géneros:</strong>
+                        @for (genero of filme.generos; track genero.id) {
+                            {{ genero.nome }}{{ !$last ? ', ' : '' }}
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    } @empty {
+        <p class="text-center" style="color: #888; width: 100%;">Nenhum filme encontrado.</p>
+    }
+    </div>
+</div>

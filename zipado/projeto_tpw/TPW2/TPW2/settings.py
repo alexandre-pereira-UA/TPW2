@@ -64,7 +64,6 @@ REST_FRAMEWORK = {
 }
 
 # Permite que o Angular (mesmo correndo em localhost:4200 ou noutro domínio de produção) aceda a esta API
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'TPW2.urls'
 
@@ -128,6 +127,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 
 # Static files (CSS, JavaScript, Images)
