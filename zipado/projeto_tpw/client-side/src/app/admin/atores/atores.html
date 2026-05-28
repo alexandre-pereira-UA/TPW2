@@ -1,0 +1,53 @@
+<div class="container" style="margin-top: 30px; color: white;">
+    <!-- Cabeçalho (Base Gestão) -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+            <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">Gestão de Atores</h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Atores</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Barra de Pesquisa (Base Gestão) -->
+    <div style="margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; max-width: 500px;">
+            <div style="position: relative; flex-grow: 1;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 12px; color: #666;"></i>
+                <input type="text" [(ngModel)]="query" (input)="onSearch()" placeholder="Pesquisar nesta lista..."
+                       style="width: 100%; padding: 10px 15px 10px 40px; background: #1a1a1a; border: 1px solid #333; border-radius: 50px; color: white; outline: none;">
+            </div>
+            @if (query) {
+                <button (click)="limparPesquisa()" class="btn btn-link" style="color: #d9534f; text-decoration: none; padding-top: 10px;">Limpar</button>
+            }
+        </div>
+    </div>
+
+    <!-- Tabela (Base Gestão + Atores) -->
+    <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <div class="table-responsive">
+            <table class="table" style="color: white; border: none;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th>Nome do Ator</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (ator of itensFiltrados; track ator.id) {
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td><strong style="color: #ccc;">{{ ator.nome }}</strong></td>
+                            <td style="text-align: right;">
+                                <a (click)="apagarAtor(ator.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    } @empty {
+                        <tr><td colspan="2" class="text-center" style="color: #888; padding-top: 20px;">Nenhum ator encontrado.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

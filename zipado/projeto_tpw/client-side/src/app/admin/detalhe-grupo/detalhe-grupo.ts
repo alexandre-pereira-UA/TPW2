@@ -1,0 +1,62 @@
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-detalhe-grupo',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  templateUrl: './detalhe-grupo.html',
+  styleUrl: './detalhe-grupo.css'
+})
+export class DetalheGrupo implements OnInit {
+  grupo: any = null;
+  utilizadores: any[] = [];
+  permissoes: any[] = [];
+
+  private route = inject(ActivatedRoute);
+  private cdr = inject(ChangeDetectorRef);
+
+  async ngOnInit(): Promise<void> {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      const id = parseInt(idParam, 10);
+      await this.carregarDetalhesGrupo(id);
+    }
+  }
+
+  async carregarDetalhesGrupo(id: number): Promise<void> {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:8000/ws/grupos/${id}/`, {
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        this.grupo = data.grupo;
+        this.utilizadores = data.utilizadores;
+        this.permissoes = data.permissoes;
+        this.cdr.detectChanges();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async removerUtilizadorGrupo(userId: number): Promise<void> {
+    if (!confirm('Remover utilizador do grupo?')) return;
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:8000/ws/grupos/${this.grupo.id}/remover/${userId}/`, {
+        method: 'POST',
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      if (response.ok) {
+        this.utilizadores = this.utilizadores.filter(u => u.id !== userId);
+        this.cdr.detectChanges();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class="container" style="margin-top: 50px; max-width: 600px; color: white;">
+    <div class="movie-card" style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333;">
+        <h2 style="color: #f5c518; margin-bottom: 30px; font-weight: bold;">Editar Dados do Perfil</h2>
+
+        <form (submit)="onSubmit(); $event.preventDefault();">
+            <div class="form-group mb-3">
+                <label>Nome de Utilizador:</label>
+                <input type="text" [(ngModel)]="username" name="username" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
+            </div>
+
+            <div class="row" style="margin: 0;">
+                <div class="col-md-6 form-group mb-3" style="padding-left: 0; padding-right: 5px;">
+                    <label>Primeiro Nome:</label>
+                    <input type="text" [(ngModel)]="first_name" name="first_name" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
+                </div>
+                <div class="col-md-6 form-group mb-3" style="padding-right: 0; padding-left: 5px;">
+                    <label>Último Nome:</label>
+                    <input type="text" [(ngModel)]="last_name" name="last_name" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label>E-mail:</label>
+                <input type="email" [(ngModel)]="email" name="email" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
+            </div>
+
+            <!-- Nova palavra passe (opcional) -->
+            <div class="form-group mb-4">
+                <label>Nova Palavra-Passe (deixe vazio para manter a atual):</label>
+                <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="••••••••"
+                       style="background: #2a2a2a; color: white; border: 1px solid #444;">
+            </div>
+
+            <!-- Se o utilizador logado for Administrador, pode gerir o grupo deste perfil -->
+            @if (currentUser && currentUser.is_superuser) {
+                <div style="border-top: 1px solid #333; padding-top: 20px; margin-top: 10px; margin-bottom: 20px;">
+                    <label>Gerir Grupo:</label>
+                    <select [(ngModel)]="grupoSelecionado" name="grupo" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;">
+                        <option value="">-- Sem Grupo / Utilizador Comum --</option>
+                        @for (g of grupos; track g.id) {
+                            <option [value]="g.id">{{ g.name }}</option>
+                        }
+                    </select>
+                </div>
+            }
+
+            <div style="display: flex; gap: 10px; margin-top: 30px;">
+                <button type="submit" class="btn btn-warning" style="flex: 1; font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; padding: 10px;">
+                    Guardar Alterações
+                </button>
+                <a href="javascript:history.back()" class="btn-voltar-custom" style="flex: 1; justify-content: center; background: #333; color: white; padding: 10px; border-radius: 50px; text-decoration: none; text-align: center;">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

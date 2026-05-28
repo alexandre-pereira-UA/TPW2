@@ -1,0 +1,30 @@
+<div class="container edit-container" style="padding-top: 20px; color: white;">
+    <div style="margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+        <h2 style="color: white !important; margin-bottom: 5px; text-transform: capitalize;">{{ modo }} {{ tipo }}</h2>
+        <div class="breadcrumb-text" style="color: #888; font-size: 0.9em;">
+            Painel Administrativo > {{ tipo | titlecase }}s > <span style="color: #ffc107; font-weight: bold;">{{ modo }}</span>
+        </div>
+    </div>
+
+    <div class="form-card" style="background-color: #1e1e1e; border: 1px solid #333; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <form (submit)="onSubmit(); $event.preventDefault();">
+            <div class="form-group mb-4">
+                <label style="color: white !important; font-weight: bold; display: block; margin-bottom: 10px; text-transform: capitalize;">
+                    Nome do {{ tipo }}:
+                </label>
+                <input type="text" [(ngModel)]="nome" name="nome" class="form-control"
+                       placeholder="Introduza o nome aqui..." style="background-color: #2a2a2a; border: 1px solid #444; color: white;" required>
+            </div>
+
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 15px; margin-top: 30px;">
+                <button type="submit" class="btn btn-warning" style="background-color: #ffc107; color: #000; border: none; padding: 10px 25px; border-radius: 4px; font-weight: bold; display: inline-flex; align-items: center;">
+                    <i class="fas fa-save" style="margin-right: 8px;"></i> Guardar Alterações
+                </button>
+
+                <a href="javascript:history.back()" class="btn-cancelar-dark" style="background-color: #333; color: white; border: none; padding: 10px 25px; border-radius: 4px; font-weight: bold; display: inline-flex; align-items: center; text-decoration: none;">
+                    <i class="fas fa-times" style="margin-right: 8px;"></i> Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

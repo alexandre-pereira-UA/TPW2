@@ -1,0 +1,57 @@
+@if (grupo) {
+    <div class="main-container" style="background: #121212; padding: 25px; min-height: 100vh; color: white;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+            <h2 style="margin: 0;">Membros do Grupo: <span style="color: #ffc107;">{{ grupo.name }}</span></h2>
+
+            <a routerLink="/admin/grupos" class="btn-voltar-dark" style="background: #333; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none;">
+                <i class="fas fa-chevron-left"></i> Voltar aos Grupos
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7" style="border-right: 1px solid #333;">
+                <h4 class="mb-4" style="color: #f5c518;"><i class="fas fa-users"></i> Utilizadores</h4>
+                <table class="table" style="color: white;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #333;">
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th style="text-align: right;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (u of utilizadores; track u.id) {
+                            <tr style="border-bottom: 1px solid #222;">
+                                <td><strong>{{ u.username }}</strong></td>
+                                <td>{{ u.email || 'N/A' }}</td>
+                                <td style="text-align: right;">
+                                    <a [routerLink]="['/perfil', u.id]" class="btn-acao" style="margin-right: 10px; color: #f5c518;"><i class="fas fa-eye"></i></a>
+                                    <a (click)="removerUtilizadorGrupo(u.id)" class="btn-acao btn-delete" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-user-minus"></i></a>
+                                </td>
+                            </tr>
+                        } @empty {
+                            <tr><td colspan="3" class="text-center" style="color: #888;">Nenhum membro associado.</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-5">
+                <h4 class="mb-4" style="color: #f5c518;"><i class="fas fa-lock"></i> Permissões</h4>
+                <div style="background: #1e1e1e; padding: 15px; border-radius: 5px; border: 1px solid #333;">
+                    @for (perm of permissoes; track perm.id) {
+                        <div style="padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.9em; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check text-success"></i> {{ perm.name }}
+                        </div>
+                    } @empty {
+                        <p class="text-muted" style="color: #888; margin: 0;">Sem permissões ativas.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+} @else {
+    <div class="container text-center" style="margin-top: 100px; color: #888;">
+        <h3>A carregar dados do grupo...</h3>
+    </div>
+}

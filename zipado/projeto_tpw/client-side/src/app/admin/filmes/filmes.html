@@ -1,0 +1,71 @@
+<div class="container" style="margin-top: 30px; color: white;">
+    <!-- Cabeçalho (Base Gestão) -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+            <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">Gestão de Filmes</h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Filmes</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <button (click)="importarFilmes()" class="btn btn-warning" [disabled]="carregandoImport" style="background-color: #444; color: #f5c518; font-weight: bold; border-radius: 50px;">
+                <i class="fas fa-cloud-download-alt"></i> {{ carregandoImport ? 'A importar...' : 'Importar 10 Filmes' }}
+            </button>
+            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+        </div>
+    </div>
+
+    @if (mensagem) {
+        <div class="alert alert-info" style="border-radius: 8px; font-weight: bold; margin-bottom: 20px;">{{ mensagem }}</div>
+    }
+
+    <!-- Barra de Pesquisa (Base Gestão) -->
+    <div style="margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; max-width: 500px;">
+            <div style="position: relative; flex-grow: 1;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 12px; color: #666;"></i>
+                <input type="text" [(ngModel)]="query" (input)="onSearch()" placeholder="Pesquisar nesta lista..."
+                       style="width: 100%; padding: 10px 15px 10px 40px; background: #1a1a1a; border: 1px solid #333; border-radius: 50px; color: white; outline: none;">
+            </div>
+            @if (query) {
+                <button (click)="limparPesquisa()" class="btn btn-link" style="color: #d9534f; text-decoration: none; padding-top: 10px;">Limpar</button>
+            }
+        </div>
+    </div>
+
+    <!-- Tabela (Base Gestão + Filmes) -->
+    <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <div class="table-responsive">
+            <table class="table" style="color: white; border: none;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th>Poster</th>
+                        <th>Título</th>
+                        <th>Ano</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (filme of itensFiltrados; track filme.id) {
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td>
+                                @if (filme.cartaz) {
+                                    <img [src]="filme.cartaz" style="width: 45px; height: 65px; object-fit: cover; border-radius: 4px;">
+                                } @else {
+                                    <i class="fas fa-film" style="color: #333; font-size: 24px;"></i>
+                                }
+                            </td>
+                            <td><strong style="color: #ccc;">{{ filme.titulo }}</strong></td>
+                            <td>{{ filme.data_lancamento | slice:0:4 }}</td>
+                            <td style="text-align: right;">
+                                <a [routerLink]="['/filme', filme.id]" class="btn-acao" style="margin-right: 10px; color: #f5c518;"><i class="fas fa-eye"></i></a>
+                                <a (click)="apagarFilme(filme.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    } @empty {
+                        <tr><td colspan="4" class="text-center" style="color: #888; padding-top: 20px;">Nenhum filme encontrado.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

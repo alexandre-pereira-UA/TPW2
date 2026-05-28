@@ -1,0 +1,52 @@
+<div class="container" style="margin-top: 30px; color: white;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+            <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">Gestão de Grupos</h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Grupos e Acessos</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; max-width: 500px;">
+            <div style="position: relative; flex-grow: 1;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 12px; color: #666;"></i>
+                <input type="text" [(ngModel)]="query" (input)="onSearch()" placeholder="Pesquisar nesta lista..."
+                       style="width: 100%; padding: 10px 15px 10px 40px; background: #1a1a1a; border: 1px solid #333; border-radius: 50px; color: white; outline: none;">
+            </div>
+            @if (query) {
+                <button (click)="limparPesquisa()" class="btn btn-link" style="color: #d9534f; text-decoration: none; padding-top: 10px;">Limpar</button>
+            }
+        </div>
+    </div>
+
+    <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <div class="table-responsive">
+            <table class="table" style="color: white; border: none;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th>Nome do Grupo</th>
+                        <th>Nº de Membros</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (g of gruposFiltrados; track g.id) {
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td><strong style="color: #ccc;">{{ g.name }}</strong></td>
+                            <td><span class="badge" style="background: #333; color: #f5c518; font-weight: bold; padding: 6px 12px;">{{ g.user_set_count || 0 }} utilizadores</span></td>
+                            <td style="text-align: right;">
+                                <a (click)="apagarGrupo(g.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    } @empty {
+                        <tr><td colspan="3" class="text-center" style="color: #888; padding-top: 20px;">Nenhum grupo encontrado.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

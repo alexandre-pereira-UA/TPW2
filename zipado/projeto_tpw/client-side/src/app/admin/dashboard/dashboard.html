@@ -1,0 +1,66 @@
+<div class="container" style="margin-top: 50px; color: white;">
+    <h1 style="color: #f5c518; text-align: center; font-weight: 800; margin-bottom: 50px; letter-spacing: 1px;">PAINEL DE CONTROLO</h1>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Segurança e Acessos</h3>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-6" style="margin-bottom: 15px;">
+            <a routerLink="/admin/utilizadores" class="admin-card-new" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-users" style="font-size: 30px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Utilizadores</h4>
+                <p style="color: #888; margin: 0;">{{ total_users }} registados</p>
+            </a>
+        </div>
+        <div class="col-md-6" style="margin-bottom: 15px;">
+            <a routerLink="/admin/grupos" class="admin-card-new" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-user-shield" style="font-size: 30px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Grupos</h4>
+                <p style="color: #888; margin: 0;">{{ total_grupos }} criados</p>
+            </a>
+        </div>
+    </div>
+
+    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px;">Conteúdo da Aplicação</h3>
+    <div class="row">
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <a routerLink="/admin/filmes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-film" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Filmes</h4>
+                <p style="color: #888; margin: 0;">{{ total_filmes }} na base</p>
+            </a>
+        </div>
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <a [routerLink]="['/admin/criar', 'ator']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-user-tie" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Atores</h4>
+                <p style="color: #888; margin: 0;">{{ total_atores }} nomes</p>
+            </a>
+        </div>
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <a [routerLink]="['/admin/criar', 'realizador']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-video" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Realizadores</h4>
+                <p style="color: #888; margin: 0;">{{ total_realizadores }} nomes</p>
+            </a>
+        </div>
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <a [routerLink]="['/admin/criar', 'genero']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-tags" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Géneros</h4>
+                <p style="color: #888; margin: 0;">{{ total_generos }} categorias</p>
+            </a>
+        </div>
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <a routerLink="/admin/avaliacoes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+                <i class="fas fa-star" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+                <h4 style="margin: 5px 0;">Avaliações</h4>
+                <p style="color: #888; margin: 0;">{{ total_avaliacoes }} críticas</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 60px;">
+        <a routerLink="/" class="btn-voltar-custom" style="padding: 12px 40px; background: #333; color: white; border-radius: 50px; text-decoration: none;">
+            <i class="fas fa-external-link-alt"></i> Ir para o Site Público
+        </a>
+    </div>
+</div>

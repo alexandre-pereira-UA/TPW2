@@ -1,0 +1,71 @@
+<div class="container" style="margin-top: 30px; color: white;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+            <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">Utilizadores</h2>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel Administrativo > Lista de Contas Registadas</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; max-width: 500px;">
+            <div style="position: relative; flex-grow: 1;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 12px; color: #666;"></i>
+                <input type="text" [(ngModel)]="query" (input)="onSearch()" placeholder="Pesquisar nesta lista..."
+                       style="width: 100%; padding: 10px 15px 10px 40px; background: #1a1a1a; border: 1px solid #333; border-radius: 50px; color: white; outline: none;">
+            </div>
+            @if (query) {
+                <button (click)="limparPesquisa()" class="btn btn-link" style="color: #d9534f; text-decoration: none; padding-top: 10px;">Limpar</button>
+            }
+        </div>
+    </div>
+
+    <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <div class="table-responsive">
+            <table class="table" style="color: white; border: none;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Data de Entrada</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (u of itensFiltrados; track u.id) {
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td><strong style="color: #ccc;">{{ u.username }}</strong></td>
+                            <td>{{ u.email || 'N/A' }}</td>
+                            <td>
+                                @if (u.is_superuser) {
+                                    <span class="label label-danger" style="background-color: #d9534f; padding: 4px 8px; border-radius: 4px;">Superuser</span>
+                                } @else if (u.is_staff) {
+                                    <span class="label label-info" style="background-color: #5bc0de; padding: 4px 8px; border-radius: 4px;">Staff</span>
+                                } @else {
+                                    <span class="label label-default" style="background-color: #777; padding: 4px 8px; border-radius: 4px;">User</span>
+                                }
+                            </td>
+                            <td style="color: #888;">{{ u.date_joined | date:"dd/MM/yyyy" }}</td>
+                            <td style="text-align: right;">
+                                <a [routerLink]="['/perfil', u.id]" class="btn-acao" style="margin-right: 10px; color: #f5c518;"><i class="fas fa-eye"></i></a>
+                                <a [routerLink]="['/perfil/editar', u.id]" class="btn-acao" style="margin-right: 10px; color: #5bc0de;"><i class="fas fa-user-edit"></i></a>
+
+                                @if (!u.is_superuser) {
+                                    <a (click)="apagarUtilizador(u.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
+                                } @else {
+                                    <span class="btn-acao" style="opacity: 0.3; cursor: not-allowed;" title="Superuser Protegido"><i class="fas fa-lock"></i></span>
+                                }
+                            </td>
+                        </tr>
+                    } @empty {
+                        <tr><td colspan="5" class="text-center" style="color: #888; padding-top: 20px;">Nenhum utilizador encontrado.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
