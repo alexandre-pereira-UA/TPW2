@@ -68,6 +68,43 @@ urlpatterns = [
     path('ws/filmes/<int:filme_id>/', views.api_detalhe_filme, name='api_detalhe_filme'),
     path('ws/favoritos/', views.api_meus_favoritos, name='api_meus_favoritos'),
     path('ws/favoritos/toggle/<int:filme_id>/', views.api_toggle_favorito, name='api_toggle_favorito'),
+    path('ws/dashboard/stats/', views.api_dashboard_stats, name='api_dashboard_stats'),
+    # --- ROTAS DA API REST (Em Falta) ---
+
+    # Atores
+    path('ws/atores/', views.api_lista_atores, name='api_lista_atores'),
+    path('ws/atores/apagar/<int:id>/', views.api_apagar_ator, name='api_apagar_ator'),
+
+    # Realizadores
+    path('ws/realizadores/', views.api_lista_realizadores, name='api_lista_realizadores'),
+    path('ws/realizadores/apagar/<int:id>/', views.api_apagar_realizador, name='api_apagar_realizador'),
+
+    # Generos
+    path('ws/generos/', views.api_lista_generos, name='api_lista_generos'),
+    path('ws/generos/apagar/<int:id>/', views.api_apagar_genero, name='api_apagar_genero'),
+
+    # Utilizadores
+    path('ws/utilizadores/', views.api_lista_utilizadores, name='api_lista_utilizadores'),
+    path('ws/utilizadores/apagar/<int:id>/', views.api_apagar_utilizador, name='api_apagar_utilizador'),
+
+    # Avaliacoes
+    path('ws/avaliacoes/', views.api_lista_avaliacoes, name='api_lista_avaliacoes'),
+    path('ws/avaliacoes/apagar/<int:id>/', views.api_apagar_avaliacao, name='api_apagar_avaliacao'),
+
+    # Grupos
+    path('ws/grupos/', views.api_lista_grupos, name='api_lista_grupos'),
+    path('ws/grupos/apagar/<int:id>/', views.api_apagar_grupo, name='api_apagar_grupo'),
+
+    path('ws/utilizadores/<int:id>/', views.api_detalhe_utilizador, name='api_detalhe_utilizador'),
+    path('ws/utilizadores/editar/<int:id>/', views.api_editar_utilizador, name='api_editar_utilizador'),
+
+# Rotas de Guardados
+    path('ws/guardados/', views.api_meus_guardados, name='api_meus_guardados'),
+    path('ws/guardados/toggle/<int:filme_id>/', views.api_toggle_guardado, name='api_toggle_guardado'),
+
+# Rotas de Criar e Editar Filmes
+    path('ws/filmes/novo/', views.api_criar_filme, name='api_criar_filme'),
+    path('ws/filmes/editar/<int:id>/', views.api_editar_filme, name='api_editar_filme'),
 
 
 ]

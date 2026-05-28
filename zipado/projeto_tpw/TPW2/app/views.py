@@ -25,7 +25,7 @@ from django.db.models import Q
 import requests
 from django.contrib import messages
 
-import random
+from django.contrib.auth.models import Group
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -645,3 +645,212 @@ def api_toggle_favorito(request, filme_id):
         fav.delete()
         return Response({'status': 'removido'}, status=status.HTTP_200_OK)
     return Response({'status': 'adicionado'}, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser]) # Apenas administradores podem aceder a estas estatísticas
+def api_dashboard_stats(request):
+    data = {
+        'total_users': User.objects.count(),
+        'total_grupos': Group.objects.count(),
+        'total_filmes': Filme.objects.count(),
+        'total_atores': Ator.objects.count(),
+        'total_realizadores': Realizador.objects.count(),
+        'total_generos': Genero.objects.count(),
+        'total_avaliacoes': Avaliacao.objects.count(),
+    }
+    return Response(data, status=status.HTTP_200_OK)
+
+
+# --- API: ATORES ---
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_lista_atores(request):
+    atores = Ator.objects.all().order_by('nome')
+    serializer = AtorSerializer(atores, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def api_apagar_ator(request, id):
+    ator = get_object_or_404(Ator, id=id)
+    ator.delete()
+    return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+
+# --- API: REALIZADORES ---
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_lista_realizadores(request):
+    realizadores = Realizador.objects.all().order_by('nome')
+    serializer = RealizadorSerializer(realizadores, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def api_apagar_realizador(request, id):
+    realizador = get_object_or_404(Realizador, id=id)
+    realizador.delete()
+    return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+
+# --- API: GÉNEROS ---
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_lista_generos(request):
+    generos = Genero.objects.all().order_by('nome')
+    serializer = GeneroSerializer(generos, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def api_apagar_genero(request, id):
+    genero = get_object_or_404(Genero, id=id)
+    genero.delete()
+    return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+
+# --- API: UTILIZADORES ---
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def api_lista_utilizadores(request):
+    utilizadores = User.objects.all().order_by('-date_joined')
+    serializer = UserSerializer(utilizadores, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def api_apagar_utilizador(request, id):
+    u = get_object_or_404(User, id=id)
+    if u.is_superuser:
+        return Response({'error': 'Não é possível apagar um Superutilizador.'}, status=status.HTTP_400_BAD_REQUEST)
+    u.delete()
+    return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+
+# --- API: CRÍTICAS / AVALIAÇÕES ---
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def api_lista_avaliacoes(request):
+    avaliacoes = Avaliacao.objects.all().order_by('-data_postagem')
+    serializer = AvaliacaoSerializer(avaliacoes, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# Atualize a função api_apagar_avaliacao para ficar assim:
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])  # Permite a ligação de autenticados, mas validamos a segurança no código!
+def api_apagar_avaliacao(request, id):
+    av = get_object_or_404(Avaliacao, id=id)
+
+    # Validação de segurança idêntica à que tinha no TP1!
+    if request.user.is_superuser or request.user.has_perm('app.delete_avaliacao'):
+        av.delete()
+        return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+    return Response({'error': 'Não tens permissão para isto.'}, status=status.HTTP_403_FORBIDDEN)
+
+
+# --- API: GRUPOS ---
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def api_lista_grupos(request):
+    grupos = Group.objects.all().order_by('name')
+    data = []
+    for g in grupos:
+        data.append({
+            'id': g.id,
+            'name': g.name,
+            'user_set_count': g.user_set.count()
+        })
+    return Response(data, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def api_apagar_grupo(request, id):
+    grupo = get_object_or_404(Group, id=id)
+    grupo.delete()
+    return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def api_detalhe_utilizador(request, id):
+    u = get_object_or_404(User, id=id)
+    serializer = UserSerializer(u)
+    data = serializer.data
+    # Envia também os grupos associados e a data de criação
+    data['groups'] = [{'id': g.id, 'name': g.name} for g in u.groups.all()]
+    data['date_joined'] = u.date_joined
+    return Response(data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_editar_utilizador(request, id):
+    u = get_object_or_404(User, id=id)
+    # Apenas o próprio utilizador ou um superuser pode editar
+    if request.user.id != u.id and not request.user.is_superuser:
+        return Response({'error': 'Não tem permissão para editar este perfil.'}, status=status.HTTP_403_FORBIDDEN)
+
+    data = request.data
+    u.username = data.get('username', u.username)
+    u.first_name = data.get('first_name', u.first_name)
+    u.last_name = data.get('last_name', u.last_name)
+    u.email = data.get('email', u.email)
+
+    password = data.get('password')
+    if password:
+        u.set_password(password)
+
+    grupo_id = data.get('grupo')
+    if request.user.is_superuser and grupo_id is not None:
+        u.groups.clear()
+        if grupo_id != '':
+            from django.contrib.auth.models import Group
+            g = get_object_or_404(Group, id=int(grupo_id))
+            u.groups.add(g)
+
+    u.save()
+    return Response(UserSerializer(u).data, status=status.HTTP_200_OK)
+
+# --- API: MEUS GUARDADOS (Em Falta) ---
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def api_meus_guardados(request):
+    gs = Guardado.objects.filter(utilizador=request.user)
+    serializer = GuardadoSerializer(gs, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def api_toggle_guardado(request, filme_id):
+    filme = get_object_or_404(Filme, id=filme_id)
+    g, created = Guardado.objects.get_or_create(utilizador=request.user, filme=filme)
+    if not created:
+        g.delete()
+        return Response({'status': 'removido'}, status=status.HTTP_200_OK)
+    return Response({'status': 'adicionado'}, status=status.HTTP_201_CREATED)
+
+
+# --- API: CRIAR FILME (Em Falta) ---
+@api_view(['POST'])
+@permission_classes([IsAdminUser]) # Permite acesso a Superusers e membros do Staff
+def api_criar_filme(request):
+    serializer = FilmeWriteSerializer(data=request.data)
+    if serializer.is_valid():
+        filme = serializer.save()
+        return Response(FilmeReadSerializer(filme).data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# --- API: EDITAR FILME (Em Falta) ---
+@api_view(['POST', 'PUT'])
+@permission_classes([IsAdminUser])
+def api_editar_filme(request, id):
+    filme = get_object_or_404(Filme, id=id)
+    serializer = FilmeWriteSerializer(instance=filme, data=request.data, partial=True)
+    if serializer.is_valid():
+        filme_atualizado = serializer.save()
+        return Response(FilmeReadSerializer(filme_atualizado).data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

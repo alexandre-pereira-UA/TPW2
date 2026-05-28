@@ -1,9 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { FilmeService } from '../services/filme';
 
 @Component({
   selector: 'app-favoritos',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './favoritos.html',
-  styleUrl: './favoritos.css',
+  styleUrl: './favoritos.css'
 })
-export class Favoritos {}
+export class Favoritos implements OnInit {
+  favoritos: any[] = [];
+
+  private filmeService = inject(FilmeService);
+  private cdr = inject(ChangeDetectorRef);
+
+  async ngOnInit(): Promise<void> {
+    this.favoritos = await this.filmeService.getFavoritos();
+    this.cdr.detectChanges();
+  }
+
+  // Remove dos favoritos e atualiza o ecrã instantaneamente
+  async removerFavorito(filmeId: number): Promise<void> {
+    const res = await this.filmeService.toggleFavorito(filmeId);
+    if (res) {
+      this.favoritos = this.favoritos.filter(f => f.filme.id !== filmeId);
+      this.cdr.detectChanges();
+    }
+  }
+}

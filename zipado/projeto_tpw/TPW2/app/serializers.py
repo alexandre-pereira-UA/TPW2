@@ -1,13 +1,22 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.models import User
 from .models import Genero, Realizador, Ator, Filme, Avaliacao, Guardado, Favorito
 
 
-# Serializer para Utilizadores
+# Serializer para Utilizadores (Corrigido!)
 class UserSerializer(serializers.ModelSerializer):
+    is_moderador = serializers.SerializerMethodField() # 1. Adicionado aqui!
+
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_superuser', 'is_staff']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_superuser', 'is_staff', 'is_moderador']
+
+    # 2. Corrigido o recuo (indentação) para ficar fora da classe Meta!
+    def get_is_moderador(self, obj):
+        # 1. Verifica se é superuser
+        # 2. Verifica se tem o grupo 'coment' (sem acentos, apanha 'comentário', 'comentarios', etc)
+        # 3. Verifica se tem a permissão nativa de apagar avaliações
+        return obj.is_superuser or obj.groups.filter(name__icontains='coment').exists() or obj.has_perm('app.delete_avaliacao')
 
 
 # Serializer para Géneros
@@ -31,11 +40,21 @@ class AtorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+# Serializer para Críticas/Avaliações
+class AvaliacaoSerializer(serializers.ModelSerializer):
+    utilizador = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Avaliacao
+        fields = ['id', 'filme', 'utilizador', 'nota', 'comentario', 'data_postagem']
+
+
 # Serializer para Leitura de Filmes (traz detalhes completos de atores, géneros e realizador)
 class FilmeReadSerializer(serializers.ModelSerializer):
     realizador = RealizadorSerializer(read_only=True)
     generos = GeneroSerializer(many=True, read_only=True)
     atores = AtorSerializer(many=True, read_only=True)
+    avaliacoes = AvaliacaoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Filme
@@ -47,15 +66,6 @@ class FilmeWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Filme
         fields = '__all__'
-
-
-# Serializer para Críticas/Avaliações
-class AvaliacaoSerializer(serializers.ModelSerializer):
-    utilizador = UserSerializer(read_only=True)
-
-    class Meta:
-        model = Avaliacao
-        fields = ['id', 'filme', 'utilizador', 'nota', 'comentario', 'data_postagem']
 
 
 # Serializer para Favoritos

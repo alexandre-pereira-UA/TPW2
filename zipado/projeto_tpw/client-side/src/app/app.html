@@ -1,11 +1,72 @@
-<nav class="navbar navbar-inverse" style="background-color: #111; border-color: #222; border-radius: 0; margin-bottom: 0;">
-  <div class="container">
-    <div class="navbar-header">
-      <!-- O routerLink permite voltar ao início sem recarregar a página -->
-      <a class="navbar-brand" routerLink="/" style="color: #f5c518; font-weight: bold; letter-spacing: 1px;">MOVIEZ</a>
+<nav class="navbar navbar-inverse" style="border-radius: 0; margin-bottom: 0;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="toggleDropdown()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/" style="color: #f5c518; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                MOVIEZ
+                <i class="fas fa-film icone-rolo-animado"></i>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" [class.collapse]="!dropdownOpen" [class.in]="dropdownOpen">
+            <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center; margin: 0;">
+
+                @if (isLoggedIn) {
+                    @if (!isSuperuser) {
+                        <li>
+                            <a routerLink="/favoritos" style="color: #f39c12; padding: 15px 15px; display: flex; align-items: center; gap: 5px;">
+                                <i class="fa-solid fa-heart"></i> Favoritos
+                            </a>
+                        </li>
+                    } @else {
+                        <li>
+                            <a routerLink="/admin/dashboard" style="color: #f5c518; font-weight: bold; padding: 15px 15px; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-user-shield"></i> Painel Admin
+                            </a>
+                        </li>
+                    }
+
+                    <li class="dropdown" [class.open]="dropdownOpen" style="position: relative;">
+                        <a (click)="toggleDropdown()" style="display: flex; align-items: center; background: transparent !important; color: white; padding: 15px 10px; text-decoration: none; cursor: pointer;">
+                            <span style="margin-right: 10px;">{{ username }}</span>
+                            <span class="avatar-circle" style="background-color: #f5c518; color: black; border-radius: 50%; width: 25px; height: 25px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">
+                                {{ username[0] | uppercase }}
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #222; border-color: #333; min-width: 160px; padding: 5px 0;">
+                            @if (!isSuperuser) {
+                                <!-- Carrega as opções com o ID dinâmico do utilizador comum logado -->
+                                <li><a [routerLink]="['/perfil', userId]" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-user"></i> Meu Perfil</a></li>
+                                <li><a [routerLink]="['/perfil/editar', userId]" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-user-edit"></i> Editar Dados</a></li>
+                                <li><a routerLink="/guardados" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-bookmark"></i> Guardados</a></li>
+                            } @else {
+                                <li><a routerLink="/admin/dashboard" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-th-large"></i> Painel Admin</a></li>
+                            }
+                            <li class="divider" style="background-color: #444; height: 1px; margin: 9px 0;"></li>
+                            <li>
+                                <button (click)="logout()" style="background: none; border: none; color: #ff4d4d; width: 100%; text-align: left; padding: 8px 15px; font-weight: bold; cursor: pointer;">
+                                    <i class="fas fa-sign-out-alt"></i> Sair
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                } @else {
+                    <li>
+                        <a routerLink="/login" class="btn btn-login-nav" style="color: black; background-color: #f5c518; border-radius: 20px; font-weight: bold; margin: 8px 10px; padding: 6px 20px; text-decoration: none; display: inline-block;">
+                            Login
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
-<!-- O router-outlet desenha a página ativa com base na URL -->
-<router-outlet></router-outlet>
+<div class="container" style="margin-top: 20px;">
+    <router-outlet></router-outlet>
+</div>

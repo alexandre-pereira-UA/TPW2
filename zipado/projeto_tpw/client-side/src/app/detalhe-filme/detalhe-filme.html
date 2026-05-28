@@ -9,11 +9,30 @@
                 </div>
 
                 <div class="col-md-9">
+                    <!-- Título com o botão dinâmico de Editar Filme -->
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                         <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px;">{{ filme.titulo }}</h1>
+
+                        @if (isStaff) {
+                            <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn btn-warning" style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 20px;">
+                                <i class="fas fa-edit"></i> Editar Filme
+                            </a>
+                        }
                     </div>
 
                     <p style="color: #888; font-size: 1.1em; margin-bottom: 10px;">{{ filme.data_lancamento }}</p>
+
+                    <!-- Sistema interativo de Estrelas -->
+                    <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+                        <div class="sistema-classificacao" style="font-size: 24px; cursor: pointer; color: #444;">
+                            <span (click)="selecionarNota(1)" [style.color]="notaSelecionada >= 1 ? '#f5c518' : '#444'">★</span>
+                            <span (click)="selecionarNota(2)" [style.color]="notaSelecionada >= 2 ? '#f5c518' : '#444'">★</span>
+                            <span (click)="selecionarNota(3)" [style.color]="notaSelecionada >= 3 ? '#f5c518' : '#444'">★</span>
+                            <span (click)="selecionarNota(4)" [style.color]="notaSelecionada >= 4 ? '#f5c518' : '#444'">★</span>
+                            <span (click)="selecionarNota(5)" [style.color]="notaSelecionada >= 5 ? '#f5c518' : '#444'">★</span>
+                        </div>
+                        <span style="color: #666; font-size: 1.2em;">Nota: <strong id="nota-escolhida" style="color: #f5c518;">{{ notaSelecionada }}</strong>/5</span>
+                    </div>
 
                     @if (filme.sinopse) {
                         <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
@@ -36,10 +55,66 @@
                         </div>
                     </div>
 
+                    <!-- Críticas e Comentários -->
+                    <div class="section-container" style="margin-top: 40px;">
+                        <h2 style="color: #f5c518; font-size: 22px;">Críticas e Comentários</h2>
+                        <hr style="border-color: #333; margin-top: 0; margin-bottom: 20px;">
+
+                        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h4 style="color: #f5c518; margin: 0;">
+                                    {{ minhaAvaliacao ? 'A tua Crítica' : 'Deixa a tua Crítica' }}
+                                </h4>
+                                @if (minhaAvaliacao) {
+                                    <a (click)="apagarMinhaCritica()" class="text-danger" style="text-decoration: none; font-size: 11px; font-weight: bold; cursor: pointer;">
+                                        <i class="fas fa-trash-alt"></i> APAGAR A MINHA CRÍTICA
+                                    </a>
+                                }
+                            </div>
+
+                            @if (isLoggedIn) {
+                                <form (submit)="submeterCritica(); $event.preventDefault();">
+                                    <textarea [(ngModel)]="novoComentario" name="comentario" class="form-control" rows="3" placeholder="O que achaste deste filme?" style="background: #222; color: white; border: 1px solid #444; margin-bottom: 10px;"></textarea>
+                                    <button type="submit" class="btn btn-warning btn-sm" style="font-weight: bold; width: 100%; border-radius: 50px;">
+                                        {{ minhaAvaliacao ? 'Atualizar Comentário' : 'Publicar Comentário' }}
+                                    </button>
+                                </form>
+                            } @else {
+                                <p style="color: #888;">Faz <a routerLink="/login" style="color: #f5c518;">login</a> para comentar.</p>
+                            }
+                        </div>
+
+                        <div class="comments-list">
+                            @for (av of outrasAvaliacoes; track av.id) {
+                                <div style="border-bottom: 1px solid #222; margin-bottom: 15px; padding-bottom: 10px;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <div>
+                                            <strong style="color: #f5c518;">{{ av.utilizador.username }}</strong>
+                                            <span style="color: #666; font-size: 0.9em;"> ({{ av.nota }}/5 ★)</span>
+                                        </div>
+
+                                        <!-- O bloco de moderação do lixo está aqui dentro do ciclo @for -->
+                                        @if (isModerador) {
+                                            <a (click)="apagarCriticaComoModerador(av.id)" style="color: #ff4d4d; cursor: pointer;">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        }
+                                    </div>
+                                    <p style="margin: 5px 0; color: #ccc;">{{ av.comentario }}</p>
+                                    <small style="color: #444;">{{ av.data_postagem | date:"dd/MM/yyyy HH:mm" }}</small>
+                                </div>
+                            } @empty {
+                                @if (!minhaAvaliacao) {
+                                    <p style="color: #666;">Ainda não há comentários.</p>
+                                }
+                            }
+                        </div>
+                    </div>
+
                     <!-- Botão de Voltar -->
-                    <div style="margin-top: 40px;">
+                    <div style="margin-top: 30px;">
                         <a routerLink="/" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
-                            <i class="fas fa-arrow-left"></i> Voltar ao Catálogo
+                            <i class="fas fa-arrow-left"></i> Ver Catálogo
                         </a>
                     </div>
                 </div>

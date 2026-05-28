@@ -1,1 +1,59 @@
-<p>guardados works!</p>
+<div class="container" style="margin-top: 30px; color: white;">
+    <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <h2><i class="fas fa-bookmark"></i> Guardados para depois</h2>
+
+        @if (guardados.length > 0) {
+            <a href="javascript:history.back()" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                <i class="fas fa-arrow-left"></i> Voltar aos Filmes
+            </a>
+        }
+    </div>
+    <hr style="border-color: #333;">
+
+    <div class="row">
+        @for (item of guardados; track item.id) {
+            <div class="col-md-6">
+                <div class="movie-card" style="display: flex; gap: 20px; position: relative; background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #333;">
+
+                    <div style="position: absolute; top: 10px; right: 10px;">
+                        <a (click)="removerGuardado(item.filme.id)" title="Remover da lista" style="cursor: pointer;">
+                            <i class="fas fa-bookmark" style="color: white; font-size: 20px;"></i>
+                        </a>
+                    </div>
+
+                    @if (item.filme.cartaz) {
+                        <a [routerLink]="['/filme', item.filme.id]">
+                            <img [src]="item.filme.cartaz" [alt]="item.filme.titulo" style="width: 100px; border-radius: 5px; height: 140px; object-fit: cover;">
+                        </a>
+                    }
+
+                    <div>
+                        <h3 style="margin-top: 0;">
+                            <a [routerLink]="['/filme', item.filme.id]" style="color: #f5c518; text-decoration: none; font-size: 18px; font-weight: bold;">
+                                {{ item.filme.titulo }}
+                            </a>
+                        </h3>
+                        <p style="color: #888; font-size: 13px;">Guardado em: {{ item.data_adicionado | date:"dd/MM/yyyy" }}</p>
+                        <p style="margin: 3px 0; font-size: 13px;"><strong>Realizador:</strong> {{ item.filme.realizador.nome }}</p>
+                        <p style="margin: 3px 0; font-size: 13px;"><strong>Atores:</strong>
+                            @for (ator of item.filme.atores; track ator.id) {
+                                {{ ator.nome }}{{ !$last ? ', ' : '' }}
+                            }
+                        </p>
+                        <p style="margin: 3px 0; font-size: 13px;"><strong>Géneros:</strong>
+                            @for (genero of item.filme.generos; track genero.id) {
+                                {{ genero.nome }}{{ !$last ? ', ' : '' }}
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        } @empty {
+            <div class="col-md-12 text-center" style="margin-top: 50px;">
+                <i class="far fa-bookmark" style="font-size: 50px; color: #333; margin-bottom: 20px;"></i>
+                <p style="color: #888; font-size: 18px;">A tua lista de leitura está vazia.</p>
+                <a routerLink="/" class="btn btn-warning" style="background-color: #f5c518; color: black; font-weight: bold; border-radius: 50px; padding: 10px 30px;">Procurar Filmes</a>
+            </div>
+        }
+    </div>
+</div>

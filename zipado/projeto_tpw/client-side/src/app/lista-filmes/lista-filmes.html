@@ -3,7 +3,6 @@
         <h2 style="margin: 0; border: none; padding: 0; color: white;">Filmes em Destaque</h2>
     </div>
 
-    <!-- Barra de Pesquisa -->
     <div style="margin-bottom: 30px;">
         <div style="display: flex; align-items: center; background: white; border-radius: 50px; padding: 5px 10px; overflow: hidden; width: 100%; max-width: 1000px; margin: 0 auto;">
             <div style="flex-grow: 1; padding-left: 15px;">
@@ -14,7 +13,6 @@
         </div>
     </div>
 
-    <!-- Filtros rápidos -->
     <div class="filtros-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
         <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
         <button (click)="ordenar('recentes')" class="filtro-btn" [class.active]="filtroAtivo === 'recentes'">Mais Recentes</button>
@@ -23,14 +21,26 @@
         <button (click)="limparPesquisa()" class="filtro-btn btn-limpar"><i class="fas fa-sync-alt"></i> Limpar</button>
     </div>
 
-    <!-- Grelha de Filmes -->
     <div class="row">
     @for (filme of filmesFiltrados; track filme.id) {
         <div class="col-md-6">
             <div class="movie-card" style="display: flex; gap: 20px; position: relative; margin-bottom: 20px; background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; color: white;">
 
+                <!-- Ícones Dinâmicos de Favorito e Guardado -->
+                @if (isLoggedIn && !isSuperuser) {
+                    <div class="movie-actions" style="position: absolute; top: 15px; right: 15px; z-index: 10; display: flex; gap: 15px; cursor: pointer;">
+                        <a (click)="toggleGuardado(filme.id)" style="text-decoration: none;">
+                            <i class="fa-bookmark" [class.fas]="ids_guardados.includes(filme.id)" [class.far]="!ids_guardados.includes(filme.id)" style="color: white; font-size: 20px;"></i>
+                        </a>
+
+                        <a (click)="toggleFavorito(filme.id)" style="text-decoration: none;">
+                            <i class="fa-heart" [class.fas]="ids_favoritos.includes(filme.id)" [class.far]="!ids_favoritos.includes(filme.id)"
+                               style="font-size: 20px; color: #f39c12;"></i>
+                        </a>
+                    </div>
+                }
+
                 @if (filme.cartaz) {
-                    <!-- O routerLink substitui os links {% url %} do Django -->
                     <a [routerLink]="['/filme', filme.id]">
                         <img [src]="filme.cartaz" [alt]="filme.titulo" class="movie-poster" style="width: 120px; border-radius: 5px; height: 170px; object-fit: cover;">
                     </a>

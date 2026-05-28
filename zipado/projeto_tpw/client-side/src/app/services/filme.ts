@@ -9,7 +9,6 @@ export class FilmeService {
 
   constructor() { }
 
-  // 1. Obter todos os filmes
   async getFilmes(): Promise<Filme[]> {
     const url = `${this.baseUrl}/filmes/`;
     try {
@@ -22,7 +21,6 @@ export class FilmeService {
     }
   }
 
-  // 2. Obter apenas um filme pelo ID (Nova função)
   async getFilme(id: number): Promise<Filme | undefined> {
     const url = `${this.baseUrl}/filmes/${id}/`;
     try {
@@ -32,6 +30,66 @@ export class FilmeService {
     } catch (error) {
       console.error(error);
       return undefined;
+    }
+  }
+
+  async getFavoritos(): Promise<any[]> {
+    const token = localStorage.getItem('token');
+    const url = `${this.baseUrl}/favoritos/`;
+    try {
+      const response = await fetch(url, {
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      if (!response.ok) return [];
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
+
+  async toggleFavorito(filmeId: number): Promise<any> {
+    const token = localStorage.getItem('token');
+    const url = `${this.baseUrl}/favoritos/toggle/${filmeId}/`;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  async getGuardados(): Promise<any[]> {
+    const token = localStorage.getItem('token');
+    const url = `${this.baseUrl}/guardados/`;
+    try {
+      const response = await fetch(url, {
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      if (!response.ok) return [];
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
+
+  async toggleGuardado(filmeId: number): Promise<any> {
+    const token = localStorage.getItem('token');
+    const url = `${this.baseUrl}/guardados/toggle/${filmeId}/`;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Authorization': `Token ${token}` }
+      });
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      return null;
     }
   }
 }

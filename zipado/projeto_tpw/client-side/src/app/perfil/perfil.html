@@ -1,1 +1,69 @@
-<p>perfil works!</p>
+@if (perfilUser) {
+    <div class="container" style="margin-top: 50px; max-width: 800px; color: white;">
+        <div style="background: #1a1a1a; padding: 30px; border-radius: 12px; border: 1px solid #333;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="color: #f5c518; margin: 0;">Perfil de {{ perfilUser.username }}</h2>
+
+                @if (origem === 'admin') {
+                    <a routerLink="/admin/utilizadores" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                } @else if (origem === 'grupo') {
+                    <a [routerLink]="['/admin/grupos', grupoId]" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                } @else {
+                    <a routerLink="/" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
+                }
+            </div>
+
+            @if (perfilUser.groups && perfilUser.groups.length > 0) {
+                <div style="background: #f5c518; color: black; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+                        <i class="fas fa-id-badge"></i> Grupo / Permissões:
+                    </span>
+                    <span style="font-weight: 900; font-size: 16px;">
+                        @for (g of perfilUser.groups; track g.id) {
+                            {{ g.name }}{{ !$last ? ', ' : '' }}
+                        }
+                    </span>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div style="width: 150px; height: 150px; background: #333; border: 3px solid #f5c518; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <span style="font-size: 80px; color: #f5c518; font-weight: bold;">{{ perfilUser.username[0] | uppercase }}</span>
+                    </div>
+                    <a [routerLink]="['/perfil/editar', perfilUser.id]" class="btn btn-warning btn-block" style="background-color: #f5c518; color: black; font-weight: bold; border-radius: 50px; width: 100%; padding: 10px;">Editar Dados</a>
+                </div>
+
+                <div class="col-md-8">
+                    <table class="table" style="color: #ccc; border: none; margin-top: 10px;">
+                        <tbody>
+                            <tr>
+                                <td style="border:none; color:#f5c518; width: 35%;"><b>Nome Completo:</b></td>
+                                <td style="border:none;">{{ perfilUser.first_name }} {{ perfilUser.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td style="border:none; color:#f5c518;"><b>E-mail:</b></td>
+                                <td style="border:none;">{{ perfilUser.email }}</td>
+                            </tr>
+                            <tr>
+                                <td style="border:none; color:#f5c518;"><b>Membro desde:</b></td>
+                                <td style="border:none;">{{ perfilUser.date_joined | date:"dd/MM/yyyy" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+} @else {
+    <div class="container text-center" style="margin-top: 100px; color: #888;">
+        <h3>A carregar dados do perfil...</h3>
+    </div>
+}
