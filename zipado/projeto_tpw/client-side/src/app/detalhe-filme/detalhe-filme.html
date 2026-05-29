@@ -116,10 +116,20 @@
 
                     <!-- Botão de Voltar -->
                     <div style="margin-top: 30px;">
-                        <a routerLink="/" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
-                            <i class="fas fa-arrow-left"></i> Ver Catálogo
-                        </a>
-                    </div>
+                      @if (origem === 'admin_avaliacoes') {
+                          <a routerLink="/admin/avaliacoes" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                              <i class="fas fa-arrow-left"></i> Voltar às Críticas
+                          </a>
+                      } @else if (origem === 'admin_filmes') {
+                          <a routerLink="/admin/filmes" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                              <i class="fas fa-arrow-left"></i> Voltar à Lista Admin
+                          </a>
+                      } @else {
+                          <a routerLink="/" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
+                              <i class="fas fa-arrow-left"></i> Ver Catálogo
+                          </a>
+                      }
+                  </div>
                 </div>
             </div>
         </div>

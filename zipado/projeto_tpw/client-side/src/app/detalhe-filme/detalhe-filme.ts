@@ -19,6 +19,7 @@ export class DetalheFilme implements OnInit {
   isStaff = false; // Novo Estado para o Staff
   userId: number | null = null;
   isModerador = false;
+  origem: string | null = null;
 
   notaSelecionada: number = 0;
   novoComentario: string = '';
@@ -30,6 +31,7 @@ export class DetalheFilme implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
+    this.origem = this.route.snapshot.queryParamMap.get('origem'); // Lê a origem de onde veio!
     this.checkLoginStatus();
     await this.carregarDetalhes();
   }

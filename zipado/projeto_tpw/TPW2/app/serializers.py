@@ -40,9 +40,15 @@ class AtorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-# Serializer para Críticas/Avaliações
+class FilmeMinSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Filme
+        fields = ['id', 'titulo']
+
+# 2. Atualize a classe AvaliacaoSerializer para incluir o filme estruturado:
 class AvaliacaoSerializer(serializers.ModelSerializer):
     utilizador = UserSerializer(read_only=True)
+    filme = FilmeMinSerializer(read_only=True) # <- Adicionado esta linha!
 
     class Meta:
         model = Avaliacao

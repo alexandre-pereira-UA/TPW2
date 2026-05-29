@@ -51,7 +51,7 @@
                                 <small style="color: #555;">{{ av.data_postagem | date:"dd/MM/yyyy HH:mm" }}</small>
                             </td>
                             <td style="text-align: right;">
-                                <a [routerLink]="['/filme', av.filme.id]" class="btn-acao" style="margin-right: 10px; color: #f5c518;"><i class="fas fa-eye"></i></a>
+                                <a [routerLink]="['/filme', av.filme.id]" [queryParams]="{ origem: 'admin_avaliacoes' }" class="btn-acao" style="margin-right: 15px; color: #f5c518;"><i class="fas fa-eye"></i></a>
                                 <a (click)="apagarAvaliacao(av.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
