@@ -5,7 +5,7 @@ import { Filme } from '../filme';
   providedIn: 'root'
 })
 export class FilmeService {
-  private baseUrl: string = 'http://localhost:8000/ws';
+  private baseUrl: string = 'https://escorcio.pythonanywhere.com/ws';
 
   constructor() { }
 
