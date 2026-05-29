@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Falta Admin">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Feito o Admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -433,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780005075377</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Feito o Admin">
+      <option name="closed" value="true" />
+      <created>1780057077470</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1780057077470</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,7 +472,8 @@
     <MESSAGE value="Feitoo" />
     <MESSAGE value="Client-side feito, meio-funciona" />
     <MESSAGE value="Falta Admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Falta Admin" />
+    <MESSAGE value="Feito o Admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feito o Admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

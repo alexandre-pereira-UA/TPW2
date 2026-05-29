@@ -781,3 +781,11 @@ h2, h4, th, td, label {
     font-size: 14px;
 }
 /* You can add global styles to this file, and also import other style files */
+/* Força um contraste perfeito no hover das opções do menu */
+.dropdown-menu-dark > li > a:hover,
+.dropdown-menu-dark > li > a:focus {
+    background-color: #f5c518 !important; /* Fundo Amarelo */
+    color: #000000 !important;             /* Texto Preto */
+    text-decoration: none;
+    font-weight: bold;
+}

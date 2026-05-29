@@ -112,6 +112,9 @@ urlpatterns = [
     path('ws/grupos/novo/', views.api_criar_grupo, name='api_criar_grupo'),
     path('ws/grupos/editar/<int:id>/', views.api_editar_grupo, name='api_editar_grupo'),
     path('ws/grupos/<int:grupo_id>/remover/<int:user_id>/', views.api_remover_utilizador_grupo, name='api_remover_utilizador_grupo'),
+# Rota de Importação automática de Filmes do TMDB via API
+    path('ws/filmes/importar-api/', views.api_importar_filmes_api, name='api_importar_filmes_api'),
+    path('ws/filmes/<int:filme_id>/comentario/apagar/', views.api_apagar_comentario, name='api_apagar_comentario'),
 
 
 ]

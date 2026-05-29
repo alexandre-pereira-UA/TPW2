@@ -28,6 +28,8 @@ from django.contrib import messages
 
 from django.contrib.auth.models import Group
 
+import random
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def importar_filmes_api(request):
@@ -937,3 +939,99 @@ def api_remover_utilizador_grupo(request, grupo_id, user_id):
     u = get_object_or_404(User, id=user_id)
     grupo.user_set.remove(u)
     return Response({'status': 'removido'}, status=status.HTTP_200_OK)
+
+
+# --- API: IMPORTAR FILMES DO TMDB (Em Falta) ---
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def api_importar_filmes_api(request):
+    API_KEY = '8e831ce268683e2c393d39b71fbdd357'
+    LANGUAGE = 'pt-PT'
+
+    ano_sorteado = random.randint(1980, 2024)
+    pagina_sorteada = random.randint(1, 10)
+
+    url_discover = (
+        f'https://api.themoviedb.org/3/discover/movie?'
+        f'api_key={API_KEY}&language={LANGUAGE}&sort_by=popularity.desc'
+        f'&primary_release_year={ano_sorteado}&page={pagina_sorteada}'
+        f'&include_adult=false'
+    )
+
+    try:
+        resposta = requests.get(url_discover, timeout=10)
+        if resposta.status_code != 200:
+            return Response({"error": "Erro ao conectar com a API do TMDB."}, status=status.HTTP_400_BAD_REQUEST)
+
+        dados_filmes = resposta.json().get('results', [])
+        contagem_novos = 0
+
+        for item in dados_filmes:
+            if contagem_novos >= 10:
+                break
+
+            titulo = item.get('title')[:100]
+
+            if Filme.objects.filter(titulo=titulo).exists():
+                continue
+
+            sinopse = item.get('overview', 'Sem sinopse disponível.')
+            data_lancamento = item.get('release_date')
+            poster_path = item.get('poster_path')
+            filme_id_tmdb = item.get('id')
+
+            if not data_lancamento or not poster_path:
+                continue
+
+            cartaz_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
+
+            url_creditos = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}/credits?api_key={API_KEY}&language={LANGUAGE}'
+            creditos_resp = requests.get(url_creditos).json()
+
+            nome_realizador = "Desconhecido"
+            for crew in creditos_resp.get('crew', []):
+                if crew.get('job') == 'Director':
+                    nome_realizador = crew.get('name')[:70]
+                    break
+
+            realizador_obj, _ = Realizador.objects.get_or_create(nome=nome_realizador)
+
+            novo_filme = Filme.objects.create(
+                titulo=titulo,
+                data_lancamento=data_lancamento,
+                sinopse=sinopse,
+                cartaz=cartaz_url,
+                realizador=realizador_obj
+            )
+
+            for ator in creditos_resp.get('cast', [])[:4]:
+                ator_obj, _ = Ator.objects.get_or_create(nome=ator.get('name')[:70])
+                novo_filme.atores.add(ator_obj)
+
+            url_detalhes = f'https://api.themoviedb.org/3/movie/{filme_id_tmdb}?api_key={API_KEY}&language={LANGUAGE}'
+            detalhes_resp = requests.get(url_detalhes).json()
+            for genre in detalhes_resp.get('genres', []):
+                genero_obj, _ = Genero.objects.get_or_create(nome=genre.get('name')[:50])
+                novo_filme.generos.add(genero_obj)
+
+            contagem_novos += 1
+
+        return Response({"status": "sucesso", "novos_filmes": contagem_novos}, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+# --- API: APAGAR COMENTÁRIO PRÓPRIO (Em Falta) ---
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def api_apagar_comentario(request, filme_id):
+    # Procura a avaliação do utilizador autenticado para este filme específico
+    avaliacao = Avaliacao.objects.filter(filme_id=filme_id, utilizador=request.user).first()
+
+    if avaliacao:
+        avaliacao.delete()
+        return Response({'status': 'comentario_apagado'}, status=status.HTTP_200_OK)
+
+    return Response({'error': 'Não foi possível encontrar a sua crítica neste filme.'},
+                    status=status.HTTP_404_NOT_FOUND)

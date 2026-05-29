@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+// 1. Adicione "HostListener" e "ElementRef" nos imports do @angular/core:
+import { Component, OnInit, HostListener, ElementRef, inject } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +15,23 @@ export class App implements OnInit {
   title = 'client-side';
   isLoggedIn = false;
   username = '';
-  userId: number | null = null; // Guardará o ID numérico
+  userId: number | null = null;
   isSuperuser = false;
   dropdownOpen = false;
 
+  private router = inject(Router);
+  private elementRef = inject(ElementRef); // 2. Injeta a referência do elemento
+
   ngOnInit(): void {
     this.checkLoginStatus();
+  }
+
+  // 3. NOVO: Fecha o menu automaticamente quando clica em qualquer outro sítio do ecrã!
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownOpen = false;
+    }
   }
 
   checkLoginStatus(): void {
@@ -28,7 +41,7 @@ export class App implements OnInit {
       this.isLoggedIn = true;
       const user = JSON.parse(userJson);
       this.username = user.username;
-      this.userId = user.id; // Guarda o ID para a rota de edição!
+      this.userId = user.id;
       this.isSuperuser = user.is_superuser;
     } else {
       this.isLoggedIn = false;
