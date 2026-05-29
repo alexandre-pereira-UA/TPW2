@@ -106,5 +106,12 @@ urlpatterns = [
     path('ws/filmes/novo/', views.api_criar_filme, name='api_criar_filme'),
     path('ws/filmes/editar/<int:id>/', views.api_editar_filme, name='api_editar_filme'),
 
+# Rotas de Grupos e Permissões Administrativas
+    path('ws/permissoes/', views.api_lista_permissoes, name='api_lista_permissoes'),
+    path('ws/grupos/<int:id>/', views.api_detalhe_grupo, name='api_detalhe_grupo'),
+    path('ws/grupos/novo/', views.api_criar_grupo, name='api_criar_grupo'),
+    path('ws/grupos/editar/<int:id>/', views.api_editar_grupo, name='api_editar_grupo'),
+    path('ws/grupos/<int:grupo_id>/remover/<int:user_id>/', views.api_remover_utilizador_grupo, name='api_remover_utilizador_grupo'),
+
 
 ]

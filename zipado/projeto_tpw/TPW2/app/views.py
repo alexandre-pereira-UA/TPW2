@@ -10,7 +10,8 @@ from django.contrib.auth.models import User
 from app.models import Filme, Avaliacao, Favorito, Guardado, Realizador, Ator, Genero
 from app.serializers import (
     FilmeReadSerializer, FilmeWriteSerializer, UserSerializer,
-    AvaliacaoSerializer, FavoritoSerializer, GuardadoSerializer
+    AvaliacaoSerializer, FavoritoSerializer, GuardadoSerializer,
+    RealizadorSerializer, AtorSerializer, GeneroSerializer
 )
 
 
@@ -854,3 +855,85 @@ def api_editar_filme(request, id):
         filme_atualizado = serializer.save()
         return Response(FilmeReadSerializer(filme_atualizado).data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# --- API: PERMISSÕES E GRUPOS ADICIONAIS (Em Falta) ---
+
+# Listar todas as permissões para a caixa de scroll do Angular
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def api_lista_permissoes(request):
+    from django.contrib.auth.models import Permission
+    permissoes = Permission.objects.all().select_related('content_type').order_by('content_type__model', 'codename')
+    data = []
+    for p in permissoes:
+        data.append({
+            'id': p.id,
+            'name': p.name,
+            'content_type_model': p.content_type.model
+        })
+    return Response(data, status=status.HTTP_200_OK)
+
+
+# Detalhe de um grupo específico (Membros e Permissões)
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def api_detalhe_grupo(request, id):
+    from django.contrib.auth.models import Group
+    grupo = get_object_or_404(Group, id=id)
+    utilizadores = [{'id': u.id, 'username': u.username, 'email': u.email} for u in grupo.user_set.all()]
+    permissoes = [{'id': p.id, 'name': p.name} for p in grupo.permissions.all()]
+
+    return Response({
+        'grupo': {'id': grupo.id, 'name': grupo.name},
+        'utilizadores': utilizadores,
+        'permissoes': permissoes
+    }, status=status.HTTP_200_OK)
+
+
+# Criar Novo Grupo
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def api_criar_grupo(request):
+    from django.contrib.auth.models import Group
+    nome = request.data.get('nome')
+    perms_ids = request.data.get('permissoes', [])
+
+    if not nome:
+        return Response({'error': 'Nome do grupo é obrigatório.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if Group.objects.filter(name=nome).exists():
+        return Response({'error': 'Já existe um grupo com este nome.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    grupo = Group.objects.create(name=nome)
+    grupo.permissions.set(perms_ids)
+    return Response({'status': 'criado'}, status=status.HTTP_201_CREATED)
+
+
+# Editar Grupo Existente
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def api_editar_grupo(request, id):
+    from django.contrib.auth.models import Group
+    grupo = get_object_or_404(Group, id=id)
+    nome = request.data.get('nome')
+    perms_ids = request.data.get('permissoes', [])
+
+    if not nome:
+        return Response({'error': 'Nome do grupo é obrigatório.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    grupo.name = nome
+    grupo.permissions.set(perms_ids)
+    grupo.save()
+    return Response({'status': 'atualizado'}, status=status.HTTP_200_OK)
+
+
+# Remover Utilizador de um Grupo específico
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def api_remover_utilizador_grupo(request, grupo_id, user_id):
+    from django.contrib.auth.models import Group
+    grupo = get_object_or_404(Group, id=grupo_id)
+    u = get_object_or_404(User, id=user_id)
+    grupo.user_set.remove(u)
+    return Response({'status': 'removido'}, status=status.HTTP_200_OK)

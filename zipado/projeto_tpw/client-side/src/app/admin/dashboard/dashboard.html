@@ -18,49 +18,50 @@
             </a>
         </div>
     </div>
+  <!-- Mude a secção de Conteúdo da Aplicação para ficar com estes links corretos: -->
 
-    <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px;">Conteúdo da Aplicação</h3>
-    <div class="row">
-        <div class="col-md-4" style="margin-bottom: 20px;">
-            <a routerLink="/admin/filmes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
-                <i class="fas fa-film" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
-                <h4 style="margin: 5px 0;">Filmes</h4>
-                <p style="color: #888; margin: 0;">{{ total_filmes }} na base</p>
-            </a>
-        </div>
-        <div class="col-md-4" style="margin-bottom: 20px;">
-            <a [routerLink]="['/admin/criar', 'ator']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
-                <i class="fas fa-user-tie" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
-                <h4 style="margin: 5px 0;">Atores</h4>
-                <p style="color: #888; margin: 0;">{{ total_atores }} nomes</p>
-            </a>
-        </div>
-        <div class="col-md-4" style="margin-bottom: 20px;">
-            <a [routerLink]="['/admin/criar', 'realizador']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
-                <i class="fas fa-video" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
-                <h4 style="margin: 5px 0;">Realizadores</h4>
-                <p style="color: #888; margin: 0;">{{ total_realizadores }} nomes</p>
-            </a>
-        </div>
-        <div class="col-md-4" style="margin-bottom: 20px;">
-            <a [routerLink]="['/admin/criar', 'genero']" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
-                <i class="fas fa-tags" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
-                <h4 style="margin: 5px 0;">Géneros</h4>
-                <p style="color: #888; margin: 0;">{{ total_generos }} categorias</p>
-            </a>
-        </div>
-        <div class="col-md-4" style="margin-bottom: 20px;">
-            <a routerLink="/admin/avaliacoes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
-                <i class="fas fa-star" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
-                <h4 style="margin: 5px 0;">Avaliações</h4>
-                <p style="color: #888; margin: 0;">{{ total_avaliacoes }} críticas</p>
-            </a>
-        </div>
-    </div>
+  <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px;">Conteúdo da Aplicação</h3>
+  <div class="row">
+      <div class="col-md-4" style="margin-bottom: 20px;">
+          <a routerLink="/admin/filmes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+              <i class="fas fa-film" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+              <h4 style="margin: 5px 0;">Filmes</h4>
+              <p style="color: #888; margin: 0;">{{ total_filmes }} na base</p>
+          </a>
+      </div>
 
-    <div class="text-center" style="margin-top: 60px;">
-        <a routerLink="/" class="btn-voltar-custom" style="padding: 12px 40px; background: #333; color: white; border-radius: 50px; text-decoration: none;">
-            <i class="fas fa-external-link-alt"></i> Ir para o Site Público
-        </a>
-    </div>
-</div>
+      <!-- Corrigido para /admin/atores (Abre a sua lista de 164 nomes!) -->
+      <div class="col-md-4" style="margin-bottom: 20px;">
+          <a routerLink="/admin/atores" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+              <i class="fas fa-user-tie" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+              <h4 style="margin: 5px 0;">Atores</h4>
+              <p style="color: #888; margin: 0;">{{ total_atores }} nomes</p>
+          </a>
+      </div>
+
+      <!-- Corrigido para /admin/realizadores -->
+      <div class="col-md-4" style="margin-bottom: 20px;">
+          <a routerLink="/admin/realizadores" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+              <i class="fas fa-video" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+              <h4 style="margin: 5px 0;">Realizadores</h4>
+              <p style="color: #888; margin: 0;">{{ total_realizadores }} nomes</p>
+          </a>
+      </div>
+
+      <!-- Corrigido para /admin/generos -->
+      <div class="col-md-4" style="margin-bottom: 20px;">
+          <a routerLink="/admin/generos" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+              <i class="fas fa-tags" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+              <h4 style="margin: 5px 0;">Géneros</h4>
+              <p style="color: #888; margin: 0;">{{ total_generos }} categorias</p>
+          </a>
+      </div>
+
+      <div class="col-md-4" style="margin-bottom: 20px;">
+          <a routerLink="/admin/avaliacoes" style="display: block; background: #1a1a1a; padding: 25px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white;">
+              <i class="fas fa-star" style="font-size: 25px; color: #f5c518; margin-bottom: 10px;"></i>
+              <h4 style="margin: 5px 0;">Avaliações</h4>
+              <p style="color: #888; margin: 0;">{{ total_avaliacoes }} críticas</p>
+          </a>
+      </div>
+  </div>

@@ -34,13 +34,12 @@ export class Login {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
+        // Redirecionamento inteligente de acordo com as regras do TP1!
         if (data.user.is_superuser) {
-            window.location.href = '/admin/dashboard';
+          window.location.href = '/admin/dashboard'; // Superuser vai para o Painel Admin
         } else {
-          window.location.href = '/';
+          window.location.href = '/'; // Utilizador Comum vai para o Catálogo
         }
-        // Redireciona para o catálogo de filmes
-        window.location.href = '/';
       } else {
         this.errorMessage = data.error || 'Credenciais inválidas.';
       }

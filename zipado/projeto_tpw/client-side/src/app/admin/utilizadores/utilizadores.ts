@@ -57,7 +57,7 @@ export class Utilizadores implements OnInit {
   }
 
   async apagarUtilizador(id: number): Promise<void> {
-    if (!confirm('Apagar utilizador?')) return;
+    if (!confirm('Tem a certeza que deseja apagar este utilizador?')) return;
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`http://localhost:8000/ws/utilizadores/apagar/${id}/`, {
