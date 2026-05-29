@@ -24,7 +24,7 @@ export class Avaliacoes implements OnInit {
   async carregarAvaliacoes(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/avaliacoes/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/avaliacoes/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -61,7 +61,7 @@ export class Avaliacoes implements OnInit {
     if (!confirm('Eliminar crítica?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/avaliacoes/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

@@ -23,7 +23,7 @@ export class Dashboard implements OnInit {
   async ngOnInit(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/dashboard/stats/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/dashboard/stats/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {

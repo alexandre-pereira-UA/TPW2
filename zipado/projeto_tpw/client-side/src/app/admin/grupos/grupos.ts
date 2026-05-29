@@ -24,7 +24,7 @@ export class Grupos implements OnInit {
   async carregarGrupos(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/grupos/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/grupos/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -57,7 +57,7 @@ export class Grupos implements OnInit {
     if (!confirm('Eliminar grupo?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/grupos/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

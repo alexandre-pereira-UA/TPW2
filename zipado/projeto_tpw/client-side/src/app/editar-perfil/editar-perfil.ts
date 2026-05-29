@@ -45,7 +45,7 @@ export class EditarPerfil implements OnInit {
   async carregarPerfil(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/utilizadores/${this.userId}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/${this.userId}/`, {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -65,7 +65,7 @@ export class EditarPerfil implements OnInit {
   async carregarGrupos(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/grupos/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/grupos/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -80,7 +80,7 @@ export class EditarPerfil implements OnInit {
   async onSubmit(): Promise<void> {
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:8000/ws/utilizadores/editar/${this.userId}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/editar/${this.userId}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -46,9 +46,9 @@ export class AdicionarFilme implements OnInit {
 
   async carregarAuxiliares(): Promise<void> {
     try {
-      const resRealizadores = await fetch('http://localhost:8000/ws/realizadores/');
-      const resGeneros = await fetch('http://localhost:8000/ws/generos/');
-      const resAtores = await fetch('http://localhost:8000/ws/atores/');
+      const resRealizadores = await fetch('https://escorcio.pythonanywhere.com/ws/realizadores/');
+      const resGeneros = await fetch('https://escorcio.pythonanywhere.com/ws/generos/');
+      const resAtores = await fetch('https://escorcio.pythonanywhere.com/ws/atores/');
 
       this.realizadores = await resRealizadores.json();
       this.todosGeneros = await resGeneros.json();
@@ -61,7 +61,7 @@ export class AdicionarFilme implements OnInit {
 
   async carregarFilme(id: number): Promise<void> {
     try {
-      const response = await fetch(`http://localhost:8000/ws/filmes/${id}/`);
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${id}/`);
       if (response.ok) {
         const data = await response.json();
         this.titulo = data.titulo;
@@ -120,8 +120,8 @@ export class AdicionarFilme implements OnInit {
   async onSubmit(): Promise<void> {
     const token = localStorage.getItem('token');
     const url = this.filmeId
-      ? `http://localhost:8000/ws/filmes/editar/${this.filmeId}/`
-      : 'http://localhost:8000/ws/filmes/novo/';
+      ? `https://escorcio.pythonanywhere.com/ws/filmes/editar/${this.filmeId}/`
+      : 'https://escorcio.pythonanywhere.com/ws/filmes/novo/';
 
     const payload = {
       titulo: this.titulo,

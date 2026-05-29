@@ -24,7 +24,7 @@ export class Utilizadores implements OnInit {
   async carregarUtilizadores(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/utilizadores/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/utilizadores/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -60,7 +60,7 @@ export class Utilizadores implements OnInit {
     if (!confirm('Tem a certeza que deseja apagar este utilizador?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/utilizadores/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

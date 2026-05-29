@@ -24,7 +24,7 @@ export class Generos implements OnInit {
 
   async carregarGeneros(): Promise<void> {
     try {
-      const response = await fetch('http://localhost:8000/ws/generos/');
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/generos/');
       if (response.ok) {
         this.itens = await response.json();
         this.itensFiltrados = [...this.itens];
@@ -55,7 +55,7 @@ export class Generos implements OnInit {
     if (!confirm('Apagar género?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/generos/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/generos/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

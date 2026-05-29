@@ -24,7 +24,7 @@ export class Realizadores implements OnInit {
 
   async carregarRealizadores(): Promise<void> {
     try {
-      const response = await fetch('http://localhost:8000/ws/realizadores/');
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/realizadores/');
       if (response.ok) {
         this.itens = await response.json();
         this.itensFiltrados = [...this.itens];
@@ -55,7 +55,7 @@ export class Realizadores implements OnInit {
     if (!confirm('Apagar realizador?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/realizadores/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/realizadores/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

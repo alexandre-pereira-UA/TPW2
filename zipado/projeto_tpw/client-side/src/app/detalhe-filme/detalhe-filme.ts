@@ -81,7 +81,7 @@ checkLoginStatus(): void {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/filmes/${this.filme.id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ checkLoginStatus(): void {
     if (!confirm('Deseja apagar a sua crítica?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/filmes/${this.filme.id}/comentario/apagar/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/comentario/apagar/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });
@@ -121,7 +121,7 @@ checkLoginStatus(): void {
     if (!confirm('Apagar comentário como moderador?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/avaliacoes/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

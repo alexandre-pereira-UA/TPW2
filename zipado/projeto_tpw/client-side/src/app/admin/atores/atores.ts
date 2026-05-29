@@ -24,7 +24,7 @@ export class Atores implements OnInit {
 
   async carregarAtores(): Promise<void> {
     try {
-      const response = await fetch('http://localhost:8000/ws/atores/');
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/atores/');
       if (response.ok) {
         this.itens = await response.json();
         this.itensFiltrados = [...this.itens];
@@ -55,7 +55,7 @@ export class Atores implements OnInit {
     if (!confirm('Apagar ator?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/atores/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/atores/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

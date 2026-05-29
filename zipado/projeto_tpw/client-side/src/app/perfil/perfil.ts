@@ -37,7 +37,7 @@ export class Perfil implements OnInit {
   async carregarPerfilPorId(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/utilizadores/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/${id}/`, {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {

@@ -59,7 +59,7 @@ export class Filmes implements OnInit {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/filmes/importar-api/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/filmes/importar-api/', {
         method: 'POST',
         headers: { 'Authorization': `Token ${token}` }
       });
@@ -82,7 +82,7 @@ export class Filmes implements OnInit {
     if (!confirm('Tem a certeza que deseja apagar este filme?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/filmes/apagar/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });

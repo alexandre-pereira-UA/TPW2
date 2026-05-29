@@ -28,7 +28,7 @@ export class DetalheGrupo implements OnInit {
   async carregarDetalhesGrupo(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/grupos/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/${id}/`, {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -47,7 +47,7 @@ export class DetalheGrupo implements OnInit {
     if (!confirm('Remover utilizador do grupo?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/grupos/${this.grupo.id}/remover/${userId}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/${this.grupo.id}/remover/${userId}/`, {
         method: 'POST',
         headers: { 'Authorization': `Token ${token}` }
       });

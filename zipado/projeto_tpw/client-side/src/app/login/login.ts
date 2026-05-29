@@ -21,7 +21,7 @@ export class Login {
     this.errorMessage = '';
 
     try {
-      const response = await fetch('http://localhost:8000/ws/login/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/login/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: this.username, password: this.password })

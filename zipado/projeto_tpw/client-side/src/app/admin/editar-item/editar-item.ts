@@ -38,7 +38,7 @@ export class EditarItem implements OnInit {
   async carregarDadosItem(): Promise<void> {
     try {
       const urlPlural = this.tipo === 'ator' ? 'atores' : (this.tipo === 'genero' ? 'generos' : 'realizadores');
-      const response = await fetch(`http://localhost:8000/ws/${urlPlural}/${this.itemId}/`);
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/${urlPlural}/${this.itemId}/`);
       if (response.ok) {
         const data = await response.json();
         this.nome = data.nome;
@@ -53,8 +53,8 @@ export class EditarItem implements OnInit {
     const token = localStorage.getItem('token');
     const urlPlural = this.tipo === 'ator' ? 'atores' : (this.tipo === 'genero' ? 'generos' : 'realizadores');
     const url = this.itemId
-      ? `http://localhost:8000/ws/${urlPlural}/editar/${this.itemId}/`
-      : `http://localhost:8000/ws/${urlPlural}/novo/`;
+      ? `https://escorcio.pythonanywhere.com/ws/${urlPlural}/editar/${this.itemId}/`
+      : `https://escorcio.pythonanywhere.com/ws/${urlPlural}/novo/`;
 
     try {
       const response = await fetch(url, {

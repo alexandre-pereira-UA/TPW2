@@ -34,7 +34,7 @@ export class EditarGrupo implements OnInit {
   async carregarTodasPermissoes(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/ws/permissoes/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/permissoes/', {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -49,7 +49,7 @@ export class EditarGrupo implements OnInit {
   async carregarDadosGrupo(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/grupos/${id}/`, {
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/${id}/`, {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
@@ -78,8 +78,8 @@ export class EditarGrupo implements OnInit {
   async onSubmit(): Promise<void> {
     const token = localStorage.getItem('token');
     const url = this.grupoId
-      ? `http://localhost:8000/ws/grupos/editar/${this.grupoId}/`
-      : 'http://localhost:8000/ws/grupos/novo/';
+      ? `https://escorcio.pythonanywhere.com/ws/grupos/editar/${this.grupoId}/`
+      : 'https://escorcio.pythonanywhere.com/ws/grupos/novo/';
 
     try {
       const response = await fetch(url, {

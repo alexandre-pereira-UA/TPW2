@@ -24,7 +24,7 @@ export class Registo {
     this.errorMessage = '';
 
     try {
-      const response = await fetch('http://localhost:8000/ws/registo/', {
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/registo/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
