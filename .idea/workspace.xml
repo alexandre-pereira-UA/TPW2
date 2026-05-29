@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Em principio da online">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Deu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-grupo/editar-grupo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-grupo/editar-grupo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-item/editar-item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-item/editar-item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/editar-perfil/editar-perfil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/editar-perfil/editar-perfil.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/perfil/perfil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/perfil/perfil.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/registo/registo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/registo/registo.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -470,7 +453,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780077771942</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Deu">
+      <option name="closed" value="true" />
+      <created>1780078992535</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1780078992535</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +485,6 @@
     <MESSAGE value="Base de dados funciona, é só alterar algumas coisas" />
     <MESSAGE value="Funciona o básico, BD também" />
     <MESSAGE value="simbolo" />
-    <MESSAGE value="Deu" />
     <MESSAGE value="Add controlaFilmes e Add meter filmes" />
     <MESSAGE value="Muitas coisas" />
     <MESSAGE value="mini" />
@@ -512,7 +502,8 @@
     <MESSAGE value="Correcoes" />
     <MESSAGE value="Semi-feito" />
     <MESSAGE value="Em principio da online" />
-    <option name="LAST_COMMIT_MESSAGE" value="Em principio da online" />
+    <MESSAGE value="Deu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -44,3 +44,17 @@
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+
+.form-control.search-input-custom {
+    background-color: transparent !important;
+    color: #000000 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    padding: 5px 0 !important;
+}
+
+.section-title h2 {
+    color: #f5c518 !important;
+}

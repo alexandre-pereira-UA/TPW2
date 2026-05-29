@@ -40,26 +40,27 @@
                         <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
                     }
 
-                    <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
-                        <h2 style="color: #f5c518; font-size: 22px;">Ficha Técnica</h2>
-                        <div style="font-size: 1.2em; line-height: 1.8;">
-                            <p><strong>Realizador:</strong> <span style="color: #4da6ff;">{{ filme.realizador.nome }}</span></p>
-                            <p><strong>Elenco:</strong> <span style="color: #4da6ff;">
-                                @for (ator of filme.atores; track ator.id) {
-                                    {{ ator.nome }}{{ !$last ? ', ' : '' }}
-                                }
-                            </span></p>
-                            <p><strong>Géneros:</strong> <span style="color: #4da6ff;">
-                                @for (genero of filme.generos; track genero.id) {
-                                    {{ genero.nome }}{{ !$last ? ', ' : '' }}
-                                }
-                            </span></p>
-                        </div>
-                    </div>
+                   <!-- 1. Substitua o bloco da Ficha Técnica por este (com as spans a amarelo): -->
+                  <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+                      <h2 style="color: #f5c518 !important; font-size: 22px;">Ficha Técnica</h2>
+                      <div style="font-size: 1.2em; line-height: 1.8;">
+                          <p><strong>Realizador:</strong> <span style="color: #f5c518 !important;">{{ filme.realizador.nome }}</span></p>
+                          <p><strong>Elenco:</strong> <span style="color: #f5c518 !important;">
+                              @for (ator of filme.atores; track ator.id) {
+                                  {{ ator.nome }}{{ !$last ? ', ' : '' }}
+                              }
+                          </span></p>
+                          <p><strong>Géneros:</strong> <span style="color: #f5c518 !important;">
+                              @for (genero of filme.generos; track genero.id) {
+                                  {{ genero.nome }}{{ !$last ? ', ' : '' }}
+                              }
+                          </span></p>
+                      </div>
+                  </div>
 
                     <!-- Críticas e Comentários -->
                     <div class="section-container" style="margin-top: 40px;">
-                        <h2 style="color: #f5c518; font-size: 22px;">Críticas e Comentários</h2>
+                        <h2 style="color: #f5c518 !important; font-size: 22px;">Críticas e Comentários</h2>
                         <hr style="border-color: #333; margin-top: 0; margin-bottom: 20px;">
 
                         <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px;">
