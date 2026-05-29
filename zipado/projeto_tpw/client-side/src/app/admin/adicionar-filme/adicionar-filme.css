@@ -1,0 +1,39 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DE ADIÇÃO E EDIÇÃO DE FILMES
+   ========================================================================== */
+
+.movie-card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.movie-card label,
+.form-group label {
+    color: #f5c518 !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, select, textarea {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: white !important;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Classes auxiliares para as caixas de chips do multi-select de atores e géneros */
+.form-control {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    border-radius: 4px !important;
+}

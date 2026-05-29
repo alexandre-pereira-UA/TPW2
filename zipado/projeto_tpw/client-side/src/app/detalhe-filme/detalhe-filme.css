@@ -1,0 +1,43 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA PÁGINA DE DETALHES DO FILME
+   ========================================================================== */
+
+.movie-card {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.section-container {
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.comments-list {
+    margin-top: 20px;
+}
+
+.review-quote {
+    background: #262626 !important;
+    border-left: 3px solid #f5c518 !important;
+    color: #ccc !important;
+    padding: 10px 15px !important;
+    font-style: italic;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+/* Sistema de classificação interativo de estrelas */
+.sistema-classificacao {
+    display: flex;
+    gap: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #444;
+}
+
+.sistema-classificacao span {
+    transition: color 0.2s ease-in-out;
+}

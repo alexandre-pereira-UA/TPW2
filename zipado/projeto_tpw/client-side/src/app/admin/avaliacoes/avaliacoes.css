@@ -1,0 +1,25 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA GESTÃO DE AVALIAÇÕES (CRÍTICAS)
+   ========================================================================== */
+
+.admin-table-container {
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.table td {
+    vertical-align: middle !important;
+}
+
+.review-quote {
+    background: #262626 !important;
+    border-left: 3px solid #f5c518 !important;
+    color: #ccc !important;
+    padding: 10px 15px !important;
+    font-style: italic;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}

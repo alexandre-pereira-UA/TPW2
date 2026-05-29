@@ -1,0 +1,40 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA PÁGINA DE PERFIL DE UTILIZADOR
+   ========================================================================== */
+
+.profile-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #f5c518 !important;
+    font-weight: bold;
+}
+
+.avatar-circle-profile {
+    width: 150px;
+    height: 150px;
+    background: #333;
+    border: 3px solid #f5c518;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.avatar-circle-profile span {
+    font-size: 80px;
+    color: #f5c518;
+    font-weight: bold;
+}
+
+.table-profile td {
+    border: none !important;
+    padding: 12px 8px;
+    font-size: 15px;
+}

@@ -4,12 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Feito o Admin">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Correcoes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/static/content/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/adicionar_filme.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/dashboard_admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/detalhe_filme.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/editar_perfil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/lista_filmes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/meus_favoritos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/meus_guardados.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/perfil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/registration/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/registration/registo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_atores.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_avaliacoes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_base_gestao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_filmes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_generos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_permissoes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_realizadores.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/admin_utilizadores.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/detalhe_grupo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/editar_grupo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/editar_item_admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/templates/relAdmin/form_simples.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/dashboard/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-grupo/editar-grupo.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-grupo/editar-grupo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-item/editar-item.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/editar-item/editar-item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/editar-perfil/editar-perfil.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/editar-perfil/editar-perfil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/favoritos/favoritos.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/favoritos/favoritos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/guardados/guardados.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/guardados/guardados.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/perfil/perfil.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/perfil/perfil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/registo/registo.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/registo/registo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -434,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780057077470</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Correcoes">
+      <option name="closed" value="true" />
+      <created>1780069394039</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1780069394040</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +527,8 @@
     <MESSAGE value="Client-side feito, meio-funciona" />
     <MESSAGE value="Falta Admin" />
     <MESSAGE value="Feito o Admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feito o Admin" />
+    <MESSAGE value="Correcoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcoes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

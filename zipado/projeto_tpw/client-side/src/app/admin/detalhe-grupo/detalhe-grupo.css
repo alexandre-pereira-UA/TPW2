@@ -1,0 +1,25 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DO DETALHE DO GRUPO (MEMBROS E PERMISSÕES)
+   ========================================================================== */
+
+.main-container {
+    background: #121212;
+    padding: 25px;
+    min-height: 100vh;
+}
+
+.btn-voltar-dark {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.table td {
+    vertical-align: middle !important;
+}

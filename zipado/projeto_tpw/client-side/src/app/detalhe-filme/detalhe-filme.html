@@ -13,8 +13,10 @@
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                         <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px;">{{ filme.titulo }}</h1>
 
+                       <!-- Mude a tag do botão de editar filme para ficar assim: -->
                         @if (isStaff) {
-                            <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn btn-warning" style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 20px;">
+                            <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn btn-warning"
+                               style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 25px; width: auto !important; margin-top: 0 !important; box-sizing: border-box;">
                                 <i class="fas fa-edit"></i> Editar Filme
                             </a>
                         }
