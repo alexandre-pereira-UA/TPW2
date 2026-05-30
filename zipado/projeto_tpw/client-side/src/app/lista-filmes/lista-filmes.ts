@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Filme, Genero } from '../filme';
 import { FilmeService } from '../services/filme';
-import { ToastService } from '../services/toast'; // Import do Toast de notificações
+import { ToastService } from '../services/toast';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -16,11 +16,14 @@ import { ToastService } from '../services/toast'; // Import do Toast de notifica
 export class ListaFilmes implements OnInit {
   filmes: Filme[] = [];
   filmesFiltrados: Filme[] = [];
-  generos: Genero[] = []; // Categoria de géneros carregada do Django
+  generos: Genero[] = [];
 
   searchQuery: string = '';
   filtroAtivo: string = '';
-  generoSelecionadoId: number | null = null; // Categoria ativa
+  generoSelecionadoId: number | null = null;
+
+  // NOVO: Estado do Modo de Visualização ('grid' = Grelha, 'carousel' = Slide)
+  viewMode: 'grid' | 'carousel' = 'grid';
 
   isLoggedIn = false;
   isSuperuser = false;
@@ -28,21 +31,17 @@ export class ListaFilmes implements OnInit {
   ids_guardados: number[] = [];
 
   private filmeService = inject(FilmeService);
-  private toastService = inject(ToastService); // Injeta o Serviço de Notificações Flutuantes
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
     this.checkLoginStatus();
-
-    // 1. Carrega os filmes normais primeiro de forma segura
     this.filmes = await this.filmeService.getFilmes();
     this.filmesFiltrados = [...this.filmes];
-    this.cdr.detectChanges(); // Garante o desenho imediato dos filmes no ecrã!
+    this.cdr.detectChanges();
 
-    // 2. Carrega categorias de géneros do Django
     await this.carregarGeneros();
 
-    // 3. Tenta carregar favoritos/guardados de forma isolada e segura
     if (this.isLoggedIn && !this.isSuperuser) {
       try {
         const favs = await this.filmeService.getFavoritos();
@@ -54,9 +53,9 @@ export class ListaFilmes implements OnInit {
         if (guards && Array.isArray(guards)) {
           this.ids_guardados = guards.map((g: any) => g.filme.id);
         }
-        this.cdr.detectChanges(); // Atualiza apenas os ícones
+        this.cdr.detectChanges();
       } catch (error) {
-        console.error("Erro seguro: Tabelas de favoritos/guardados vazias ou indisponíveis.", error);
+        console.error("Erro ao carregar favoritos/guardados.", error);
       }
     }
   }
@@ -83,7 +82,21 @@ export class ListaFilmes implements OnInit {
     }
   }
 
-  // --- Lógica combinada de Pesquisa por texto e Categoria ---
+  // Alternador Dinâmico de Layout
+  toggleViewMode(): void {
+    this.viewMode = this.viewMode === 'grid' ? 'carousel' : 'grid';
+    this.cdr.detectChanges();
+
+    // Inicia o carrossel do Bootstrap nativamente se mudarmos para slides
+    if (this.viewMode === 'carousel') {
+      setTimeout(() => {
+        (window as any).jQuery?.('#movieCarousel').carousel({
+          interval: 4000 // desliza automaticamente a cada 4 segundos
+        });
+      }, 100);
+    }
+  }
+
   onSearch(): void {
     const query = this.searchQuery.toLowerCase().trim();
     let resultados = this.filmes;
@@ -108,7 +121,7 @@ export class ListaFilmes implements OnInit {
 
   filtrarPorGenero(generoId: number | null): void {
     this.generoSelecionadoId = generoId;
-    this.onSearch(); // Filtra combinando pesquisa de texto e categoria
+    this.onSearch();
   }
 
   async toggleFavorito(filmeId: number): Promise<void> {
@@ -159,7 +172,6 @@ export class ListaFilmes implements OnInit {
     this.cdr.detectChanges();
   }
 
-  // NOVO: Calcula dinamicamente a média de estrelas de cada filme para mostrar no catálogo
   calcularMedia(filme: Filme): string {
     if (!filme.avaliacoes || filme.avaliacoes.length === 0) {
       return 'Sem classificação';
