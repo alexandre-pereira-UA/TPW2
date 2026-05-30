@@ -26,10 +26,11 @@ export class App implements OnInit {
     this.checkLoginStatus();
   }
 
-  // 3. NOVO: Fecha o menu automaticamente quando clica em qualquer outro sítio do ecrã!
+
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
-    if (!this.elementRef.nativeElement.contains(event.target)) {
+    // Se o clique ocorreu fora do bloco do menu dropdown, fecha o menu!
+    if (!event.target.closest('.dropdown')) {
       this.dropdownOpen = false;
     }
   }

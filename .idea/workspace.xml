@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="butoes">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Mais css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -477,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780086472294</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Mais css">
+      <option name="closed" value="true" />
+      <created>1780137699330</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1780137699330</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Colocar no git" />
     <MESSAGE value="Again" />
     <MESSAGE value="Adicionei o Registo e compos as coias" />
     <MESSAGE value="Base de dados funciona, é só alterar algumas coisas" />
@@ -520,7 +527,8 @@
     <MESSAGE value="Em principio da online" />
     <MESSAGE value="Deu" />
     <MESSAGE value="butoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="butoes" />
+    <MESSAGE value="Mais css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mais css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

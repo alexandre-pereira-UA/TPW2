@@ -272,3 +272,13 @@ textarea {
 .btn-delete:hover {
     color: #d9534f;
 }
+
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+a:focus, a:active, button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
