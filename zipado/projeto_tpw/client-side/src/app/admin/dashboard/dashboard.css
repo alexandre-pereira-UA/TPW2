@@ -1,10 +1,8 @@
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS DO PAINEL DE CONTROLO (DASHBOARD ADMIN)
-   ========================================================================== */
-
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* Alinha os cartões em flexbox e centra-os para garantir simetria total */
+.dashboard-grid-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     margin-bottom: 40px;
 }
@@ -20,6 +18,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 220px;
+    flex: 1 1 220px;
+    max-width: 320px; /* Impede que os cartões estiquem demasiado em ecrãs gigantes */
 }
 
 .admin-card-new:hover {
