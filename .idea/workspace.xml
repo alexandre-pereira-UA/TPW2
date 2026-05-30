@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Deu">
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="butoes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/TPW2/app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -471,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780085561756</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="butoes">
+      <option name="closed" value="true" />
+      <created>1780086472294</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1780086472294</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +519,8 @@
     <MESSAGE value="Semi-feito" />
     <MESSAGE value="Em principio da online" />
     <MESSAGE value="Deu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deu" />
+    <MESSAGE value="butoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="butoes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
