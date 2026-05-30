@@ -45,7 +45,7 @@
 
         <!-- MODO GRELHA CLÁSSICO -->
         <div class="row">
-        @for (filme of filmesFiltrados; slice:0:limiteExibicao; track filme.id) {
+        @for (filme of filmesFiltrados | slice:0:limiteExibicao; track filme.id) {
             <div class="col-md-6">
                 <div class="movie-card" style="display: flex; gap: 20px; position: relative; margin-bottom: 20px; background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; color: white;">
 
