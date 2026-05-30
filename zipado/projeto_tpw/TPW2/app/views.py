@@ -20,6 +20,9 @@ from app.serializers import (
     RealizadorSerializer, AtorSerializer, GeneroSerializer
 )
 
+def registrar_log(user, acao):
+    from app.models import LogAtividade
+    LogAtividade.objects.create(utilizador=user, acao=acao)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -521,3 +524,12 @@ def api_apagar_comentario(request, filme_id):
 
     return Response({'error': 'Não foi possível encontrar a sua crítica neste filme.'},
                     status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser]) # Apenas administradores podem ler os logs
+def api_lista_logs(request):
+    from app.models import LogAtividade
+    logs = LogAtividade.objects.all().order_by('-data_hora')[:100]
+    serializer = LogAtividadeSerializer(logs, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

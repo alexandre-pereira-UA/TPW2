@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Genero, Realizador, Ator, Filme, Avaliacao, Guardado, Favorito
+from .models import Genero, Realizador, Ator, Filme, Avaliacao, Guardado, Favorito, LogAtividade
 
 
 # Serializer para Utilizadores (Corrigido!)
@@ -90,3 +90,12 @@ class GuardadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guardado
         fields = '__all__'
+
+
+# --- SERIALIZER: LOGS DE ATIVIDADE (Novo) ---
+
+class LogAtividadeSerializer(serializers.ModelSerializer):
+    utilizador = UserSerializer(read_only=True)
+    class Meta:
+        model = LogAtividade
+        fields = ['id', 'utilizador', 'acao', 'data_hora']

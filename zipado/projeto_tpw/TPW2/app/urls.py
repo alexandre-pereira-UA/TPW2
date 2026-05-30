@@ -58,6 +58,8 @@ urlpatterns = [
 # Rota de Importação automática de Filmes do TMDB via API
     path('ws/filmes/importar-api/', views.api_importar_filmes_api, name='api_importar_filmes_api'),
     path('ws/filmes/<int:filme_id>/comentario/apagar/', views.api_apagar_comentario, name='api_apagar_comentario'),
+# Rota para ler o Histórico de Auditoria do Staff
+    path('ws/admin/logs/', views.api_lista_logs, name='api_lista_logs'),
 
 
 ]
