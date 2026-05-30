@@ -2,8 +2,6 @@
     <h1 style="color: #f5c518; text-align: center; font-weight: 800; margin-bottom: 50px; letter-spacing: 1px;">PAINEL DE CONTROLO</h1>
 
     <!-- SEGURANÇA E ACESSOS (Cartões Centrados) -->
-    <!-- Procure pelo primeiro bloco de cartões (Segurança e Acessos) e substitua por este: -->
-
     <h3 style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Segurança e Acessos</h3>
     <div class="dashboard-grid-flex">
         <a routerLink="/admin/utilizadores" class="admin-card-new">
@@ -15,13 +13,6 @@
             <i class="fas fa-user-shield"></i>
             <h4>Grupos</h4>
             <p>{{ total_grupos }} criados</p>
-        </a>
-
-        <!-- NOVO: Terceiro cartão para dar simetria e acesso ao histórico! -->
-        <a routerLink="/admin/historico" class="admin-card-new">
-            <i class="fas fa-history" style="color: #f5c518;"></i>
-            <h4>Histórico</h4>
-            <p>Ver registos de auditoria</p>
         </a>
     </div>
 

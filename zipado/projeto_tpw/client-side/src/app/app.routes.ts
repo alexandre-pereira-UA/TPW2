@@ -21,7 +21,6 @@ import { EditarGrupo as AdminEditarGrupo } from './admin/editar-grupo/editar-gru
 import { EditarItem as AdminEditarItem } from './admin/editar-item/editar-item';
 import { Dashboard as AdminDashboard } from './admin/dashboard/dashboard';
 import { AdicionarFilme as AdminAdicionarFilme } from './admin/adicionar-filme/adicionar-filme';
-import { Historico as AdminHistorico } from './admin/historico/historico';
 
 // NOVO: Guarda de Rotas Funcional para proteger ecrãs de Administração
 // Substitua apenas a função "adminGuard" (perto da linha 25) por esta:
@@ -76,5 +75,4 @@ export const routes: Routes = [
   { path: 'admin/utilizadores', component: AdminUtilizadores, canActivate: [adminGuard] },
   { path: 'admin/criar/:tipo', component: AdminEditarItem, canActivate: [adminGuard] },
   { path: 'admin/editar/:tipo/:id', component: AdminEditarItem, canActivate: [adminGuard] }
-  { path: 'admin/historico', component: AdminHistorico, canActivate: [adminGuard] }
 ];

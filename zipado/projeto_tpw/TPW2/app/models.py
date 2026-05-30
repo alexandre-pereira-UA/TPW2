@@ -53,12 +53,3 @@ class Favorito(models.Model):
 
     class Meta:
         unique_together = ('utilizador', 'filme')
-
-
-class LogAtividade(models.Model):
-    utilizador = models.ForeignKey(User, on_delete=models.CASCADE)
-    acao = models.CharField(max_length=255)
-    data_hora = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.utilizador.username} - {self.acao} ({self.data_hora})"
