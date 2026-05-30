@@ -282,3 +282,106 @@ a:focus, a:active, button:focus, button:active {
     outline: none !important;
     box-shadow: none !important;
 }
+
+/* ==========================================================================
+   TEMA CLARO (LIGHT THEME) OVERRIDES
+   ========================================================================== */
+body.light-theme,
+body.light-theme .content-wrapper,
+body.light-theme .main-container {
+    background-color: #f4f4f4 !important; /* Fundo cinzento claro */
+    color: #121212 !important;             /* Texto Preto */
+}
+
+body.light-theme h1,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme th,
+body.light-theme td,
+body.light-theme label,
+body.light-theme .form-group label {
+    color: #121212 !important;
+}
+
+/* Força um tom amarelo de excelente contraste no fundo claro */
+body.light-theme .movie-title,
+body.light-theme .section-title h2,
+body.light-theme .section-container h2 {
+    color: #c99300 !important;
+}
+
+/* Cartão do Filme Claro */
+body.light-theme .movie-card {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    color: #121212 !important;
+}
+
+/* Inputs Claros */
+body.light-theme input[type="text"],
+body.light-theme input[type="password"],
+body.light-theme input[type="email"],
+body.light-theme input[type="date"],
+body.light-theme input[type="url"],
+body.light-theme select,
+body.light-theme textarea {
+    background-color: #ffffff !important;
+    border: 1px solid #ccc !important;
+    color: #000000 !important;
+}
+
+/* Menu Dropdown Claro */
+body.light-theme .dropdown-menu-dark {
+    background-color: #ffffff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+}
+
+body.light-theme .dropdown-menu-dark > li > a {
+    color: #121212 !important;
+}
+
+/* Tabelas Administrativas Claras */
+body.light-theme .admin-table-container {
+    background: #ffffff !important;
+    border: 1px solid #ddd !important;
+}
+
+body.light-theme .table-admin-custom tbody td {
+    border-top: 1px solid #eee !important;
+    color: #333 !important;
+}
+
+body.light-theme .table-admin-custom tbody tr:hover {
+    background: #f9f9f9 !important;
+}
+
+/* Críticas Claras */
+body.light-theme .review-quote {
+    background: #f0f0f0 !important;
+    color: #333 !important;
+    border-left: 3px solid #c99300 !important;
+}
+
+/* Cartões do Painel de Admin Claros */
+body.light-theme .admin-card-new {
+    background: #ffffff !important;
+    border: 1px solid #ddd !important;
+}
+
+body.light-theme .admin-card-new h4 {
+    color: #121212 !important;
+}
+
+/* Filtros Claros */
+body.light-theme .filtro-btn {
+    background-color: #e6e6e6;
+    color: #121212 !important;
+    border: 1px solid #ccc;
+}
+
+body.light-theme .filtro-btn:hover {
+    background-color: #c99300 !important;
+    color: #000000 !important;
+}

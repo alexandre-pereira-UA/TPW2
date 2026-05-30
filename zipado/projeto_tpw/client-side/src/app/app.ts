@@ -19,11 +19,37 @@ export class App implements OnInit {
   isSuperuser = false;
   dropdownOpen = false;
 
+  isLightTheme = false;
+
   private router = inject(Router);
   private elementRef = inject(ElementRef); // 2. Injeta a referência do elemento
 
   ngOnInit(): void {
     this.checkLoginStatus();
+    this.checkThemeStatus();
+  }
+
+  checkThemeStatus(): void {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      this.isLightTheme = true;
+        document.body.classList.add('light-theme');
+    } else {
+      this.isLightTheme = false;
+      document.body.classList.remove('light-theme');
+    }
+  }
+
+    // Novo: Alterna entre os dois temas e grava a escolha no navegador
+  toggleTheme(): void {
+    this.isLightTheme = !this.isLightTheme;
+    if (this.isLightTheme) {
+      document.body.classList.add('light-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.body.classList.remove('light-theme');
+      localStorage.setItem('theme', 'dark');
+    }
   }
 
 

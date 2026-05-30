@@ -14,6 +14,12 @@
 
         <div class="collapse navbar-collapse" [class.collapse]="!dropdownOpen" [class.in]="dropdownOpen">
             <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center; margin: 0;">
+              <!-- NOVO: ÍCONE SELETOR DE TEMA (SOL OU LUA) -->
+              <li style="display: inline-flex; align-items: center; height: 50px;">
+                  <a (click)="toggleTheme()" style="background: none !important; border: none; color: #f5c518; font-size: 20px; cursor: pointer; padding: 0; display: flex; align-items: center; text-decoration: none;">
+                      <i [class]="isLightTheme ? 'fas fa-moon' : 'fas fa-sun'"></i>
+                  </a>
+              </li>
 
                 @if (isLoggedIn) {
                     @if (!isSuperuser) {
