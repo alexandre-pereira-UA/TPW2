@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Dark/Light mode">
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" afterDir="false" />
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="even more stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -509,7 +513,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780139888006</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="even more stuff">
+      <option name="closed" value="true" />
+      <created>1780140697568</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1780140697568</updated>
+    </task>
+    <task id="LOCAL-00041" summary="even more stuff">
+      <option name="closed" value="true" />
+      <created>1780140970278</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1780140970278</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Base de dados funciona, é só alterar algumas coisas" />
     <MESSAGE value="Funciona o básico, BD também" />
     <MESSAGE value="simbolo" />
     <MESSAGE value="Add controlaFilmes e Add meter filmes" />
@@ -552,7 +571,8 @@
     <MESSAGE value="Mais css" />
     <MESSAGE value="dashboard" />
     <MESSAGE value="Dark/Light mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dark/Light mode" />
+    <MESSAGE value="even more stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="even more stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

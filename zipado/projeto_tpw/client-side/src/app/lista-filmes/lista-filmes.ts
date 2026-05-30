@@ -117,4 +117,13 @@ export class ListaFilmes implements OnInit {
     }
     this.cdr.detectChanges();
   }
+
+  calcularMedia(filme: Filme): string {
+    if (!filme.avaliacoes || filme.avaliacoes.length === 0) {
+      return 'Sem classificação';
+    }
+    const total = filme.avaliacoes.reduce((sum, av) => sum + av.nota, 0);
+    const media = total / filme.avaliacoes.length;
+    return `${media.toFixed(1)}/5 ★ (${filme.avaliacoes.length} ${filme.avaliacoes.length === 1 ? 'crítica' : 'críticas'})`;
+  }
 }

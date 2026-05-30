@@ -50,12 +50,18 @@
 
                 <div>
                     <!-- TÍTULO DO FILME A AMARELO -->
+                    <!-- Procure pela tag <h3> do título do filme e cole este parágrafo dinâmico logo abaixo: -->
                     <a [routerLink]="['/filme', filme.id]" style="text-decoration: none; color: inherit;">
                         <h3 class="movie-title" style="margin-top: 0; color: #f5c518 !important; font-weight: bold;">
                             {{ filme.titulo }}
                             <small style="color: #888; font-size: 14px;">({{ filme.data_lancamento | slice:0:4 }})</small>
                         </h3>
                     </a>
+
+                    <!-- NOVO: Média de classificação por Estrelas (Combinação de Dados do DRF + Angular) -->
+                    <p style="margin: -5px 0 10px 0; color: #f5c518; font-size: 13px; font-weight: bold;">
+                        <i class="fas fa-star" style="color: #f5c518;"></i> {{ calcularMedia(filme) }}
+                    </p>
 
                     <!-- RÓTULOS A AMARELO / NOMES A BRANCO -->
                     <p><strong style="color: #f5c518 !important;">Realizador:</strong> <span style="color: #ffffff !important;">{{ filme.realizador.nome }}</span></p>
@@ -73,7 +79,10 @@
             </div>
         </div>
     } @empty {
-        <p class="text-center" style="color: #888; width: 100%;">Nenhum filme encontrado.</p>
+      <div class="col-md-12 text-center" style="margin-top: 80px; color: #888;">
+        <i class="fas fa-spinner fa-spin" style="font-size: 45px; color: #f5c518; margin-bottom: 20px;"></i>
+        <p style="font-size: 16px; font-weight: bold;">A carregar catálogo de filmes...</p>
+      </div>
     }
     </div>
 </div>
