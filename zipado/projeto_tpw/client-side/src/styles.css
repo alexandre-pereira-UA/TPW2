@@ -397,3 +397,18 @@ body.light-theme .filtro-btn:hover {
         opacity: 1;
     }
 }
+
+/* Força as colunas do Bootstrap a terem comportamento flexível */
+.row > div[class^="col-"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+/* Garante que todos os cartões esticam para ter a mesma altura na mesma linha */
+.movie-card {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    height: 100% !important;
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy, inject, ChangeDetectorRef } from '@angular/core'; // Adicionado OnDestroy
+// 1. Adicione o "HostListener" nos imports do topo de @angular/core:
+import { Component, OnInit, OnDestroy, inject, ChangeDetectorRef, HostListener } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -23,10 +25,11 @@ export class ListaFilmes implements OnInit, OnDestroy {
   generoSelecionadoId: number | null = null;
 
   viewMode: 'grid' | 'carousel' = 'grid';
-
-  // NOVO: Lógica nativa de controlo de Slides do Carrossel (sem jQuery!)
   activeSlideIndex: number = 0;
   carouselInterval: any = null;
+
+  // NOVO: Limite de filmes mostrados inicialmente na grelha
+  limiteExibicao: number = 6;
 
   isLoggedIn = false;
   isSuperuser = false;
@@ -63,7 +66,6 @@ export class ListaFilmes implements OnInit, OnDestroy {
     }
   }
 
-  // Limpa o temporizador se o utilizador mudar de página para evitar lentidão
   ngOnDestroy(): void {
     if (this.carouselInterval) {
       clearInterval(this.carouselInterval);
@@ -92,18 +94,29 @@ export class ListaFilmes implements OnInit, OnDestroy {
     }
   }
 
-  // Alternador de Layout com Auto-Play nativo
+  // NOVO: Ouve o scroll do utilizador e carrega mais 6 filmes ao chegar ao fim do ecrã
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    if (this.viewMode !== 'grid') return; // Apenas pagina na grelha
+
+    const posicaoScroll = window.innerHeight + window.scrollY;
+    const limiteScroll = document.documentElement.scrollHeight - 150; // Deteta 150px antes de bater no fundo
+
+    if (posicaoScroll >= limiteScroll) {
+      if (this.limiteExibicao < this.filmesFiltrados.length) {
+        this.limiteExibicao += 6; // Mostra mais 6 filmes de forma instantânea!
+        this.cdr.detectChanges();
+      }
+    }
+  }
+
   toggleViewMode(): void {
     this.viewMode = this.viewMode === 'grid' ? 'carousel' : 'grid';
     this.cdr.detectChanges();
 
     if (this.viewMode === 'carousel') {
-      this.activeSlideIndex = 0; // Começa no primeiro
-
-      // Limpa qualquer temporizador antigo por segurança antes de criar um novo
+      this.activeSlideIndex = 0;
       if (this.carouselInterval) clearInterval(this.carouselInterval);
-
-      // Inicia a transição automática de slides a cada 4 segundos
       this.carouselInterval = setInterval(() => {
         this.nextSlide();
       }, 4000);
@@ -115,7 +128,6 @@ export class ListaFilmes implements OnInit, OnDestroy {
     }
   }
 
-  // --- FUNÇÕES NATIVAS DOS SLIDES (Acionadas pelas setas e bolas) ---
   nextSlide(): void {
     if (this.filmesFiltrados.length === 0) return;
     this.activeSlideIndex = (this.activeSlideIndex + 1) % this.filmesFiltrados.length;
@@ -152,7 +164,8 @@ export class ListaFilmes implements OnInit, OnDestroy {
     }
 
     this.filmesFiltrados = resultados;
-    this.activeSlideIndex = 0; // Reinicia o foco do slide ao pesquisar
+    this.activeSlideIndex = 0;
+    this.limiteExibicao = 6; // Reinicia o limite ao pesquisar para manter rápido!
     this.cdr.detectChanges();
   }
 
@@ -195,6 +208,7 @@ export class ListaFilmes implements OnInit, OnDestroy {
     this.generoSelecionadoId = null;
     this.filmesFiltrados = [...this.filmes];
     this.activeSlideIndex = 0;
+    this.limiteExibicao = 6; // Reinicia o limite
     this.cdr.detectChanges();
   }
 
@@ -208,6 +222,7 @@ export class ListaFilmes implements OnInit, OnDestroy {
       this.filmesFiltrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
     }
     this.activeSlideIndex = 0;
+    this.limiteExibicao = 6; // Reinicia o limite
     this.cdr.detectChanges();
   }
 
