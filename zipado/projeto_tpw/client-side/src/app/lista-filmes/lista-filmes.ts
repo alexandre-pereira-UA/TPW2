@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Filme, Genero } from '../filme';
 import { FilmeService } from '../services/filme';
-import { ToastService } from '../services/toast'; // Import do Toast
+import { ToastService } from '../services/toast'; // Import do Toast de notificações
 
 @Component({
   selector: 'app-lista-filmes',
@@ -16,7 +16,7 @@ import { ToastService } from '../services/toast'; // Import do Toast
 export class ListaFilmes implements OnInit {
   filmes: Filme[] = [];
   filmesFiltrados: Filme[] = [];
-  generos: Genero[] = []; // Guardará a lista de categorias do Django
+  generos: Genero[] = []; // Categoria de géneros carregada do Django
 
   searchQuery: string = '';
   filtroAtivo: string = '';
@@ -28,18 +28,21 @@ export class ListaFilmes implements OnInit {
   ids_guardados: number[] = [];
 
   private filmeService = inject(FilmeService);
-  private toastService = inject(ToastService); // Injeta o Serviço de Notificações
+  private toastService = inject(ToastService); // Injeta o Serviço de Notificações Flutuantes
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
     this.checkLoginStatus();
+
+    // 1. Carrega os filmes normais primeiro de forma segura
     this.filmes = await this.filmeService.getFilmes();
     this.filmesFiltrados = [...this.filmes];
-    this.cdr.detectChanges();
+    this.cdr.detectChanges(); // Garante o desenho imediato dos filmes no ecrã!
 
-    // Carrega categorias de géneros do Django
+    // 2. Carrega categorias de géneros do Django
     await this.carregarGeneros();
 
+    // 3. Tenta carregar favoritos/guardados de forma isolada e segura
     if (this.isLoggedIn && !this.isSuperuser) {
       try {
         const favs = await this.filmeService.getFavoritos();
@@ -51,9 +54,9 @@ export class ListaFilmes implements OnInit {
         if (guards && Array.isArray(guards)) {
           this.ids_guardados = guards.map((g: any) => g.filme.id);
         }
-        this.cdr.detectChanges();
+        this.cdr.detectChanges(); // Atualiza apenas os ícones
       } catch (error) {
-        console.error("Erro ao carregar favoritos/guardados.", error);
+        console.error("Erro seguro: Tabelas de favoritos/guardados vazias ou indisponíveis.", error);
       }
     }
   }
@@ -70,7 +73,7 @@ export class ListaFilmes implements OnInit {
 
   async carregarGeneros(): Promise<void> {
     try {
-      const response = await fetch('http://localhost:8000/ws/generos/');
+      const response = await fetch('https://escorcio.pythonanywhere.com/ws/generos/');
       if (response.ok) {
         this.generos = await response.json();
         this.cdr.detectChanges();
@@ -109,7 +112,7 @@ export class ListaFilmes implements OnInit {
   }
 
   async toggleFavorito(filmeId: number): Promise<void> {
-    const res = await this.filmeService.toggleFavorito(filmeId);
+    await this.filmeService.toggleFavorito(filmeId);
     const filme = this.filmes.find(f => f.id === filmeId);
 
     if (this.ids_favoritos.includes(filmeId)) {
@@ -123,7 +126,7 @@ export class ListaFilmes implements OnInit {
   }
 
   async toggleGuardado(filmeId: number): Promise<void> {
-    const res = await this.filmeService.toggleGuardado(filmeId);
+    await this.filmeService.toggleGuardado(filmeId);
     const filme = this.filmes.find(f => f.id === filmeId);
 
     if (this.ids_guardados.includes(filmeId)) {
@@ -154,5 +157,15 @@ export class ListaFilmes implements OnInit {
       this.filmesFiltrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
     }
     this.cdr.detectChanges();
+  }
+
+  // NOVO: Calcula dinamicamente a média de estrelas de cada filme para mostrar no catálogo
+  calcularMedia(filme: Filme): string {
+    if (!filme.avaliacoes || filme.avaliacoes.length === 0) {
+      return 'Sem classificação';
+    }
+    const total = filme.avaliacoes.reduce((sum, av) => sum + av.nota, 0);
+    const media = total / filme.avaliacoes.length;
+    return `${media.toFixed(1)}/5 ★ (${filme.avaliacoes.length} ${filme.avaliacoes.length === 1 ? 'crítica' : 'críticas'})`;
   }
 }
