@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Filme } from '../filme';
 import { FilmeService } from '../services/filme';
+import { ToastService } from '../services/toast';
 
 @Component({
   selector: 'app-detalhe-filme',
@@ -29,6 +30,7 @@ export class DetalheFilme implements OnInit {
 
   private route = inject(ActivatedRoute);
   private filmeService = inject(FilmeService);
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
@@ -57,9 +59,10 @@ export class DetalheFilme implements OnInit {
       this.filme = await this.filmeService.getFilme(id);
 
       if (this.filme && this.filme.avaliacoes) {
-        // Usamos comparação flexível == para evitar conflito de tipos número/texto
+        // Usamos comparação flexível == para evitar conflitos de tipos número/texto
         this.minhaAvaliacao = this.filme.avaliacoes.find((av: any) => av.utilizador.id == this.userId);
 
+        // Ordena TODAS as avaliações por data decrescente (as mais recentes primeiro)
         this.todasAvaliacoes = [...this.filme.avaliacoes].sort((a, b) =>
           new Date(b.data_postagem).getTime() - new Date(a.data_postagem).getTime()
         );
@@ -83,13 +86,12 @@ export class DetalheFilme implements OnInit {
 
   async submeterCritica(): Promise<void> {
     if (this.notaSelecionada === 0) {
-      alert('Por favor, selecione uma classificação (estrelas).');
+      this.toastService.show('Por favor, selecione uma classificação (estrelas).', 'danger');
       return;
     }
 
     try {
       const token = localStorage.getItem('token');
-      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/`, {
         method: 'POST',
         headers: {
@@ -100,13 +102,13 @@ export class DetalheFilme implements OnInit {
       });
 
       if (response.ok) {
-        alert('Crítica gravada com sucesso!');
+        this.toastService.show('A sua crítica foi guardada com sucesso!', 'success');
         await this.carregarDetalhes();
       } else {
-        alert('Erro ao submeter crítica.');
+        this.toastService.show('Erro ao submeter crítica.', 'danger');
       }
     } catch (e) {
-      alert('Erro de ligação ao servidor.');
+      this.toastService.show('Erro de ligação ao servidor.', 'danger');
     }
   }
 
@@ -114,22 +116,21 @@ export class DetalheFilme implements OnInit {
     if (!confirm('Deseja apagar a sua crítica?')) return;
     try {
       const token = localStorage.getItem('token');
-      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/comentario/apagar/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
-        alert('A tua crítica foi removida.');
+        this.toastService.show('Crítica removida com sucesso.', 'success');
         this.minhaAvaliacao = null;
         this.notaSelecionada = 0;
         this.novoComentario = '';
         await this.carregarDetalhes();
       } else {
-        alert('Erro ao apagar crítica.');
+        this.toastService.show('Erro ao apagar crítica.', 'danger');
       }
     } catch (e) {
-      alert('Erro de ligação ao servidor.');
+      this.toastService.show('Erro de ligação ao servidor.', 'danger');
     }
   }
 
@@ -137,12 +138,12 @@ export class DetalheFilme implements OnInit {
     if (!confirm('Apagar comentário como moderador?')) return;
     try {
       const token = localStorage.getItem('token');
-      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
+        this.toastService.show('Comentário apagado com sucesso.', 'success');
         await this.carregarDetalhes();
       }
     } catch (e) {

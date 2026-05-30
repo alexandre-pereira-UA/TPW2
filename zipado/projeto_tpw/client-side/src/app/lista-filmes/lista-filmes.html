@@ -14,7 +14,16 @@
         </div>
     </div>
 
-    <!-- Filtros rápidos -->
+    <!-- Filtro Rápido por Categoria / Género (Navegação dinâmica!) -->
+    <div class="generos-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; align-items: center;">
+        <span style="color: #888; font-weight: bold; margin-right: 5px;">Categorias:</span>
+        <button (click)="filtrarPorGenero(null)" class="filtro-btn" [class.active]="generoSelecionadoId === null">Todos</button>
+        @for (g of generos; track g.id) {
+            <button (click)="filtrarPorGenero(g.id)" class="filtro-btn" [class.active]="generoSelecionadoId === g.id">{{ g.nome }}</button>
+        }
+    </div>
+
+    <!-- Filtros rápidos por data -->
     <div class="filtros-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
         <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
         <button (click)="ordenar('recentes')" class="filtro-btn" [class.active]="filtroAtivo === 'recentes'">Mais Recentes</button>
@@ -50,7 +59,6 @@
 
                 <div>
                     <!-- TÍTULO DO FILME A AMARELO -->
-                    <!-- Procure pela tag <h3> do título do filme e cole este parágrafo dinâmico logo abaixo: -->
                     <a [routerLink]="['/filme', filme.id]" style="text-decoration: none; color: inherit;">
                         <h3 class="movie-title" style="margin-top: 0; color: #f5c518 !important; font-weight: bold;">
                             {{ filme.titulo }}
@@ -58,7 +66,7 @@
                         </h3>
                     </a>
 
-                    <!-- NOVO: Média de classificação por Estrelas (Combinação de Dados do DRF + Angular) -->
+                    <!-- Média de classificação por Estrelas (Combinação de Dados do DRF + Angular) -->
                     <p style="margin: -5px 0 10px 0; color: #f5c518; font-size: 13px; font-weight: bold;">
                         <i class="fas fa-star" style="color: #f5c518;"></i> {{ calcularMedia(filme) }}
                     </p>
@@ -79,10 +87,11 @@
             </div>
         </div>
     } @empty {
-      <div class="col-md-12 text-center" style="margin-top: 80px; color: #888;">
-        <i class="fas fa-spinner fa-spin" style="font-size: 45px; color: #f5c518; margin-bottom: 20px;"></i>
-        <p style="font-size: 16px; font-weight: bold;">A carregar catálogo de filmes...</p>
-      </div>
+        <div class="col-md-12 text-center" style="margin-top: 80px; color: #888; width: 100%;">
+            <!-- Rolo de filme a girar dinamicamente -->
+            <i class="fas fa-spinner fa-spin" style="font-size: 45px; color: #f5c518; margin-bottom: 20px;"></i>
+            <p style="font-size: 16px; font-weight: bold;">A carregar catálogo de filmes...</p>
+        </div>
     }
     </div>
 </div>

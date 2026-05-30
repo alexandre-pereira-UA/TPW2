@@ -4,6 +4,8 @@ import { Component, OnInit, HostListener, ElementRef, inject } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
+import { ToastService } from './services/toast'; // Import do Toast
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,6 +25,9 @@ export class App implements OnInit {
 
   private router = inject(Router);
   private elementRef = inject(ElementRef); // 2. Injeta a referência do elemento
+
+  public toastService = inject(ToastService);
+
 
   ngOnInit(): void {
     this.checkLoginStatus();

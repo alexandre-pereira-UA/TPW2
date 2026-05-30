@@ -385,3 +385,15 @@ body.light-theme .filtro-btn:hover {
     background-color: #c99300 !important;
     color: #000000 !important;
 }
+
+/* Animação suave para as notificações flutuantes (Toasts) */
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
