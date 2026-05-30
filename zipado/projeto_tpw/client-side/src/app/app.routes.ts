@@ -23,19 +23,27 @@ import { Dashboard as AdminDashboard } from './admin/dashboard/dashboard';
 import { AdicionarFilme as AdminAdicionarFilme } from './admin/adicionar-filme/adicionar-filme';
 
 // NOVO: Guarda de Rotas Funcional para proteger ecrãs de Administração
+// Substitua apenas a função "adminGuard" (perto da linha 25) por esta:
+
 const adminGuard = () => {
   const router = inject(Router);
   const userJson = localStorage.getItem('user');
 
   if (userJson) {
     const user = JSON.parse(userJson);
-    // Permite a entrada apenas se pertencer ao Staff (is_staff) ou for Admin (is_superuser)
+    // Permite a entrada apenas se pertencer ao Staff ou for Admin
     if (user.is_staff || user.is_superuser) {
       return true;
     }
   }
-  // Se não tiver permissão, bloqueia a URL e redireciona para a página de login
-  router.navigate(['/login']);
+
+  // SE TENTAR ACEDER SEM SER ADMIN:
+  // 1. Limpa os dados de login antigos do navegador por completo
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+
+  // 2. Força a ida para o ecrã de login limpando o estado do cabeçalho
+  window.location.href = '/login';
   return false;
 };
 

@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="even more stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/lista-filmes/lista-filmes.ts" afterDir="false" />
-    </list>
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Mais funcionalidades" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -529,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780140970278</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Mais funcionalidades">
+      <option name="closed" value="true" />
+      <created>1780141922070</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1780141922070</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Funciona o básico, BD também" />
     <MESSAGE value="simbolo" />
     <MESSAGE value="Add controlaFilmes e Add meter filmes" />
     <MESSAGE value="Muitas coisas" />
@@ -572,7 +573,8 @@
     <MESSAGE value="dashboard" />
     <MESSAGE value="Dark/Light mode" />
     <MESSAGE value="even more stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="even more stuff" />
+    <MESSAGE value="Mais funcionalidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mais funcionalidades" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

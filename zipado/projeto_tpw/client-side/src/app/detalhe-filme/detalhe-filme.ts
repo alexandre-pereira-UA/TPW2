@@ -25,7 +25,7 @@ export class DetalheFilme implements OnInit {
   notaSelecionada: number = 0;
   novoComentario: string = '';
   minhaAvaliacao: any = null;
-  todasAvaliacoes: any[] = []; // Guardará todos os comentários (incluindo o meu!)
+  todasAvaliacoes: any[] = [];
 
   private route = inject(ActivatedRoute);
   private filmeService = inject(FilmeService);
@@ -57,10 +57,9 @@ export class DetalheFilme implements OnInit {
       this.filme = await this.filmeService.getFilme(id);
 
       if (this.filme && this.filme.avaliacoes) {
-        // 1. Encontra a avaliação do próprio utilizador logado
-        this.minhaAvaliacao = this.filme.avaliacoes.find((av: any) => av.utilizador.id === this.userId);
+        // Usamos comparação flexível == para evitar conflito de tipos número/texto
+        this.minhaAvaliacao = this.filme.avaliacoes.find((av: any) => av.utilizador.id == this.userId);
 
-        // 2. Ordena TODAS as avaliações (incluindo a minha) por data decrescente
         this.todasAvaliacoes = [...this.filme.avaliacoes].sort((a, b) =>
           new Date(b.data_postagem).getTime() - new Date(a.data_postagem).getTime()
         );
@@ -90,7 +89,8 @@ export class DetalheFilme implements OnInit {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/filmes/${this.filme.id}/`, {
+      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,10 +100,13 @@ export class DetalheFilme implements OnInit {
       });
 
       if (response.ok) {
+        alert('Crítica gravada com sucesso!');
         await this.carregarDetalhes();
+      } else {
+        alert('Erro ao submeter crítica.');
       }
     } catch (e) {
-      console.error(e);
+      alert('Erro de ligação ao servidor.');
     }
   }
 
@@ -111,18 +114,22 @@ export class DetalheFilme implements OnInit {
     if (!confirm('Deseja apagar a sua crítica?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/filmes/${this.filme.id}/comentario/apagar/`, {
+      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/comentario/apagar/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
+        alert('A tua crítica foi removida.');
         this.minhaAvaliacao = null;
         this.notaSelecionada = 0;
         this.novoComentario = '';
         await this.carregarDetalhes();
+      } else {
+        alert('Erro ao apagar crítica.');
       }
     } catch (e) {
-      console.error(e);
+      alert('Erro de ligação ao servidor.');
     }
   }
 
@@ -130,7 +137,8 @@ export class DetalheFilme implements OnInit {
     if (!confirm('Apagar comentário como moderador?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/ws/avaliacoes/apagar/${id}/`, {
+      // ATUALIZADO PARA O LINK ONLINE DO PYTHONANYWHERE
+      const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
         method: 'DELETE',
         headers: { 'Authorization': `Token ${token}` }
       });
