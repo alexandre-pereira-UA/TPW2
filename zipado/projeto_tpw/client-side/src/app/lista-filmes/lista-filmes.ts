@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, ChangeDetectorRef } from '@angular/core'; // Adicionado OnDestroy
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -13,7 +13,7 @@ import { ToastService } from '../services/toast';
   templateUrl: './lista-filmes.html',
   styleUrl: './lista-filmes.css'
 })
-export class ListaFilmes implements OnInit {
+export class ListaFilmes implements OnInit, OnDestroy {
   filmes: Filme[] = [];
   filmesFiltrados: Filme[] = [];
   generos: Genero[] = [];
@@ -22,8 +22,11 @@ export class ListaFilmes implements OnInit {
   filtroAtivo: string = '';
   generoSelecionadoId: number | null = null;
 
-  // NOVO: Estado do Modo de Visualização ('grid' = Grelha, 'carousel' = Slide)
   viewMode: 'grid' | 'carousel' = 'grid';
+
+  // NOVO: Lógica nativa de controlo de Slides do Carrossel (sem jQuery!)
+  activeSlideIndex: number = 0;
+  carouselInterval: any = null;
 
   isLoggedIn = false;
   isSuperuser = false;
@@ -60,6 +63,13 @@ export class ListaFilmes implements OnInit {
     }
   }
 
+  // Limpa o temporizador se o utilizador mudar de página para evitar lentidão
+  ngOnDestroy(): void {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
+  }
+
   checkLoginStatus(): void {
     const token = localStorage.getItem('token');
     const userJson = localStorage.getItem('user');
@@ -82,19 +92,45 @@ export class ListaFilmes implements OnInit {
     }
   }
 
-  // Alternador Dinâmico de Layout
+  // Alternador de Layout com Auto-Play nativo
   toggleViewMode(): void {
     this.viewMode = this.viewMode === 'grid' ? 'carousel' : 'grid';
     this.cdr.detectChanges();
 
-    // Inicia o carrossel do Bootstrap nativamente se mudarmos para slides
     if (this.viewMode === 'carousel') {
-      setTimeout(() => {
-        (window as any).jQuery?.('#movieCarousel').carousel({
-          interval: 4000 // desliza automaticamente a cada 4 segundos
-        });
-      }, 100);
+      this.activeSlideIndex = 0; // Começa no primeiro
+
+      // Limpa qualquer temporizador antigo por segurança antes de criar um novo
+      if (this.carouselInterval) clearInterval(this.carouselInterval);
+
+      // Inicia a transição automática de slides a cada 4 segundos
+      this.carouselInterval = setInterval(() => {
+        this.nextSlide();
+      }, 4000);
+    } else {
+      if (this.carouselInterval) {
+        clearInterval(this.carouselInterval);
+        this.carouselInterval = null;
+      }
     }
+  }
+
+  // --- FUNÇÕES NATIVAS DOS SLIDES (Acionadas pelas setas e bolas) ---
+  nextSlide(): void {
+    if (this.filmesFiltrados.length === 0) return;
+    this.activeSlideIndex = (this.activeSlideIndex + 1) % this.filmesFiltrados.length;
+    this.cdr.detectChanges();
+  }
+
+  prevSlide(): void {
+    if (this.filmesFiltrados.length === 0) return;
+    this.activeSlideIndex = (this.activeSlideIndex - 1 + this.filmesFiltrados.length) % this.filmesFiltrados.length;
+    this.cdr.detectChanges();
+  }
+
+  setSlide(index: number): void {
+    this.activeSlideIndex = index;
+    this.cdr.detectChanges();
   }
 
   onSearch(): void {
@@ -116,6 +152,7 @@ export class ListaFilmes implements OnInit {
     }
 
     this.filmesFiltrados = resultados;
+    this.activeSlideIndex = 0; // Reinicia o foco do slide ao pesquisar
     this.cdr.detectChanges();
   }
 
@@ -157,6 +194,7 @@ export class ListaFilmes implements OnInit {
     this.filtroAtivo = '';
     this.generoSelecionadoId = null;
     this.filmesFiltrados = [...this.filmes];
+    this.activeSlideIndex = 0;
     this.cdr.detectChanges();
   }
 
@@ -169,6 +207,7 @@ export class ListaFilmes implements OnInit {
     } else if (criterio === 'alfabetica') {
       this.filmesFiltrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
     }
+    this.activeSlideIndex = 0;
     this.cdr.detectChanges();
   }
 

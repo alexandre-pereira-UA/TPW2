@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 30px;">
 
-    <!-- Cabeçalho com o NOVO botão alternador de Layout (Grelha / Slide) -->
+    <!-- Cabeçalho com botão alternador de Layout (Grelha / Slide) -->
     <div class="section-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
         <h2 style="margin: 0; border: none; padding: 0; color: #f5c518 !important; font-weight: bold;">Filmes em Destaque</h2>
 
@@ -104,56 +104,57 @@
 
     } @else {
 
-        <!-- NOVO: MODO SLIDER / CARROSSEL INTERATIVO DO BOOTSTRAP -->
+        <!-- NOVO: CARROSSEL DE SLIDES 100% NATIVO EM ANGULAR (SEM JQUERY!) -->
         @if (filmesFiltrados.length > 0) {
-            <div id="movieCarousel" class="carousel slide" data-ride="carousel" style="background: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-bottom: 40px; border: 1px solid #333;">
+            <div class="carousel slide" style="background: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-bottom: 40px; border: 1px solid #333; position: relative;">
 
-                <!-- Indicadores Redondos em Baixo -->
-                <ol class="carousel-indicators">
+                <!-- Bolas / Indicadores do Slide -->
+                <ol class="carousel-indicators" style="bottom: 10px; z-index: 20;">
                     @for (filme of filmesFiltrados; track filme.id; let i = $index) {
-                        <li data-target="#movieCarousel" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+                        <li (click)="setSlide(i); $event.stopPropagation();" [class.active]="i === activeSlideIndex" style="cursor: pointer; border: 1px solid #f5c518; background-color: transparent;"></li>
                     }
                 </ol>
 
-                <!-- Páginas do Carrossel (Slides) -->
+                <!-- Área dos Slides -->
                 <div class="carousel-inner" role="listbox">
                     @for (filme of filmesFiltrados; track filme.id; let i = $index) {
-                        <div class="item" [class.active]="i === 0" [routerLink]="['/filme', filme.id]" style="height: 400px; position: relative; cursor: pointer;">
+                        <!-- Mostra apenas o slide correspondente ao índice ativo com animação suave de fadeIn -->
+                        @if (i === activeSlideIndex) {
+                            <div class="item active" [routerLink]="['/filme', filme.id]" style="height: 400px; position: relative; cursor: pointer; animation: fadeIn 0.5s ease-in-out;">
 
-                            <!-- Efeito de Fundo Desfocado (Borrado) usando o próprio cartaz -->
-                            @if (filme.cartaz) {
-                                <div [style.background-image]="'url(' + filme.cartaz + ')'" style="position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.15; filter: blur(12px); transform: scale(1.1);"></div>
-                            }
-                            <!-- Gradiente de sombra por cima -->
-                            <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to top, rgba(12,12,12,1) 0%, rgba(12,12,12,0.4) 60%, rgba(12,12,12,0.9) 100%);"></div>
-
-                            <!-- Conteúdo do Slide Centrado (Poster + Ficha Técnica) -->
-                            <div class="container" style="position: relative; z-index: 10; display: flex; align-items: center; height: 100%; gap: 30px; padding: 40px;">
+                                <!-- Efeito de Fundo Desfocado -->
                                 @if (filme.cartaz) {
-                                    <img [src]="filme.cartaz" [alt]="filme.titulo" style="width: 160px; height: 230px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); border: 1px solid #444;">
+                                    <div [style.background-image]="'url(' + filme.cartaz + ')'" style="position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.15; filter: blur(12px); transform: scale(1.1);"></div>
                                 }
-                                <div style="color: white; max-width: 600px;">
-                                    <h2 style="color: #f5c518 !important; font-size: 30px; font-weight: bold; margin-top: 0; border: none !important;">
-                                        {{ filme.titulo }}
-                                        <span style="color: #888; font-size: 18px;">({{ filme.data_lancamento | slice:0:4 }})</span>
-                                    </h2>
-                                    <p style="color: #f5c518; font-weight: bold; margin-bottom: 15px;"><i class="fas fa-star"></i> {{ calcularMedia(filme) }}</p>
-                                    <p style="color: #ccc; font-size: 14px; line-height: 1.5; max-height: 70px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 15px;">
-                                        {{ filme.sinopse || 'Sem sinopse disponível.' }}
-                                    </p>
-                                    <p style="font-size: 13px; margin: 0;"><strong style="color: #f5c518;">Realizador:</strong> {{ filme.realizador.nome }}</p>
+                                <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to top, rgba(12,12,12,1) 0%, rgba(12,12,12,0.4) 60%, rgba(12,12,12,0.9) 100%);"></div>
+
+                                <!-- Conteúdo (Poster, Nome, Média, Sinopse - Sem realizador!) -->
+                                <div class="container" style="position: relative; z-index: 10; display: flex; align-items: center; height: 100%; gap: 30px; padding: 40px;">
+                                    @if (filme.cartaz) {
+                                        <img [src]="filme.cartaz" [alt]="filme.titulo" style="width: 160px; height: 230px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); border: 1px solid #444;">
+                                    }
+                                    <div style="color: white; max-width: 600px;">
+                                        <h2 style="color: #f5c518 !important; font-size: 30px; font-weight: bold; margin-top: 0; border: none !important;">
+                                            {{ filme.titulo }}
+                                            <span style="color: #888; font-size: 18px;">({{ filme.data_lancamento | slice:0:4 }})</span>
+                                        </h2>
+                                        <p style="color: #f5c518; font-weight: bold; margin-bottom: 15px;"><i class="fas fa-star"></i> {{ calcularMedia(filme) }}</p>
+                                        <p style="color: #ccc; font-size: 14px; line-height: 1.5; max-height: 100px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; margin-bottom: 0;">
+                                            {{ filme.sinopse || 'Sem sinopse disponível.' }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
                 </div>
 
-                <!-- Setas de Controlo de Direção (Esquerda e Direita) -->
-                <a class="left carousel-control" href="#movieCarousel" role="button" data-slide="prev" style="background: none; width: 8%;">
+                <!-- Setas Nativas no Angular (Sem dependência de jQuery) -->
+                <a class="left carousel-control" (click)="prevSlide(); $event.stopPropagation();" role="button" style="background: none; width: 8%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 20;">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color: #f5c518; font-size: 24px;"></span>
                     <span class="sr-only">Anterior</span>
                 </a>
-                <a class="right carousel-control" href="#movieCarousel" role="button" data-slide="next" style="background: none; width: 8%;">
+                <a class="right carousel-control" (click)="nextSlide(); $event.stopPropagation();" role="button" style="background: none; width: 8%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 20;">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color: #f5c518; font-size: 24px;"></span>
                     <span class="sr-only">Seguinte</span>
                 </a>

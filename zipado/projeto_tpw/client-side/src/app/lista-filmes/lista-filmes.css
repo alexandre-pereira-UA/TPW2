@@ -58,3 +58,14 @@
 .section-title h2 {
     color: #f5c518 !important;
 }
+
+/* Animação suave para as transições de slides nativos */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.carousel-indicators li.active {
+    background-color: #f5c518 !important;
+    border-color: #f5c518 !important;
+}
