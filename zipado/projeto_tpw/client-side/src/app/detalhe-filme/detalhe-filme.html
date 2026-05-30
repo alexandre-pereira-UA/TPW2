@@ -9,11 +9,9 @@
                 </div>
 
                 <div class="col-md-9">
-                    <!-- Título a Amarelo e Botão de Edição à Direita -->
+                    <!-- Título e botão Editar Filme -->
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <h1 style="color: #f5c518 !important; font-size: 3em; margin-top: 0; margin-bottom: 5px; font-weight: bold;">
-                            {{ filme.titulo }}
-                        </h1>
+                        <h1 style="color: #f5c518; font-size: 3em; margin-top: 0; margin-bottom: 5px; font-weight: bold;">{{ filme.titulo }}</h1>
 
                         @if (isStaff) {
                             <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn btn-warning" style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 25px; width: auto !important; margin-top: 0 !important; box-sizing: border-box;">
@@ -24,7 +22,7 @@
 
                     <p style="color: #888; font-size: 1.1em; margin-bottom: 10px;">{{ filme.data_lancamento }}</p>
 
-                    <!-- Sistema interativo de Estrelas -->
+                    <!-- Estrelas de Avaliação -->
                     <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
                         <div class="sistema-classificacao" style="font-size: 24px; cursor: pointer; color: #444;">
                             <span (click)="selecionarNota(1)" [style.color]="notaSelecionada >= 1 ? '#f5c518' : '#444'">★</span>
@@ -40,9 +38,8 @@
                         <p style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">{{ filme.sinopse }}</p>
                     }
 
-                    <!-- RÓTULOS A AMARELO / VALORES A BRANCO -->
                     <div class="section-container" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
-                        <h2 style="color: #f5c518 !important; font-size: 22px; font-weight: bold;">Ficha Técnica</h2>
+                        <h2 style="color: #f5c518; font-size: 22px; font-weight: bold;">Ficha Técnica</h2>
                         <div style="font-size: 1.2em; line-height: 1.8;">
                             <p><strong style="color: #f5c518 !important;">Realizador:</strong> <span style="color: #ffffff !important;">{{ filme.realizador.nome }}</span></p>
                             <p><strong style="color: #f5c518 !important;">Elenco:</strong> <span style="color: #ffffff !important;">
@@ -58,11 +55,12 @@
                         </div>
                     </div>
 
-                    <!-- Críticas e Comentários (Título Amarelo) -->
+                    <!-- Críticas e Comentários -->
                     <div class="section-container" style="margin-top: 40px;">
-                        <h2 style="color: #f5c518 !important; font-size: 22px; font-weight: bold;">Críticas e Comentários</h2>
+                        <h2 style="color: #f5c518; font-size: 22px; font-weight: bold;">Críticas e Comentários</h2>
                         <hr style="border-color: #333; margin-top: 0; margin-bottom: 20px;">
 
+                        <!-- Cartão para deixar/editar a minha crítica -->
                         <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-bottom: 30px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                                 <h4 style="color: #f5c518; margin: 0;">
@@ -87,17 +85,30 @@
                             }
                         </div>
 
+                        <!-- Lista Geral de Comentários (Ordenada) -->
                         <div class="comments-list">
-                            @for (av of outrasAvaliacoes; track av.id) {
+                            @for (av of todasAvaliacoes; track av.id) {
                                 <div style="border-bottom: 1px solid #222; margin-bottom: 15px; padding-bottom: 10px;">
                                     <div style="display: flex; justify-content: space-between;">
                                         <div>
                                             <strong style="color: #f5c518;">{{ av.utilizador.username }}</strong>
+
+                                            <!-- Se for a minha própria crítica na lista, adiciona uma etiqueta discreta -->
+                                            @if (av.utilizador.id === userId) {
+                                                <span style="color: #888; font-size: 0.9em; font-style: italic;"> (A tua crítica)</span>
+                                            }
                                             <span style="color: #666; font-size: 0.9em;"> ({{ av.nota }}/5 ★)</span>
                                         </div>
 
-                                        @if (isModerador) {
-                                            <a (click)="apagarCriticaComoModerador(av.id)" style="color: #ff4d4d; cursor: pointer;">
+                                        <!-- Botão de Apagar na Lista -->
+                                        @if (av.utilizador.id === userId) {
+                                            <!-- O próprio utilizador pode apagar o seu comentário diretamente na lista -->
+                                            <a (click)="apagarMinhaCritica()" style="color: #ff4d4d; cursor: pointer;" title="Apagar a minha crítica">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        } @else if (isModerador) {
+                                            <!-- Moderadores podem apagar comentários dos outros -->
+                                            <a (click)="apagarCriticaComoModerador(av.id)" style="color: #ff4d4d; cursor: pointer;" title="Apagar como moderador">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         }
@@ -106,14 +117,12 @@
                                     <small style="color: #444;">{{ av.data_postagem | date:"dd/MM/yyyy HH:mm" }}</small>
                                 </div>
                             } @empty {
-                                @if (!minhaAvaliacao) {
-                                    <p style="color: #666;">Ainda não há comentários.</p>
-                                }
+                                <p style="color: #666;">Ainda não há comentários.</p>
                             }
                         </div>
                     </div>
 
-                    <!-- Botão de Voltar Dinâmico de acordo com a Origem -->
+                    <!-- Botão Voltar -->
                     <div style="margin-top: 30px;">
                         @if (origem === 'admin_avaliacoes') {
                             <a routerLink="/admin/avaliacoes" class="btn-voltar-custom" style="background: #333; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">
