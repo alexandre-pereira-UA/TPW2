@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Genero } from '../../filme'; // Localizado em src/app/filme.ts
+import { ToastService } from '../../services/toast';
 
 @Component({
   selector: 'app-generos',
@@ -16,6 +17,7 @@ export class Generos implements OnInit {
   itensFiltrados: Genero[] = [];
   query: string = '';
 
+  private toastService = inject(ToastService);s
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {

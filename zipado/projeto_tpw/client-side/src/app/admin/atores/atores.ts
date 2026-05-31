@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Ator } from '../../filme';
+import { ToastService } from '../../services/toast';
 
 @Component({
   selector: 'app-atores',
@@ -16,6 +17,7 @@ export class Atores implements OnInit {
   itensFiltrados: Ator[] = [];
   query: string = '';
 
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {

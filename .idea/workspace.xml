@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Agora sim">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/atores/atores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/generos/generos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/realizadores/realizadores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/utilizadores/utilizadores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/services/toast.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/services/toast.ts" afterDir="false" />
-    </list>
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="ok" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,22 +194,6 @@
       <workItem from="1776039349854" duration="916000" />
       <workItem from="1776070497468" duration="3704000" />
       <workItem from="1776088803519" duration="40000" />
-    </task>
-    <task id="LOCAL-00013" summary="mini">
-      <option name="closed" value="true" />
-      <created>1775764303209</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1775764303209</updated>
-    </task>
-    <task id="LOCAL-00014" summary="dashboard do admin">
-      <option name="closed" value="true" />
-      <created>1775985987937</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1775985987937</updated>
     </task>
     <task id="LOCAL-00015" summary="againnnnn">
       <option name="closed" value="true" />
@@ -599,7 +571,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780239522679</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Agora sim">
+      <option name="closed" value="true" />
+      <created>1780240746224</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1780240746224</updated>
+    </task>
+    <task id="LOCAL-00063" summary="ok">
+      <option name="closed" value="true" />
+      <created>1780241009657</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1780241009657</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,12 +625,12 @@
     <MESSAGE value="More stuff" />
     <MESSAGE value="Stuff" />
     <MESSAGE value="Historico" />
-    <MESSAGE value="ok" />
     <MESSAGE value="maybe" />
     <MESSAGE value="Quase lá" />
     <MESSAGE value="Feitooo" />
     <MESSAGE value="Agora sim" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agora sim" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
