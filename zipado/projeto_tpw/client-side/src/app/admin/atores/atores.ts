@@ -51,8 +51,13 @@ export class Atores implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarAtor(id: number): Promise<void> {
-    if (!confirm('Apagar ator?')) return;
+  apagarAtor(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja apagar este ator?', () => {
+      this.executarApagarAtor(id);
+    });
+  }
+
+  async executarApagarAtor(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/atores/apagar/${id}/`, {
@@ -62,6 +67,7 @@ export class Atores implements OnInit {
       if (response.ok) {
         this.itens = this.itens.filter(a => a.id !== id);
         this.itensFiltrados = this.itensFiltrados.filter(a => a.id !== id);
+        this.toastService.show('Ator removido com sucesso.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {

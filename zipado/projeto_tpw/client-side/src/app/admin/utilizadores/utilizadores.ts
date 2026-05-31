@@ -58,8 +58,13 @@ export class Utilizadores implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarUtilizador(id: number): Promise<void> {
-    if (!confirm('Tem a certeza que deseja apagar este utilizador?')) return;
+  apagarUtilizador(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja apagar este utilizador de forma definitiva?', () => {
+      this.executarApagarUtilizador(id);
+    });
+  }
+
+  async ejecutarApagarUtilizador(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/apagar/${id}/`, {
@@ -72,7 +77,7 @@ export class Utilizadores implements OnInit {
         this.toastService.show('Utilizador removido do sistema.', 'success');
         this.cdr.detectChanges();
       } else {
-        const data: any = await response.json(); // Explicitamente tipado como 'any' para evitar o erro do compilador
+        const data: any = await response.json();
         this.toastService.show(data.error || 'Erro ao apagar utilizador.', 'danger');
       }
     } catch (e) {

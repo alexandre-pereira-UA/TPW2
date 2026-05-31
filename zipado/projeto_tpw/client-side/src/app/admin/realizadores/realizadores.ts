@@ -51,8 +51,13 @@ export class Realizadores implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarRealizador(id: number): Promise<void> {
-    if (!confirm('Apagar realizador?')) return;
+  apagarRealizador(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja apagar este realizador?', () => {
+      this.executarApagarRealizador(id);
+    });
+  }
+
+  async executarApagarRealizador(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/realizadores/apagar/${id}/`, {
@@ -62,6 +67,7 @@ export class Realizadores implements OnInit {
       if (response.ok) {
         this.itens = this.itens.filter(r => r.id !== id);
         this.itensFiltrados = this.itensFiltrados.filter(r => r.id !== id);
+        this.toastService.show('Realizador removido com sucesso.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {

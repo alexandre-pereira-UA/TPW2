@@ -78,8 +78,16 @@ export class Filmes implements OnInit {
     }
   }
 
-  async apagarFilme(id: number): Promise<void> {
-    if (!confirm('Tem a certeza que deseja apagar este filme?')) return;
+// Procure pela função apagarFilme(id) e mude para este formato:
+  apagarFilme(id: number): void {
+    // Abre a nossa caixinha bonita personalizada!
+    this.toastService.askConfirmation('Deseja apagar este filme de forma definitiva?', () => {
+      this.executarApagarFilme(id);
+    });
+  }
+
+  // Esta função corre apenas se o utilizador clicar em "Sim, Apagar" na caixa!
+  async executarApagarFilme(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/apagar/${id}/`, {
@@ -89,10 +97,10 @@ export class Filmes implements OnInit {
       if (response.ok) {
         this.itens = this.itens.filter(f => f.id !== id);
         this.itensFiltrados = this.itensFiltrados.filter(f => f.id !== id);
+        this.toastService.show('Filme removido do sistema.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {
       console.error(e);
     }
   }
-}

@@ -57,8 +57,13 @@ export class Avaliacoes implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarAvaliacao(id: number): Promise<void> {
-    if (!confirm('Eliminar crítica?')) return;
+  apagarAvaliacao(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja apagar esta crítica como moderador?', () => {
+      this.executarApagarAvaliacao(id);
+    });
+  }
+
+  async executarApagarAvaliacao(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
@@ -68,6 +73,7 @@ export class Avaliacoes implements OnInit {
       if (response.ok) {
         this.itens = this.itens.filter(av => av.id !== id);
         this.itensFiltrados = this.itensFiltrados.filter(av => av.id !== id);
+        this.toastService.show('Comentário removido com sucesso.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {

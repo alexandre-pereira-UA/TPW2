@@ -8,6 +8,10 @@ export class ToastService {
   type: 'success' | 'danger' = 'success';
   visible: boolean = false;
 
+  confirmVisible: boolean = false;
+  confirmTitle: string = '';
+  confirmCallback: (() => void) | null = null; // Guarda a função que deve correr se escolher "Sim"
+
   constructor() {
     // Verifica se há alguma notificação pendente guardada no navegador ao iniciar
     const pendingMsg = localStorage.getItem('pending_toast_msg');
@@ -33,5 +37,26 @@ export class ToastService {
   showPersistent(msg: string, type: 'success' | 'danger' = 'success'): void {
     localStorage.setItem('pending_toast_msg', msg);
     localStorage.setItem('pending_toast_type', type);
+  }
+
+  // Abre a caixinha de confirmação com um título e uma ação personalizada
+  askConfirmation(title: string, callback: () => void): void {
+    this.confirmTitle = title;
+    this.confirmCallback = callback;
+    this.confirmVisible = true;
+  }
+
+  // Executa se clicar em "Sim, Apagar"
+  confirmAction(): void {
+    if (this.confirmCallback) {
+      this.confirmCallback();
+    }
+    this.closeConfirmation();
+  }
+
+  // Executa se clicar em "Não, Cancelar"
+  closeConfirmation(): void {
+    this.confirmVisible = false;
+    this.confirmCallback = null;
   }
 }

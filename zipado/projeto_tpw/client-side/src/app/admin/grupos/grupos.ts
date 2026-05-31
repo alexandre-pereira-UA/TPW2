@@ -53,8 +53,13 @@ export class Grupos implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarGrupo(id: number): Promise<void> {
-    if (!confirm('Eliminar grupo?')) return;
+  apagarGrupo(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja eliminar este grupo de permissões?', () => {
+      this.executarApagarGrupo(id);
+    });
+  }
+
+  async executarApagarGrupo(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/apagar/${id}/`, {
@@ -64,6 +69,7 @@ export class Grupos implements OnInit {
       if (response.ok) {
         this.grupos = this.grupos.filter(g => g.id !== id);
         this.gruposFiltrados = this.gruposFiltrados.filter(g => g.id !== id);
+        this.toastService.show('Grupo removido com sucesso.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {

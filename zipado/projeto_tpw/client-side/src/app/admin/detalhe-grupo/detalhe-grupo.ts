@@ -43,8 +43,13 @@ export class DetalheGrupo implements OnInit {
     }
   }
 
-  async removerUtilizadorGrupo(userId: number): Promise<void> {
-    if (!confirm('Remover utilizador do grupo?')) return;
+  removerUtilizadorGrupo(userId: number): void {
+    this.toastService.askConfirmation('Deseja remover este utilizador do grupo?', () => {
+      this.executarRemoverUtilizadorGrupo(userId);
+    });
+  }
+
+  async executarRemoverUtilizadorGrupo(userId: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/grupos/${this.grupo.id}/remover/${userId}/`, {
@@ -53,6 +58,7 @@ export class DetalheGrupo implements OnInit {
       });
       if (response.ok) {
         this.utilizadores = this.utilizadores.filter(u => u.id !== userId);
+        this.toastService.show('Utilizador removido do grupo.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {

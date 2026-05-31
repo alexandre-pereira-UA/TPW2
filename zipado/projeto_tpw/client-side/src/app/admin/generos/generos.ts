@@ -51,8 +51,13 @@ export class Generos implements OnInit {
     this.cdr.detectChanges();
   }
 
-  async apagarGenero(id: number): Promise<void> {
-    if (!confirm('Apagar género?')) return;
+  apagarGenero(id: number): void {
+    this.toastService.askConfirmation('Tem a certeza que deseja apagar este género?', () => {
+      this.executarApagarGenero(id);
+    });
+  }
+
+  async executarApagarGenero(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/generos/apagar/${id}/`, {
@@ -62,6 +67,7 @@ export class Generos implements OnInit {
       if (response.ok) {
         this.itens = this.itens.filter(g => g.id !== id);
         this.itensFiltrados = this.itensFiltrados.filter(g => g.id !== id);
+        this.toastService.show('Género removido com sucesso.', 'success');
         this.cdr.detectChanges();
       }
     } catch (e) {
