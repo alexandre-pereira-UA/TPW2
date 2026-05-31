@@ -123,9 +123,21 @@ O back-end possui uma integração premium com a API externa do **TMDB** (`api_i
 
 ---
 
-## 7. Instruções para Execução e Teste
+## 7. Alojamento em Produção (Deployment)
+Em conformidade com os objetivos de exploração avançada e arquitetura de software real N-Tier, procedeu-se à publicação de ambas as camadas da aplicação em ambientes Cloud independentes e de acesso público:
+1. **Back-end (API REST)**: Hospedado no servidor **PythonAnywhere** sob o endereço público:
+   * 🔗 [https://escorcio.pythonanywhere.com/ws/](https://escorcio.pythonanywhere.com/ws/)
+2. **Front-end (SPA Angular)**: Hospedado na plataforma cloud **Vercel** sob o endereço reativo:
+   * 🔗 [https://tpw-2.vercel.app/](https://tpw-2.vercel.app/)
 
-### 7.1. Execução do Servidor Back-end (Django REST Framework)
+> [!NOTE]
+> Dado que o front-end está totalmente configurado para se ligar à API de produção (`https://escorcio.pythonanywhere.com/ws/`), o avaliador pode testar a SPA a partir de qualquer local (seja localmente através de `npm start` ou através do URL do Vercel) que esta acederá dinamicamente ao banco de dados e à API em produção. Não é obrigatório correr o servidor Django localmente para navegar na aplicação. Para testar tudo 100% de forma local, pode-se simplesmente alterar as URLs de destino para `http://localhost:8000/ws/` nos ficheiros TypeScript do cliente-side.
+
+---
+
+## 8. Instruções para Execução e Teste
+
+### 8.1. Execução do Servidor Back-end (Django REST Framework)
 1. Certifique-se de que tem o **Python 3.10+** instalado.
 2. Navegue até à pasta do servidor:
    ```bash
@@ -143,7 +155,7 @@ O back-end possui uma integração premium com a API externa do **TMDB** (`api_i
    ```
    *O servidor ficará disponível em [http://localhost:8000](http://localhost:8000).*
 
-### 7.2. Execução do Servidor Front-end (Angular SPA)
+### 8.2. Execução do Servidor Front-end (Angular SPA)
 1. Certifique-se de que tem o **Node.js (LTS)** e **npm** instalados.
 2. Navegue até à pasta do cliente-side:
    ```bash
@@ -159,7 +171,7 @@ O back-end possui uma integração premium com a API externa do **TMDB** (`api_i
    ```
    *A SPA ficará disponível em [http://localhost:4200](http://localhost:4200).*
 
-### 7.3. Contas de Teste Pré-Configuradas
+### 8.3. Contas de Teste Pré-Configuradas
 Para facilitar a avaliação rápida e correta de todos os privilégios e perfis de segurança descritos neste trabalho, foram pré-configurados 5 utilizadores de teste na base de dados SQLite. **A palavra-passe de todas as contas é exatamente igual ao respetivo username**:
 
 | Username | Palavra-passe | Perfil / Função Principal | Privilégios no Sistema |
@@ -172,7 +184,7 @@ Para facilitar a avaliação rápida e correta de todos os privilégios e perfis
 
 ---
 
-## 8. Conclusão
+## 9. Conclusão
 O desenvolvimento do **Trabalho Prático 2** demonstrou de forma clara e prática as vantagens e desafios das **arquiteturas orientadas a serviços (N-tier)**. 
 
 A separação absoluta entre o Angular no front-end e o Django REST Framework no back-end resultou numa aplicação mais flexível, rápida e alinhada com as melhores práticas de desenvolvimento da indústria moderna. Todas as metas estipuladas no enunciado foram cumpridas com rigor:
