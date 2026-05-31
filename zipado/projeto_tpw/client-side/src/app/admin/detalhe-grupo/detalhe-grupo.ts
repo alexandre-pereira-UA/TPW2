@@ -1,6 +1,8 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ToastService } from '../../services/toast';
+
 
 @Component({
   selector: 'app-detalhe-grupo',
@@ -14,7 +16,9 @@ export class DetalheGrupo implements OnInit {
   utilizadores: any[] = [];
   permissoes: any[] = [];
 
+
   private route = inject(ActivatedRoute);
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
@@ -44,7 +48,8 @@ export class DetalheGrupo implements OnInit {
   }
 
   removerUtilizadorGrupo(userId: number): void {
-    this.toastService.askConfirmation('Deseja remover este utilizador do grupo?', () => {
+    // Abre a nossa caixa de confirmação personalizada!
+    this.toastService.askConfirmation('Deseja remover este utilizador do grupo de forma definitiva?', () => {
       this.executarRemoverUtilizadorGrupo(userId);
     });
   }

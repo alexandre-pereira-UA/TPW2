@@ -2,6 +2,8 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ToastService } from '../../services/toast';
+
 
 @Component({
   selector: 'app-grupos',
@@ -15,6 +17,7 @@ export class Grupos implements OnInit {
   gruposFiltrados: any[] = [];
   query: string = '';
 
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
