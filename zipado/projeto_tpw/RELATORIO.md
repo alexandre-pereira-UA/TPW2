@@ -1,25 +1,30 @@
 # Relatório do Trabalho Prático 2
 **Unidade Curricular:** Tecnologias e Programação Web (TPW)  
 **Curso:** Engenharia Informática, Universidade de Aveiro  
-**Ano Letivo:** 2025/2026
+**Ano Letivo:** 2025/2026  
+
+### Grupo de Trabalho
+* **Guilherme Escórcio** — Nº Mecanográfico: **118648**
+* **Alexandre Pereira** — Nº Mecanográfico: **119871**
+* **Alexandre Silva** — Nº Mecanográfico: **119583**
 
 ---
 
-## 1. Introdução e Visão Geral
-Este relatório descreve a conceção, arquitetura e implementação do **Trabalho Prático 2 (TP2)** para a unidade curricular de **Tecnologias e Programação Web (TPW)**. 
+## 1. Introdução e Enquadramento
+Este relatório apresenta em detalhe a conceção, decisões de arquitetura e detalhes técnicos de implementação do **Trabalho Prático 2 (TP2)** para a unidade curricular de **Tecnologias e Programação Web (TPW)**. 
 
-O objetivo principal deste projeto foi evoluir o website de catálogo de filmes desenvolvido no Trabalho Prático 1 (baseado em templates de servidor Django tradicional) para uma **arquitetura de software real de N camadas (N-tier) totalmente desacoplada**. 
+O objetivo principal deste projeto consistiu em evoluir o website de catálogo de filmes desenvolvido no TP1 — que utilizava o paradigma clássico de templates renderizados no servidor com Django — para uma **arquitetura de software moderna N-Tier totalmente desacoplada**. 
 
-Para tal, o projeto foi dividido em duas camadas independentes:
-1. **Back-end**: Uma API REST robusta desenvolvida em **Django REST Framework (DRF)**.
-2. **Front-end**: Uma Single Page Application (SPA) moderna, reativa e fluida desenvolvida em **Angular** (versão 21+).
+Para atingir esta meta, dividimos o ecossistema em duas aplicações e servidores autónomos:
+1. **Back-end (API REST)**: Desenvolvido em **Django REST Framework (DRF)**, responsável pela lógica de negócio, persistência dos dados, controlo granular de acessos e fornecimento de endpoints RESTful puros.
+2. **Front-end (SPA)**: Desenvolvido em **Angular** (v21+), atuando como uma Single Page Application reativa, focada na experiência do utilizador e na fluidez da navegação.
 
-O tema escolhido, **Moviez Catalog**, permite aos utilizadores pesquisar, filtrar, ordenar, comentar e avaliar filmes. Inclui também funcionalidades de personalização como listas de favoritos, lista de filmes guardados para ver mais tarde, gestão completa de perfis de utilizador, além de um **painel de administração e moderação (backoffice)** extremamente detalhado.
+A nossa plataforma, batizada de **Moviez Catalog**, permite aos utilizadores explorar, pesquisar, filtrar, ordenar, comentar e classificar filmes. A aplicação integra funcionalidades de personalização avançadas (como listas de favoritos, lista de filmes guardados para ver mais tarde e gestão completa de perfis de utilizador) e um **painel de administração e moderação (backoffice)** extremamente detalhado para gestão dos recursos e controlo de grupos/permissões.
 
 ---
 
-## 2. Arquitetura do Sistema
-O sistema adota uma arquitetura em duas camadas totalmente isoladas, comunicando exclusivamente através do protocolo HTTP utilizando mensagens em formato **JSON**.
+## 2. Desenho de Arquitetura
+O sistema assenta num desacoplamento absoluto em que a comunicação entre o cliente e o servidor ocorre exclusivamente através do protocolo HTTP com a troca de mensagens estruturadas em **JSON**.
 
 ```mermaid
 graph TD
@@ -40,24 +45,24 @@ graph TD
 ---
 
 ## 3. Back-end: Django REST Framework (DRF)
-O back-end foi reestruturado para funcionar como um servidor puramente RESTful. Foram criados serializadores dedicados para cada entidade do domínio e as views clássicas foram substituídas por endpoints baseados no decorador `@api_view` e classes de permissões do DRF.
+O servidor original em Django foi inteiramente reestruturado. Eliminámos os templates HTML do lado do servidor, passando o back-end a atuar apenas como uma API RESTful. As views tradicionais foram convertidas em endpoints REST baseados no decorador `@api_view` e classes nativas de permissões do DRF.
 
 ### 3.1. Modelos de Dados (`models.py`)
-A base de dados armazena as seguintes entidades e relações:
-* **Genero, Realizador, Ator**: Entidades auxiliares com campos simples (`nome`).
-* **Filme**: Entidade principal que se relaciona de forma N-para-1 com `Realizador` e N-para-N (`ManyToManyField`) com `Genero` e `Ator`.
-* **Avaliacao**: Entidade de ligação N-para-N entre `User` (utilizador) e `Filme`, permitindo uma nota de 1 a 5 estrelas e um comentário de texto. Possui uma restrição de unicidade para que um utilizador apenas possa avaliar o mesmo filme uma única vez.
-* **Favorito** e **Guardado**: Relações N-para-N personalizadas entre `User` e `Filme` com data de criação para permitir listas personalizadas de favoritos e filmes guardados ("Ver mais tarde").
+A base de dados SQLite3 armazena as seguintes entidades e relações:
+* **Genero, Realizador, Ator**: Modelos auxiliares contendo o nome e dados identificativos básicos.
+* **Filme**: O modelo central do domínio. Tem uma relação N-para-1 com `Realizador` e relações N-para-N (`ManyToManyField`) com `Genero` e `Ator`.
+* **Avaliacao**: Entidade de ligação N-para-N entre `User` (utilizador) e `Filme`. Permite atribuir uma nota inteira de 1 a 5 estrelas e um comentário escrito. Adicionámos uma restrição de unicidade na base de dados para garantir que cada utilizador apenas pode submeter uma avaliação por filme.
+* **Favorito** e **Guardado**: Relações N-para-N personalizadas entre `User` e `Filme` que registam a data de criação, sustentando as listas personalizadas de cada conta.
 
 ### 3.2. Serializadores (`serializers.py`)
-Foram implementados serializadores estendidos de `ModelSerializer` para expor e validar os dados:
-* **UserSerializer**: Serializa dados de perfil do utilizador e calcula dinamicamente se o mesmo possui o perfil de moderador (`is_moderador`) através de `SerializerMethodField`.
-* **FilmeReadSerializer** (Leitura): Traz de forma aninhada todos os detalhes associados, incluindo o realizador, géneros, atores e avaliações/críticas dos utilizadores.
-* **FilmeWriteSerializer** (Escrita): Permite a gravação rápida de novos filmes utilizando apenas IDs simples para relacionamentos.
+Criámos serializadores baseados em `ModelSerializer` para expor, formatar e validar os dados transacionados:
+* **UserSerializer**: Serializa dados de perfil do utilizador e calcula dinamicamente se o mesmo possui o perfil de moderador (`is_moderador`) através de um `SerializerMethodField` que verifica os grupos do utilizador.
+* **FilmeReadSerializer** (Leitura): Traz de forma aninhada (*nested serializers*) todos os detalhes associados ao filme, incluindo o realizador, géneros, atores e avaliações dos utilizadores, otimizando o número de pedidos HTTP feitos pelo cliente.
+* **FilmeWriteSerializer** (Escrita): Permite a gravação rápida de novos filmes utilizando apenas IDs simples para relacionamentos, simplificando os formulários de inserção.
 * **AvaliacaoSerializer, FavoritoSerializer, GuardadoSerializer**: Expõem dados relacionados com a personalização e críticas do utilizador.
 
 ### 3.3. Endpoints REST (`urls.py`)
-Os endpoints estão estruturados sob o prefixo `/ws/`:
+Todos os endpoints expostos pela nossa API utilizam o prefixo `/ws/`:
 * **Autenticação**: `ws/login/`, `ws/registo/`.
 * **Filmes**: `ws/filmes/` (com suporte a pesquisa `?q=...` e ordenação `?ordenar=...`), `ws/filmes/<id>/` (leitura e submissão de críticas), `ws/filmes/novo/` e `ws/filmes/editar/<id>/`.
 * **Favoritos & Guardados**: `ws/favoritos/`, `ws/favoritos/toggle/<id>/`, `ws/guardados/`, `ws/guardados/toggle/<id>/`.
@@ -67,13 +72,14 @@ Os endpoints estão estruturados sob o prefixo `/ws/`:
 ---
 
 ## 4. Front-end: Angular Single Page Application
-O front-end é uma SPA reativa construída com **Angular 21+**, utilizando **Standalone Components** para melhor desempenho e organização do código.
+O cliente é uma SPA reativa construída com **Angular 21+**, utilizando **Standalone Components** para melhor desempenho e organização do código.
 
-### 4.1. Estrutura de Componentes e Funcionalidades Premium
-* **ListaFilmes (`lista-filmes`)**: Página inicial reativa com uma grelha de posters organizada em cards (Bootstrap). Fornece pesquisa instantânea e filtros por data de lançamento (mais recentes/antigos) e ordem alfabética (A-Z). Exibe atalhos interativos (ícones de coração e marcador) para favoritar ou guardar filmes diretamente do card.
-  * **NOVO: Modo Carrossel Automático Nativo**: Alternador visual imersivo e reativo que permite ver o catálogo em formato de slides animados com transições suaves de fade-in e fundo desfocado (blur) dinâmico, implementado 100% em Angular sem quaisquer dependências externas de jQuery.
-  * **NOVO: Scroll Infinito Progressivo (Performance)**: Otimização de performance avançada utilizando o decorador `@HostListener('window:scroll')` do Angular para carregar e renderizar os filmes na grelha em lotes dinâmicos de 6 em 6 à medida que o utilizador navega, garantindo carregamentos instantâneos.
-  * **NOVO: Equalização Flexbox Simétrica**: Ajuste no `styles.css` para forçar os cartões de filme na grelha a terem comportamento flexível e esticarem uniformemente em altura, garantindo simetria perfeita em qualquer resolução.
+### 4.1. Componentes Principais e Melhorias Premium de Design
+* **ListaFilmes (`lista-filmes`)**: A página inicial da aplicação que exibe a grelha de filmes organizada em cards do Bootstrap. Fornece pesquisa instantânea e filtros por género, data de lançamento e ordem alfabética. Exibe atalhos interativos (ícones de coração e marcador) para favoritar ou guardar filmes diretamente do card.
+  * **Modo Carrossel Automático Nativo**: Alternador visual imersivo e reativo que permite ver o catálogo em formato de slides animados com transições suaves de fade-in e fundo desfocado (blur) dinâmico, implementado 100% em Angular sem quaisquer dependências externas de jQuery.
+  * **Scroll Infinito Progressivo (Performance)**: Otimização de performance avançada utilizando o decorador `@HostListener('window:scroll')` do Angular para carregar e renderizar os filmes na grelha em lotes dinâmicos de 6 em 6 à medida que o utilizador navega, garantindo carregamentos instantâneos.
+  * **Equalização Flexbox Simétrica**: Ajuste no `styles.css` para forçar os cartões de filme na grelha a terem comportamento flexível e esticarem uniformemente em altura, garantindo simetria perfeita em qualquer resolução.
+  * **Estado Vazio de Pesquisa Otimizado**: O bloco `@empty` da grelha de filmes foi reestruturado para distinguir dinamicamente se o catálogo ainda está a ser carregado (exibindo o spinner dourado original) ou se foi o utilizador que fez uma pesquisa sem correspondência na base de dados (exibindo uma mensagem centrada com um ícone de lupa).
 * **DetalheFilme (`detalhe-filme`)**: Apresenta a sinopse completa, géneros, realizador, elenco principal e a secção interativa de críticas/avaliações. Utilizadores registados podem dar uma nota (1 a 5 estrelas) através de um **sistema interativo de estrelas douradas clicáveis** e deixar um comentário. Moderadores e administradores têm acesso a botões rápidos de exclusão de críticas ofensivas.
 * **Perfil (`perfil`) & EditarPerfil (`editar-perfil`)**: Área personalizada onde o utilizador pode visualizar a sua informação, consultar o seu grupo ou privilégios e atualizar os seus dados de registo de forma segura.
 * **Favoritos (`favoritos`) & Guardados (`guardados`)**: Dashboards personalizados reativos que mostram apenas os filmes guardados ou favoritados pelo utilizador ativo.
@@ -85,7 +91,7 @@ O front-end é uma SPA reativa construída com **Angular 21+**, utilizando **Sta
   * **Importador TMDB**: Botão na interface administrativa que executa a importação em tempo real de 10 novos filmes de sucesso diretamente da API externa do TMDB para a base de dados local.
 
 ### 4.2. Comunicação com a API e Serviços (`services/filme.ts`)
-A comunicação é intermediada pelo serviço `FilmeService` utilizando APIs assíncronas do JavaScript (`fetch`, `async/await`). 
+A comunicação com o servidor é realizada pelo serviço `FilmeService` utilizando APIs assíncronas do JavaScript (`fetch`, `async/await`). 
 
 **Envio de Tokens:** Quando um utilizador faz login, o token retornado pelo DRF é guardado no `localStorage`. Em todos os pedidos subsequentes a rotas protegidas (ex: adicionar favoritos, apagar comentários, aceder ao backoffice), o serviço anexa automaticamente o cabeçalho de autorização:
 ```typescript
@@ -169,7 +175,7 @@ Para facilitar a avaliação rápida e correta de todos os privilégios e perfis
 ## 8. Conclusão
 O desenvolvimento do **Trabalho Prático 2** demonstrou de forma clara e prática as vantagens e desafios das **arquiteturas orientadas a serviços (N-tier)**. 
 
-A separação absoluta entre o Angular no front-end e o Django REST Framework no back-end resultou numa aplicação mais flexível, rápida e alinline com as melhores práticas de desenvolvimento da indústria moderna. Todas as metas estipuladas no enunciado foram cumpridas com rigor:
+A separação absoluta entre o Angular no front-end e o Django REST Framework no back-end resultou numa aplicação mais flexível, rápida e alinhada com as melhores práticas de desenvolvimento da indústria moderna. Todas as metas estipuladas no enunciado foram cumpridas com rigor:
 * UI fluida reativa com Angular;
 * API REST completa com serializadores, filtros e paginação no DRF;
 * Integração assíncrona baseada em tokens de segurança;
@@ -177,3 +183,4 @@ A separação absoluta entre o Angular no front-end e o Django REST Framework no
 * Importação inteligente sob demanda via API do TMDB.
 
 A base de dados é fornecida totalmente populada com **50 filmes de alta qualidade** e as contas prontas a usar, garantindo uma experiência de demonstração imediata e gratificante para o avaliador.
+
