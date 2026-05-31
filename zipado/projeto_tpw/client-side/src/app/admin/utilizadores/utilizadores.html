@@ -10,7 +10,6 @@
         </div>
     </div>
 
-    <!-- Barra de Pesquisa -->
     <div style="margin-bottom: 25px;">
         <div style="display: flex; gap: 10px; max-width: 500px;">
             <div style="position: relative; flex-grow: 1;">
@@ -57,7 +56,6 @@
                                 <a [routerLink]="['/perfil/editar', u.id]" class="btn-acao" style="margin-right: 15px; color: #5bc0de;"><i class="fas fa-user-edit"></i></a>
 
                                 @if (!u.is_superuser) {
-                                    <!-- NOVO: Cadeado de Bloqueio Dinâmico (Verde se ativo, Vermelho se bloqueado) -->
                                     <a (click)="toggleBloqueio(u.id)" class="btn-acao" style="margin-right: 15px; cursor: pointer;" [style.color]="u.is_active ? '#2ecc71' : '#ff4d4d'">
                                         <i [class]="u.is_active ? 'fas fa-unlock' : 'fas fa-lock'"></i>
                                     </a>

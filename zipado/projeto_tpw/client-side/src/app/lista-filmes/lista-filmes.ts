@@ -1,4 +1,3 @@
-// 1. Adicione o "HostListener" nos imports do topo de @angular/core:
 import { Component, OnInit, OnDestroy, inject, ChangeDetectorRef, HostListener } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -28,7 +27,6 @@ export class ListaFilmes implements OnInit, OnDestroy {
   activeSlideIndex: number = 0;
   carouselInterval: any = null;
 
-  // NOVO: Limite de filmes mostrados inicialmente na grelha
   limiteExibicao: number = 6;
 
   isLoggedIn = false;
@@ -94,17 +92,16 @@ export class ListaFilmes implements OnInit, OnDestroy {
     }
   }
 
-  // NOVO: Ouve o scroll do utilizador e carrega mais 6 filmes ao chegar ao fim do ecrã
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    if (this.viewMode !== 'grid') return; // Apenas pagina na grelha
+    if (this.viewMode !== 'grid') return;
 
     const posicaoScroll = window.innerHeight + window.scrollY;
-    const limiteScroll = document.documentElement.scrollHeight - 150; // Deteta 150px antes de bater no fundo
+    const limiteScroll = document.documentElement.scrollHeight - 150;
 
     if (posicaoScroll >= limiteScroll) {
       if (this.limiteExibicao < this.filmesFiltrados.length) {
-        this.limiteExibicao += 6; // Mostra mais 6 filmes de forma instantânea!
+        this.limiteExibicao += 6;
         this.cdr.detectChanges();
       }
     }
@@ -165,7 +162,7 @@ export class ListaFilmes implements OnInit, OnDestroy {
 
     this.filmesFiltrados = resultados;
     this.activeSlideIndex = 0;
-    this.limiteExibicao = 6; // Reinicia o limite ao pesquisar para manter rápido!
+    this.limiteExibicao = 6;
     this.cdr.detectChanges();
   }
 
@@ -208,7 +205,7 @@ export class ListaFilmes implements OnInit, OnDestroy {
     this.generoSelecionadoId = null;
     this.filmesFiltrados = [...this.filmes];
     this.activeSlideIndex = 0;
-    this.limiteExibicao = 6; // Reinicia o limite
+    this.limiteExibicao = 6;
     this.cdr.detectChanges();
   }
 
@@ -222,7 +219,7 @@ export class ListaFilmes implements OnInit, OnDestroy {
       this.filmesFiltrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
     }
     this.activeSlideIndex = 0;
-    this.limiteExibicao = 6; // Reinicia o limite
+    this.limiteExibicao = 6;
     this.cdr.detectChanges();
   }
 

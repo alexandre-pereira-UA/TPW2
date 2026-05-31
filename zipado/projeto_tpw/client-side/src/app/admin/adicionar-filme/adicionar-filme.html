@@ -5,31 +5,26 @@
 
         <form (submit)="onSubmit(); $event.preventDefault();">
 
-            <!-- TÍTULO -->
             <div class="form-group mb-4">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">TÍTULO DO FILME:</label>
                 <input type="text" [(ngModel)]="titulo" name="titulo" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
             </div>
 
-            <!-- DATA LANÇAMENTO -->
             <div class="form-group mb-4">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">DATA DE LANÇAMENTO:</label>
                 <input type="date" [(ngModel)]="data_lancamento" name="data_lancamento" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
             </div>
 
-            <!-- SINOPSE -->
             <div class="form-group mb-4">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">SINOPSE:</label>
                 <textarea [(ngModel)]="sinopse" name="sinopse" class="form-control" rows="5" style="background: #2a2a2a; color: white; border: 1px solid #444; line-height: 1.6;"></textarea>
             </div>
 
-            <!-- URL DO CARTAZ (POSTER) -->
             <div class="form-group mb-4">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">URL DO CARTAZ (POSTER):</label>
                 <input type="url" [(ngModel)]="cartaz" name="cartaz" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;">
             </div>
 
-            <!-- REALIZADOR (SINGLE SELECT) -->
             <div class="form-group mb-4">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">REALIZADOR:</label>
                 <select [(ngModel)]="realizador_id" name="realizador" class="form-control" style="background: #2a2a2a; color: white; border: 1px solid #444;" required>
@@ -40,11 +35,9 @@
                 </select>
             </div>
 
-            <!-- ATORES (MULTI-SELECT CHIPS IDENTICOS À IMAGEM) -->
             <div class="form-group mb-4" style="position: relative;">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">ATORES:</label>
 
-                <!-- Caixa de visualização com as tags amarelas selecionadas -->
                 <div class="form-control" (click)="mostrarAtoresDropdown = !mostrarAtoresDropdown" style="background: #2a2a2a; min-height: 45px; height: auto; border: 1px solid #444; display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 12px; cursor: pointer; align-items: center;">
                     @for (atorId of atores_selecionados; track atorId) {
                         <span class="badge" style="background-color: #f5c518; color: black; font-weight: bold; padding: 6px 12px; border-radius: 4px; display: inline-flex; align-items: center; gap: 6px;">
@@ -56,7 +49,6 @@
                     }
                 </div>
 
-                <!-- Dropdown suspenso para escolher novos atores -->
                 @if (mostrarAtoresDropdown) {
                     <div style="position: absolute; width: 100%; max-height: 200px; overflow-y: auto; background: #222; border: 1px solid #444; border-radius: 4px; z-index: 100; margin-top: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
                         @for (ator of todosAtores; track ator.id) {
@@ -70,11 +62,9 @@
                 }
             </div>
 
-            <!-- GÉNEROS (MULTI-SELECT CHIPS IDENTICOS À IMAGEM) -->
             <div class="form-group mb-4" style="position: relative;">
                 <label style="color: #f5c518; font-weight: bold; display: block; margin-bottom: 8px;">GENEROS:</label>
 
-                <!-- Caixa de visualização com as tags amarelas selecionadas -->
                 <div class="form-control" (click)="mostrarGenerosDropdown = !mostrarGenerosDropdown" style="background: #2a2a2a; min-height: 45px; height: auto; border: 1px solid #444; display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 12px; cursor: pointer; align-items: center;">
                     @for (gId of generos_selecionados; track gId) {
                         <span class="badge" style="background-color: #f5c518; color: black; font-weight: bold; padding: 6px 12px; border-radius: 4px; display: inline-flex; align-items: center; gap: 6px;">
@@ -86,7 +76,6 @@
                     }
                 </div>
 
-                <!-- Dropdown suspenso para escolher novos géneros -->
                 @if (mostrarGenerosDropdown) {
                     <div style="position: absolute; width: 100%; max-height: 200px; overflow-y: auto; background: #222; border: 1px solid #444; border-radius: 4px; z-index: 100; margin-top: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
                         @for (genero of todosGeneros; track genero.id) {
@@ -100,7 +89,6 @@
                 }
             </div>
 
-            <!-- BOTÕES DE SUBMISSÃO -->
             <div style="display: flex; gap: 15px; margin-top: 45px;">
                 <button type="submit" class="btn btn-warning" style="flex: 2; border-radius: 50px; font-weight: bold; padding: 12px; background-color: #f5c518; color: black;">
                     <i class="fas fa-save"></i> Guardar Filme

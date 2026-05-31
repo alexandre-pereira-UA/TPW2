@@ -1,7 +1,3 @@
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS DA PÁGINA DE DETALHES DO FILME
-   ========================================================================== */
-
 .movie-card {
     background: #1a1a1a;
     padding: 25px;
@@ -29,7 +25,6 @@
     margin-bottom: 5px;
 }
 
-/* Sistema de classificação interativo de estrelas */
 .sistema-classificacao {
     display: flex;
     gap: 5px;

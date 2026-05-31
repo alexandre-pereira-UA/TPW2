@@ -21,7 +21,6 @@ export class Guardados implements OnInit {
     this.cdr.detectChanges();
   }
 
-  // Remove da lista e atualiza o ecrã instantaneamente
   async removerGuardado(filmeId: number): Promise<void> {
     const res = await this.filmeService.toggleGuardado(filmeId);
     if (res) {

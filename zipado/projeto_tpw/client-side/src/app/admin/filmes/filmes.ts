@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Filme } from '../../filme';
 import { FilmeService } from '../../services/filme';
-import { ToastService } from '../../services/toast'; // Import do Toast de notificações
+import { ToastService } from '../../services/toast';
 
 
 @Component({
@@ -54,10 +54,8 @@ export class Filmes implements OnInit {
     this.cdr.detectChanges();
   }
 
-  // Comunica com a API de Importação do Django
-  // Localize a função importarFilmes() e substitua-a por estas duas:
+
   importarFilmes(): void {
-    // Abre o nosso modal personalizado do MOVIEZ!
     this.toastService.askConfirmation('Esta operação de importação de 10 filmes populares do TMDB pode demorar alguns segundos. Deseja continuar?', () => {
       this.executarImportarFilmes();
     });
@@ -88,15 +86,12 @@ export class Filmes implements OnInit {
     }
   }
 
-// Procure pela função apagarFilme(id) e mude para este formato:
   apagarFilme(id: number): void {
-    // Abre a nossa caixinha bonita personalizada!
     this.toastService.askConfirmation('Deseja apagar este filme de forma definitiva?', () => {
       this.executarApagarFilme(id);
     });
   }
 
-  // Esta função corre apenas se o utilizador clicar em "Sim, Apagar" na caixa!
   async executarApagarFilme(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');

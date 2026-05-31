@@ -5,19 +5,14 @@
             <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Grupos e Acessos</p>
         </div>
 
-        <!-- Procure pelo topo do ficheiro admin/grupos/grupos.html e mude o bloco de botões para: -->
-
         <div style="display: flex; gap: 10px; align-items: center;">
-            <!-- Novo Grupo (Corrigido para botão perfeito) -->
             <a routerLink="/admin/grupos/novo" class="btn-moviez-action btn-yellow">
                 <i class="fas fa-plus" style="margin-right: 8px;"></i> Novo Grupo
             </a>
-            <!-- Dashboard (Corrigido para botão perfeito) -->
             <a routerLink="/admin/dashboard" class="btn-moviez-action btn-dark">Dashboard</a>
         </div>
     </div>
 
-    <!-- Barra de Pesquisa -->
     <div style="margin-bottom: 25px;">
         <div style="display: flex; gap: 10px; max-width: 500px;">
             <div style="position: relative; flex-grow: 1;">
@@ -31,7 +26,6 @@
         </div>
     </div>
 
-    <!-- Tabela de Grupos -->
     <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
         <div class="table-responsive">
             <table class="table" style="color: white; border: none;">
@@ -48,13 +42,10 @@
                             <td><strong style="color: #ccc;">{{ g.name }}</strong></td>
                             <td><span class="badge" style="background: #333; color: #f5c518; font-weight: bold; padding: 6px 12px;">{{ g.user_set_count || 0 }} utilizadores</span></td>
                             <td style="text-align: right;">
-                                <!-- Olho Amarelo (Ver Membros do Grupo) -->
                                 <a [routerLink]="['/admin/grupos', g.id]" class="btn-acao" style="margin-right: 15px; color: #f5c518;"><i class="fas fa-eye"></i></a>
 
-                                <!-- Lápis Cinza (Editar Permissões do Grupo) -->
                                 <a [routerLink]="['/admin/grupos/editar', g.id]" class="btn-acao" style="margin-right: 15px; color: #ccc;"><i class="fas fa-edit"></i></a>
 
-                                <!-- Lixo Vermelho (Remover Grupo) -->
                                 <a (click)="apagarGrupo(g.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>

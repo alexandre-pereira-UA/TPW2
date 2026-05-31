@@ -48,7 +48,6 @@ export class DetalheGrupo implements OnInit {
   }
 
   removerUtilizadorGrupo(userId: number): void {
-    // Abre a nossa caixa de confirmação personalizada!
     this.toastService.askConfirmation('Deseja remover este utilizador do grupo de forma definitiva?', () => {
       this.executarRemoverUtilizadorGrupo(userId);
     });

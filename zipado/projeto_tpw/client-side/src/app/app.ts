@@ -1,10 +1,9 @@
-// 1. Adicione "HostListener" e "ElementRef" nos imports do @angular/core:
 import { Component, OnInit, HostListener, ElementRef, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
-import { ToastService } from './services/toast'; // Import do Toast
+import { ToastService } from './services/toast';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +23,7 @@ export class App implements OnInit {
   isLightTheme = false;
 
   private router = inject(Router);
-  private elementRef = inject(ElementRef); // 2. Injeta a referência do elemento
+  private elementRef = inject(ElementRef);
 
   public toastService = inject(ToastService);
 
@@ -45,7 +44,6 @@ export class App implements OnInit {
     }
   }
 
-    // Novo: Alterna entre os dois temas e grava a escolha no navegador
   toggleTheme(): void {
     this.isLightTheme = !this.isLightTheme;
     if (this.isLightTheme) {
@@ -60,7 +58,6 @@ export class App implements OnInit {
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
-    // Se o clique ocorreu fora do bloco do menu dropdown, fecha o menu!
     if (!event.target.closest('.dropdown')) {
       this.dropdownOpen = false;
     }

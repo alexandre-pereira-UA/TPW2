@@ -30,15 +30,13 @@ export class Login {
       const data = await response.json();
 
       if (response.ok) {
-        // Guarda as credenciais localmente no navegador
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
-        // Redirecionamento inteligente de acordo com as regras do TP1!
         if (data.user.is_superuser) {
-          window.location.href = '/admin/dashboard'; // Superuser vai para o Painel Admin
+          window.location.href = '/admin/dashboard';
         } else {
-          window.location.href = '/'; // Utilizador Comum vai para o Catálogo
+          window.location.href = '/';
         }
       } else {
         this.errorMessage = data.error || 'Credenciais inválidas.';

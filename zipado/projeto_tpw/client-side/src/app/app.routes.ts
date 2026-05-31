@@ -1,5 +1,5 @@
 import { Routes, Router } from '@angular/router';
-import { inject } from '@angular/core'; // Necessário para injetar o router no Guard dinâmico
+import { inject } from '@angular/core';
 
 import { ListaFilmes } from './lista-filmes/lista-filmes';
 import { DetalheFilme } from './detalhe-filme/detalhe-filme';
@@ -22,10 +22,6 @@ import { EditarItem as AdminEditarItem } from './admin/editar-item/editar-item';
 import { Dashboard as AdminDashboard } from './admin/dashboard/dashboard';
 import { AdicionarFilme as AdminAdicionarFilme } from './admin/adicionar-filme/adicionar-filme';
 
-// NOVO: Guarda de Rotas Funcional para proteger ecrãs de Administração
-// Substitua apenas a função "adminGuard" (perto da linha 25) por esta:
-
-// Procure por "const adminGuard = () => {" no topo de app.routes.ts e substitua por esta:
 
 const adminGuard = () => {
   const router = inject(Router);
@@ -33,13 +29,11 @@ const adminGuard = () => {
 
   if (userJson) {
     const user = JSON.parse(userJson);
-    // CORRIGIDO: Valida is_staff_custom em vez de is_staff!
     if (user.is_staff_custom || user.is_superuser) {
       return true;
     }
   }
 
-  // Se tentar aceder sem ser admin: limpa o login e força ir para o login
   localStorage.removeItem('token');
   localStorage.removeItem('user');
 
@@ -48,7 +42,6 @@ const adminGuard = () => {
 };
 
 export const routes: Routes = [
-  // Rotas Públicas / Utilizador Comum
   { path: '', component: ListaFilmes },
   { path: 'filme/:id', component: DetalheFilme },
   { path: 'login', component: Login },
@@ -59,7 +52,6 @@ export const routes: Routes = [
   { path: 'perfil/:id', component: Perfil },
   { path: 'perfil/editar/:id', component: EditarPerfil },
 
-  // Rotas Administrativas Protegidas pelo "adminGuard" (Nova segurança do TP2!)
   { path: 'admin/dashboard', component: AdminDashboard, canActivate: [adminGuard] },
   { path: 'admin/filmes', component: AdminFilmes, canActivate: [adminGuard] },
   { path: 'admin/filmes/novo', component: AdminAdicionarFilme, canActivate: [adminGuard] },

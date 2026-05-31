@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class EditarItem implements OnInit {
   modo: string = 'Criar';
-  tipo: string = ''; // 'ator', 'realizador', 'genero'
+  tipo: string = '';
   itemId: number | null = null;
   nome: string = '';
 

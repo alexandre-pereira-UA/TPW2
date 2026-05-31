@@ -1,25 +1,20 @@
 <div class="container" style="margin-top: 30px; color: white;">
-    <!-- Cabeçalho (Gestão de Filmes) -->
     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
         <div>
             <h2 style="color: #f5c518; margin: 0; font-weight: 800; text-transform: uppercase;">Gestão de Filmes</h2>
             <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Filmes</p>
         </div>
 
-        <!-- Procure pelo topo do ficheiro admin/filmes/filmes.html e mude o bloco de botões para: -->
 
         <div style="display: flex; gap: 10px; align-items: center;">
-            <!-- Importar Filmes (Corrigido para botão perfeito) -->
             <button (click)="importarFilmes()" class="btn-moviez-action btn-yellow" [disabled]="carregandoImport">
                 <i class="fas fa-cloud-download-alt" style="margin-right: 8px;"></i> {{ carregandoImport ? 'A importar...' : 'Importar 10 Filmes' }}
             </button>
 
-            <!-- Adicionar Filme (Corrigido para botão perfeito) -->
             <a routerLink="/admin/filmes/novo" class="btn-moviez-action btn-yellow">
                 <i class="fas fa-plus" style="margin-right: 8px;"></i> Adicionar Filme
             </a>
 
-            <!-- Dashboard (Corrigido para botão perfeito) -->
             <a routerLink="/admin/dashboard" class="btn-moviez-action btn-dark">Dashboard</a>
         </div>
     </div>
@@ -28,7 +23,6 @@
         <div class="alert alert-info" style="border-radius: 8px; font-weight: bold; margin-bottom: 20px;">{{ mensagem }}</div>
     }
 
-    <!-- Barra de Pesquisa -->
     <div style="margin-bottom: 25px;">
         <div style="display: flex; gap: 10px; max-width: 500px;">
             <div style="position: relative; flex-grow: 1;">
@@ -42,7 +36,6 @@
         </div>
     </div>
 
-    <!-- Tabela de Filmes -->
     <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
         <div class="table-responsive">
             <table class="table" style="color: white; border: none;">
@@ -67,14 +60,10 @@
                             <td><strong style="color: #ccc;">{{ filme.titulo }}</strong></td>
                             <td>{{ filme.data_lancamento | slice:0:4 }}</td>
                             <td style="text-align: right;">
-                                <!-- Olho Amarelo (Ver Detalhes do Filme com origem 'admin_filmes' para o botão de voltar funcionar!) -->
                                 <a [routerLink]="['/filme', filme.id]" [queryParams]="{ origem: 'admin_filmes' }" class="btn-acao" style="margin-right: 15px; color: #f5c518;"><i class="fas fa-eye"></i></a>
 
-                                <!-- Lápis Azul (Editar Filme) -->
-                                <!-- Procure pelo lápis azul de edição de filmes e atualize-o para: -->
                                 <a [routerLink]="['/admin/filmes/editar', filme.id]" [queryParams]="{ origem: 'admin_filmes' }" class="btn-acao" style="margin-right: 15px; color: #5bc0de;"><i class="fas fa-edit"></i></a>
 
-                                <!-- Lixo Vermelho (Remover Filme) -->
                                 <a (click)="apagarFilme(filme.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # <- Adicionado aqui
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,11 +59,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Por omissão, permite acessos; as restrições serão feitas nas views
+        'rest_framework.permissions.AllowAny',
     ]
 }
 
-# Permite que o Angular (mesmo correndo em localhost:4200 ou noutro domínio de produção) aceda a esta API
 
 ROOT_URLCONF = 'TPW2.urls'
 

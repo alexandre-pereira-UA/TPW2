@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class AdicionarFilme implements OnInit {
   modo: string = 'Adicionar';
   filmeId: number | null = null;
-  origem: string | null = null; // Guardará se veio do catálogo ou admin
+  origem: string | null = null; 
 
   titulo: string = '';
   data_lancamento: string = '';
@@ -36,7 +36,7 @@ export class AdicionarFilme implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.carregarAuxiliares();
-    this.origem = this.route.snapshot.queryParamMap.get('origem'); // Lê se veio de catálogo ou admin
+    this.origem = this.route.snapshot.queryParamMap.get('origem');
 
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
@@ -145,7 +145,6 @@ export class AdicionarFilme implements OnInit {
       });
 
       if (response.ok) {
-        // Se viemos do catálogo de detalhes, volta ao próprio filme. Caso contrário, vai para a lista do admin!
         if (this.origem === 'catalogo' && this.filmeId) {
           this.router.navigate([`/filme/${this.filmeId}`]);
         } else {

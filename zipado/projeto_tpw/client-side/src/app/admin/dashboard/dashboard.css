@@ -1,4 +1,3 @@
-/* Alinha os cartões em flexbox e centra-os para garantir simetria total */
 .dashboard-grid-flex {
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +19,7 @@
     align-items: center;
     min-width: 220px;
     flex: 1 1 220px;
-    max-width: 320px; /* Impede que os cartões estiquem demasiado em ecrãs gigantes */
+    max-width: 320px;
 }
 
 .admin-card-new:hover {

@@ -21,7 +21,6 @@ export class Favoritos implements OnInit {
     this.cdr.detectChanges();
   }
 
-  // Remove dos favoritos e atualiza o ecrã instantaneamente
   async removerFavorito(filmeId: number): Promise<void> {
     const res = await this.filmeService.toggleFavorito(filmeId);
     if (res) {

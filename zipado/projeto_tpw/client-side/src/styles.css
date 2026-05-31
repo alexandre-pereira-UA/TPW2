@@ -1,8 +1,3 @@
-/* ==========================================================================
-   FOLHA DE ESTILOS CONSOLIDADA E GLOBAL - MOVIEZ (TP2)
-   ========================================================================== */
-
-/* --- Reset e Cores Base --- */
 body, .content-wrapper, .main-container {
     background-color: #121212 !important;
     color: #ffffff !important;
@@ -13,13 +8,11 @@ h1, h2, h3, h4, th, td, label {
     color: #ffffff !important;
 }
 
-/* Remove contornos feios ao clicar em links e botões */
 a:focus, a:active, button:focus, button:active {
     outline: none !important;
     box-shadow: none !important;
 }
 
-/* --- Alinhamento Grelha (Bootstrap 3 height alignment fix) --- */
 .row {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -30,7 +23,6 @@ a:focus, a:active, button:focus, button:active {
     flex-direction: column !important;
 }
 
-/* --- Cartão de Filme Geral (Usado nos Formulários como Caixa Vertical) --- */
 .movie-card {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
@@ -41,8 +33,7 @@ a:focus, a:active, button:focus, button:active {
     color: white !important;
 }
 
-/* --- APLICA O COMPORTAMENTO HORIZONTAL APENAS AOS CARTÕES DO CATÁLOGO/LISTAS ---
-   (Isto garante simetria nos filmes e nunca afeta os formulários de login/registo!) */
+
 .row > div[class^="col-"] .movie-card {
     display: flex !important;
     flex-direction: row !important;
@@ -82,7 +73,6 @@ a:focus, a:active, button:focus, button:active {
     margin-bottom: 20px;
 }
 
-/* --- Estrelas de Classificação --- */
 .sistema-classificacao {
     display: flex;
     gap: 5px;
@@ -100,7 +90,6 @@ a:focus, a:active, button:focus, button:active {
     color: #FFD700;
 }
 
-/* --- Formulários, Inputs e Textareas --- */
 form p label, .form-group label {
     display: block;
     color: #f5c518 !important;
@@ -128,7 +117,6 @@ textarea {
     box-sizing: border-box;
 }
 
-/* Input especial da pesquisa rápida (Fundo branco, texto preto) */
 .form-control.search-input-custom {
     background-color: transparent !important;
     color: #000000 !important;
@@ -146,7 +134,7 @@ textarea {
     margin-bottom: 10px;
 }
 
-/* --- Botões Gerais --- */
+
 .btn-warning {
     background-color: #f5c518 !important;
     color: #000 !important;
@@ -204,7 +192,6 @@ textarea {
     color: #ffc107;
 }
 
-/* --- Filtros de Listagem --- */
 .filtro-btn {
     background-color: #1f1f1f;
     color: #fff !important;
@@ -242,7 +229,6 @@ textarea {
     border-color: #d9534f !important;
 }
 
-/* --- Animações --- */
 @keyframes slideIn {
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -253,7 +239,6 @@ textarea {
     to { opacity: 1; }
 }
 
-/* --- Cabeçalho e Avatar --- */
 .avatar-circle {
     background-color: #f5c518;
     color: #000;
@@ -267,7 +252,6 @@ textarea {
     font-size: 14px;
 }
 
-/* --- Dropdown do Cabeçalho --- */
 .dropdown-menu-dark {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
@@ -326,7 +310,6 @@ textarea {
     color: #ff6666 !important;
 }
 
-/* --- Painel de Controlo do Admin (Cards) --- */
 .dashboard-grid-flex {
     display: flex;
     flex-wrap: wrap;
@@ -377,7 +360,6 @@ textarea {
     margin: 0;
 }
 
-/* --- Tabelas Administrativas --- */
 .admin-table-container {
     background: #1a1a1a;
     border-radius: 12px;
@@ -440,7 +422,6 @@ textarea {
     box-shadow: 0 4px 12px rgba(245, 197, 24, 0.3);
 }
 
-/* --- Carrossel de Slides --- */
 .carousel-indicators li.active {
     background-color: #f5c518 !important;
     border-color: #f5c518 !important;
@@ -463,9 +444,7 @@ textarea {
     gap: 10px;
 }
 
-/* ==========================================================================
-   TEMA CLARO (LIGHT THEME) OVERRIDES GLOBAIS
-   ========================================================================== */
+
 body.light-theme,
 body.light-theme .content-wrapper,
 body.light-theme .main-container {
@@ -558,16 +537,14 @@ body.light-theme .filtro-btn:hover {
     color: #000000 !important;
 }
 
-/* ==========================================================================
-   BOTOES DE AÇÃO UNIFICADOS E PERFEITOS DO MOVIEZ (TP2)
-   ========================================================================== */
+
 .btn-moviez-action {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 38px !important;            /* Altura idêntica para TODOS os botões */
-    padding: 0 22px !important;         /* Espaçamento interno uniforme */
-    border-radius: 50px !important;     /* Formato em pílula perfeito */
+    height: 38px !important;
+    padding: 0 22px !important;
+    border-radius: 50px !important;
     font-weight: bold !important;
     font-size: 13px !important;
     text-decoration: none !important;
@@ -578,7 +555,6 @@ body.light-theme .filtro-btn:hover {
     margin: 0 !important;
 }
 
-/* Variação Amarela (Novo Grupo, Adicionar Filme, Importar) */
 .btn-moviez-action.btn-yellow {
     background-color: #f5c518 !important;
     color: #000000 !important;
@@ -590,7 +566,6 @@ body.light-theme .filtro-btn:hover {
     box-shadow: 0 4px 12px rgba(245, 197, 24, 0.3);
 }
 
-/* Variação Escura (Dashboard, Cancelar, Voltar) */
 .btn-moviez-action.btn-dark {
     background-color: #222222 !important;
     color: #f5c518 !important;

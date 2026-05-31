@@ -2,7 +2,7 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Genero } from '../../filme'; // Localizado em src/app/filme.ts
+import { Genero } from '../../filme';
 import { ToastService } from '../../services/toast';
 
 @Component({

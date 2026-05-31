@@ -14,7 +14,6 @@
 
         <div class="collapse navbar-collapse" [class.collapse]="!dropdownOpen" [class.in]="dropdownOpen">
             <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center; margin: 0;">
-              <!-- NOVO: ÍCONE SELETOR DE TEMA (SOL OU LUA) -->
               <li style="display: inline-flex; align-items: center; height: 50px;">
                   <a (click)="toggleTheme()" style="background: none !important; border: none; color: #f5c518; font-size: 20px; cursor: pointer; padding: 0; display: flex; align-items: center; text-decoration: none;">
                       <i [class]="isLightTheme ? 'fas fa-moon' : 'fas fa-sun'"></i>
@@ -46,7 +45,6 @@
 
                         <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #222; border-color: #333; min-width: 160px; padding: 5px 0;">
                             @if (!isSuperuser) {
-                                <!-- Carrega as opções com o ID dinâmico do utilizador comum logado -->
                                 <li><a [routerLink]="['/perfil', userId]" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-user"></i> Meu Perfil</a></li>
                                 <li><a [routerLink]="['/perfil/editar', userId]" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-user-edit"></i> Editar Dados</a></li>
                                 <li><a routerLink="/guardados" style="color: white; padding: 8px 15px; display: block;"><i class="fas fa-bookmark"></i> Guardados</a></li>
@@ -77,7 +75,6 @@
     <router-outlet></router-outlet>
 </div>
 
-<!-- Procure pelo @if (toastService.visible) no final do app.html e altere para isto: -->
 @if (toastService.visible) {
     <div [class]="'toast-notification-style alert alert-' + toastService.type"
          style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; min-width: 280px; animation: slideIn 0.3s ease-out; font-weight: bold; display: flex; align-items: center; gap: 10px;">
@@ -91,7 +88,6 @@
     </div>
 }
 
-<!-- Procure pelo final do ficheiro app.html e cole este bloco do Modal de Confirmação: -->
 @if (toastService.confirmVisible) {
     <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 10000; animation: fadeIn 0.2s ease-out;">
         <div class="movie-card" style="max-width: 400px; width: 90%; background: #1a1a1a; border: 2px solid #f5c518; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">

@@ -2,7 +2,7 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ToastService } from '../services/toast'; // Import do Toast de notificações persistentes
+import { ToastService } from '../services/toast';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -25,10 +25,9 @@ export class EditarPerfil implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
-  private toastService = inject(ToastService); // Injeta o serviço de Toasts
+  private toastService = inject(ToastService);
 
   async ngOnInit(): Promise<void> {
-    // Deteta dados do utilizador ativo logado localmente
     const userJson = localStorage.getItem('user');
     if (userJson) {
       this.currentUser = JSON.parse(userJson);
@@ -99,7 +98,6 @@ export class EditarPerfil implements OnInit {
       });
 
       if (response.ok) {
-        // Se o utilizador atualizou o próprio perfil, atualiza os dados em cache local
         if (this.currentUser && this.currentUser.id === this.userId) {
           const updatedUser = { ...this.currentUser, username: this.username };
           localStorage.setItem('user', JSON.stringify(updatedUser));

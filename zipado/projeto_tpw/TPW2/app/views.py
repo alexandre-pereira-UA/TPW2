@@ -28,7 +28,6 @@ def api_login(request):
     username = request.data.get('username')
     password = request.data.get('password')
 
-    # 1. Valida primeiro se a conta do utilizador foi bloqueada pela administração
     try:
         user_obj = User.objects.get(username=username)
         if not user_obj.is_active:
@@ -37,7 +36,6 @@ def api_login(request):
     except User.DoesNotExist:
         pass
 
-    # 2. Faz a autenticação padrão do Django
     user = authenticate(username=username, password=password)
     if user is not None:
         token, _ = Token.objects.get_or_create(user=user)
@@ -51,7 +49,6 @@ def api_login(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def api_registo(request):
-    """Cria uma nova conta a partir do formulário de registo no Angular"""
     username = request.data.get('username')
     password = request.data.get('password')
     email = request.data.get('email')
@@ -72,12 +69,10 @@ def api_registo(request):
     }, status=status.HTTP_201_CREATED)
 
 
-# --- 2. FILMES (LISTA E DETALHE) ---
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def api_lista_filmes(request):
-    """Substitui a view 'lista_filmes' antiga, retornando os filmes em formato JSON"""
     filmes = Filme.objects.all()
     query = request.query_params.get('q')
     ordenar = request.query_params.get('ordenar')
@@ -103,7 +98,6 @@ def api_lista_filmes(request):
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def api_detalhe_filme(request, filme_id):
-    """Retorna detalhes de um filme e processa a criação de novas críticas"""
     filme = get_object_or_404(Filme, id=filme_id)
 
     if request.method == 'GET':
@@ -111,7 +105,6 @@ def api_detalhe_filme(request, filme_id):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
-        # Requer autenticação por Token para submeter críticas
         if not request.user.is_authenticated:
             return Response({'error': 'Não autenticado'}, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -125,7 +118,6 @@ def api_detalhe_filme(request, filme_id):
         return Response(AvaliacaoSerializer(avaliacao).data, status=status.HTTP_201_CREATED)
 
 
-# --- 3. FAVORITOS E GUARDADOS ---
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -146,7 +138,7 @@ def api_toggle_favorito(request, filme_id):
     return Response({'status': 'adicionado'}, status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
-@permission_classes([IsAdminUser]) # Apenas administradores podem aceder a estas estatísticas
+@permission_classes([IsAdminUser])
 def api_dashboard_stats(request):
     data = {
         'total_users': User.objects.count(),
@@ -160,7 +152,6 @@ def api_dashboard_stats(request):
     return Response(data, status=status.HTTP_200_OK)
 
 
-# --- API: ATORES ---
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def api_lista_atores(request):
@@ -192,7 +183,6 @@ def api_apagar_realizador(request, id):
     return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
 
 
-# --- API: GÉNEROS ---
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def api_lista_generos(request):
@@ -208,7 +198,6 @@ def api_apagar_genero(request, id):
     return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
 
 
-# --- API: UTILIZADORES ---
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def api_lista_utilizadores(request):
@@ -226,7 +215,6 @@ def api_apagar_utilizador(request, id):
     return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
 
 
-# --- API: CRÍTICAS / AVALIAÇÕES ---
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def api_lista_avaliacoes(request):
@@ -235,13 +223,11 @@ def api_lista_avaliacoes(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# Atualize a função api_apagar_avaliacao para ficar assim:
 @api_view(['DELETE'])
-@permission_classes([IsAuthenticated])  # Permite a ligação de autenticados, mas validamos a segurança no código!
+@permission_classes([IsAuthenticated])
 def api_apagar_avaliacao(request, id):
     av = get_object_or_404(Avaliacao, id=id)
 
-    # Validação de segurança idêntica à que tinha no TP1!
     if request.user.is_superuser or request.user.has_perm('app.delete_avaliacao'):
         av.delete()
         return Response({'status': 'apagado'}, status=status.HTTP_200_OK)
@@ -249,7 +235,6 @@ def api_apagar_avaliacao(request, id):
     return Response({'error': 'Não tens permissão para isto.'}, status=status.HTTP_403_FORBIDDEN)
 
 
-# --- API: GRUPOS ---
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def api_lista_grupos(request):
@@ -277,7 +262,6 @@ def api_detalhe_utilizador(request, id):
     u = get_object_or_404(User, id=id)
     serializer = UserSerializer(u)
     data = serializer.data
-    # Envia também os grupos associados e a data de criação
     data['groups'] = [{'id': g.id, 'name': g.name} for g in u.groups.all()]
     data['date_joined'] = u.date_joined
     return Response(data, status=status.HTTP_200_OK)
@@ -287,7 +271,6 @@ def api_detalhe_utilizador(request, id):
 @permission_classes([IsAuthenticated])
 def api_editar_utilizador(request, id):
     u = get_object_or_404(User, id=id)
-    # Apenas o próprio utilizador ou um superuser pode editar
     if request.user.id != u.id and not request.user.is_superuser:
         return Response({'error': 'Não tem permissão para editar este perfil.'}, status=status.HTTP_403_FORBIDDEN)
 
@@ -312,7 +295,6 @@ def api_editar_utilizador(request, id):
     u.save()
     return Response(UserSerializer(u).data, status=status.HTTP_200_OK)
 
-# --- API: MEUS GUARDADOS (Em Falta) ---
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -332,9 +314,8 @@ def api_toggle_guardado(request, filme_id):
     return Response({'status': 'adicionado'}, status=status.HTTP_201_CREATED)
 
 
-# --- API: CRIAR FILME (Em Falta) ---
 @api_view(['POST'])
-@permission_classes([IsAdminUser]) # Permite acesso a Superusers e membros do Staff
+@permission_classes([IsAdminUser])
 def api_criar_filme(request):
     serializer = FilmeWriteSerializer(data=request.data)
     if serializer.is_valid():
@@ -343,7 +324,6 @@ def api_criar_filme(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# --- API: EDITAR FILME (Em Falta) ---
 @api_view(['POST', 'PUT'])
 @permission_classes([IsAdminUser])
 def api_editar_filme(request, id):
@@ -355,9 +335,6 @@ def api_editar_filme(request, id):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# --- API: PERMISSÕES E GRUPOS ADICIONAIS (Em Falta) ---
-
-# Listar todas as permissões para a caixa de scroll do Angular
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def api_lista_permissoes(request):
@@ -373,7 +350,6 @@ def api_lista_permissoes(request):
     return Response(data, status=status.HTTP_200_OK)
 
 
-# Detalhe de um grupo específico (Membros e Permissões)
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def api_detalhe_grupo(request, id):
@@ -389,7 +365,6 @@ def api_detalhe_grupo(request, id):
     }, status=status.HTTP_200_OK)
 
 
-# Criar Novo Grupo
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def api_criar_grupo(request):
@@ -408,7 +383,6 @@ def api_criar_grupo(request):
     return Response({'status': 'criado'}, status=status.HTTP_201_CREATED)
 
 
-# Editar Grupo Existente
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def api_editar_grupo(request, id):
@@ -426,7 +400,6 @@ def api_editar_grupo(request, id):
     return Response({'status': 'atualizado'}, status=status.HTTP_200_OK)
 
 
-# Remover Utilizador de um Grupo específico
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def api_remover_utilizador_grupo(request, grupo_id, user_id):
@@ -437,7 +410,6 @@ def api_remover_utilizador_grupo(request, grupo_id, user_id):
     return Response({'status': 'removido'}, status=status.HTTP_200_OK)
 
 
-# --- API: IMPORTAR FILMES DO TMDB (Em Falta) ---
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def api_importar_filmes_api(request):
@@ -518,7 +490,6 @@ def api_importar_filmes_api(request):
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-# --- API: APAGAR COMENTÁRIO PRÓPRIO (Em Falta) ---
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def api_apagar_comentario(request, filme_id):
@@ -532,7 +503,6 @@ def api_apagar_comentario(request, filme_id):
     return Response({'error': 'Não foi possível encontrar a sua crítica neste filme.'},
                     status=status.HTTP_404_NOT_FOUND)
 
-# Alternar bloqueio da conta de um utilizador comum
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def api_toggle_bloqueio_utilizador(request, id):

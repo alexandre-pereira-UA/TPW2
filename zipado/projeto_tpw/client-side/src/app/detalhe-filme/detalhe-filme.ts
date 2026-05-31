@@ -22,7 +22,6 @@ export class DetalheFilme implements OnInit {
   userId: number | null = null;
   origem: string | null = null;
 
-  // Lógica do comentário
   notaSelecionada: number = 0;
   novoComentario: string = '';
   minhaAvaliacao: any = null;
@@ -30,7 +29,7 @@ export class DetalheFilme implements OnInit {
 
   private route = inject(ActivatedRoute);
   private filmeService = inject(FilmeService);
-  private toastService = inject(ToastService); // Injeta o Serviço de Toasts
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
@@ -59,10 +58,8 @@ export class DetalheFilme implements OnInit {
       this.filme = await this.filmeService.getFilme(id);
 
       if (this.filme && this.filme.avaliacoes) {
-        // Usamos comparação flexível == para evitar conflitos de tipos número/texto
         this.minhaAvaliacao = this.filme.avaliacoes.find((av: any) => av.utilizador.id == this.userId);
 
-        // Ordena TODAS as avaliações por data decrescente (as mais recentes primeiro)
         this.todasAvaliacoes = [...this.filme.avaliacoes].sort((a, b) =>
           new Date(b.data_postagem).getTime() - new Date(a.data_postagem).getTime()
         );
@@ -112,9 +109,7 @@ export class DetalheFilme implements OnInit {
     }
   }
 
-  // --- APAGAR CRÍTICA PRÓPRIA ---
   apagarMinhaCritica(): void {
-    // Abre a nossa caixa de confirmação personalizada do MOVIEZ!
     this.toastService.askConfirmation('Deseja apagar a sua crítica de forma definitiva?', () => {
       this.executarApagarMinhaCritica();
     });
@@ -141,9 +136,7 @@ export class DetalheFilme implements OnInit {
     }
   }
 
-  // --- MODERAÇÃO: APAGAR CRÍTICA DOS OUTROS ---
   apagarCriticaComoModerador(id: number): void {
-    // Abre a nossa caixa de confirmação personalizada do MOVIEZ!
     this.toastService.askConfirmation('Apagar este comentário como moderador?', () => {
       this.executarApagarCriticaComoModerador(id);
     });

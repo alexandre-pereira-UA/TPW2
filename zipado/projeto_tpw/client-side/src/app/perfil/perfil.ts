@@ -25,7 +25,6 @@ export class Perfil implements OnInit {
     if (idParam) {
       await this.carregarPerfilPorId(parseInt(idParam, 10));
     } else {
-      // Se não houver ID no URL, carrega o perfil do próprio utilizador logado
       const userJson = localStorage.getItem('user');
       if (userJson) {
         const loggedInUser = JSON.parse(userJson);

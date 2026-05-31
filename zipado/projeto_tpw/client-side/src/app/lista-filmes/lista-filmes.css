@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS DO CATÁLOGO DE FILMES (ECRÃ PRINCIPAL)
-   ========================================================================== */
 
 .movie-card {
     background-color: #1a1a1a;
@@ -59,7 +56,6 @@
     color: #f5c518 !important;
 }
 
-/* Animação suave para as transições de slides nativos */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }

@@ -2,7 +2,7 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ToastService } from '../../services/toast'; // Corrigido de ../../../ para ../../
+import { ToastService } from '../../services/toast';
 
 @Component({
   selector: 'app-utilizadores',
@@ -93,7 +93,7 @@ export class Utilizadores implements OnInit {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
-        const data: any = await response.json(); // Explicitamente tipado como 'any' para evitar o erro do compilador
+        const data: any = await response.json(); 
         this.itens = this.itens.map(u => u.id === id ? { ...u, is_active: data.is_active } : u);
         this.itensFiltrados = this.itensFiltrados.map(u => u.id === id ? { ...u, is_active: data.is_active } : u);
         this.toastService.show(`Utilizador ${data.status} com sucesso!`, 'success');
