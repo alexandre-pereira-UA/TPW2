@@ -47,7 +47,7 @@ export class DetalheFilme implements OnInit {
       const user = JSON.parse(userJson);
       this.userId = user.id;
       this.isSuperuser = user.is_superuser;
-      this.isStaff = user.is_staff || user.is_superuser;
+      this.isStaff = user.is_staff_custom || user.is_superuser;
       this.isModerador = user.is_moderador || user.is_superuser;
     }
   }

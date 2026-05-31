@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Quase lá" />
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="Quase lá">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/adicionar-filme/adicionar-filme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/detalhe-filme/detalhe-filme.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,22 +200,6 @@
       <workItem from="1776039349854" duration="916000" />
       <workItem from="1776070497468" duration="3704000" />
       <workItem from="1776088803519" duration="40000" />
-    </task>
-    <task id="LOCAL-00008" summary="Deu">
-      <option name="closed" value="true" />
-      <created>1775669317629</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1775669317629</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Add controlaFilmes e Add meter filmes">
-      <option name="closed" value="true" />
-      <created>1775671135516</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1775671135516</updated>
     </task>
     <task id="LOCAL-00010" summary="Add controlaFilmes e Add meter filmes">
       <option name="closed" value="true" />
@@ -587,7 +577,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780237511640</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Quase lá">
+      <option name="closed" value="true" />
+      <created>1780237888277</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1780237888277</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Quase lá">
+      <option name="closed" value="true" />
+      <created>1780238078417</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1780238078417</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

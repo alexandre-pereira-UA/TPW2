@@ -68,7 +68,8 @@
                                 <a [routerLink]="['/filme', filme.id]" [queryParams]="{ origem: 'admin_filmes' }" class="btn-acao" style="margin-right: 15px; color: #f5c518;"><i class="fas fa-eye"></i></a>
 
                                 <!-- Lápis Azul (Editar Filme) -->
-                                <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn-acao" style="margin-right: 15px; color: #5bc0de;"><i class="fas fa-edit"></i></a>
+                                <!-- Procure pelo lápis azul de edição de filmes e atualize-o para: -->
+                                <a [routerLink]="['/admin/filmes/editar', filme.id]" [queryParams]="{ origem: 'admin_filmes' }" class="btn-acao" style="margin-right: 15px; color: #5bc0de;"><i class="fas fa-edit"></i></a>
 
                                 <!-- Lixo Vermelho (Remover Filme) -->
                                 <a (click)="apagarFilme(filme.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>

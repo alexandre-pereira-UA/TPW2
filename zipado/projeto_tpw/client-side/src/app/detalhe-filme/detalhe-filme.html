@@ -16,7 +16,8 @@
                         </h1>
 
                         @if (isStaff) {
-                            <a [routerLink]="['/admin/filmes/editar', filme.id]" class="btn btn-warning" style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 25px; width: auto !important; margin-top: 0 !important; box-sizing: border-box;">
+                            <!-- Procure pelo botão "Editar Filme" e atualize o [routerLink] para incluir o queryParams: -->
+                            <a [routerLink]="['/admin/filmes/editar', filme.id]" [queryParams]="{ origem: 'catalogo' }" class="btn btn-warning"  style="font-weight: bold; border-radius: 50px; background-color: #f5c518; color: black; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 25px; width: auto !important; margin-top: 0 !important; box-sizing: border-box;">
                                 <i class="fas fa-edit"></i> Editar Filme
                             </a>
                         }

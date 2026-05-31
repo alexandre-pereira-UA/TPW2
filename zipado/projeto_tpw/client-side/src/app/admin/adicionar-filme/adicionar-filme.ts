@@ -33,14 +33,28 @@ export class AdicionarFilme implements OnInit {
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
+  origem: string | null = null;
+
+  // 2. Na sua função 'ngOnInit()', atualize o bloco para ler a origem:
   async ngOnInit(): Promise<void> {
     await this.carregarAuxiliares();
+    this.origem = this.route.snapshot.queryParamMap.get('origem'); // Lê se veio do catálogo ou admin
 
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.modo = 'Editar';
       this.filmeId = parseInt(idParam, 10);
       await this.carregarFilme(this.filmeId);
+    }
+  }
+
+  // 3. Na sua função 'onSubmit()', substitua o bloco de sucesso por este:
+  if (response.ok) {
+    // Se veio do catálogo, volta ao próprio filme. Se veio do dashboard, volta à lista do admin!
+    if (this.origem === 'catalogo' && this.filmeId) {
+      this.router.navigate([`/filme/${this.filmeId}`]);
+    } else {
+      this.router.navigate(['/admin/filmes']);
     }
   }
 
