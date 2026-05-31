@@ -30,7 +30,7 @@ export class DetalheFilme implements OnInit {
 
   private route = inject(ActivatedRoute);
   private filmeService = inject(FilmeService);
-  private toastService = inject(ToastService);
+  private toastService = inject(ToastService); // Injeta o Serviço de Toasts
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
@@ -112,8 +112,15 @@ export class DetalheFilme implements OnInit {
     }
   }
 
-  async apagarMinhaCritica(): Promise<void> {
-    if (!confirm('Deseja apagar a sua crítica?')) return;
+  // --- APAGAR CRÍTICA PRÓPRIA ---
+  apagarMinhaCritica(): void {
+    // Abre a nossa caixa de confirmação personalizada do MOVIEZ!
+    this.toastService.askConfirmation('Deseja apagar a sua crítica de forma definitiva?', () => {
+      this.executarApagarMinhaCritica();
+    });
+  }
+
+  async executarApagarMinhaCritica(): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/filmes/${this.filme.id}/comentario/apagar/`, {
@@ -121,7 +128,7 @@ export class DetalheFilme implements OnInit {
         headers: { 'Authorization': `Token ${token}` }
       });
       if (response.ok) {
-        this.toastService.show('Crítica removida com sucesso.', 'success');
+        this.toastService.show('A tua crítica foi removida.', 'success');
         this.minhaAvaliacao = null;
         this.notaSelecionada = 0;
         this.novoComentario = '';
@@ -134,8 +141,15 @@ export class DetalheFilme implements OnInit {
     }
   }
 
-  async apagarCriticaComoModerador(id: number): Promise<void> {
-    if (!confirm('Apagar comentário como moderador?')) return;
+  // --- MODERAÇÃO: APAGAR CRÍTICA DOS OUTROS ---
+  apagarCriticaComoModerador(id: number): void {
+    // Abre a nossa caixa de confirmação personalizada do MOVIEZ!
+    this.toastService.askConfirmation('Apagar este comentário como moderador?', () => {
+      this.executarApagarCriticaComoModerador(id);
+    });
+  }
+
+  async executarApagarCriticaComoModerador(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/avaliacoes/apagar/${id}/`, {
@@ -145,6 +159,8 @@ export class DetalheFilme implements OnInit {
       if (response.ok) {
         this.toastService.show('Comentário apagado com sucesso.', 'success');
         await this.carregarDetalhes();
+      } else {
+        this.toastService.show('Erro ao apagar comentário.', 'danger');
       }
     } catch (e) {
       console.error(e);
