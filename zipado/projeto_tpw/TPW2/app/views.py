@@ -24,19 +24,29 @@ from app.serializers import (
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def api_login(request):
-    """Gera um Token de Acesso para o Angular autenticar os pedidos"""
+    """Gera um Token de Acesso para o Angular autenticar os pedidos e valida bloqueios"""
     username = request.data.get('username')
     password = request.data.get('password')
-    user = authenticate(username=username, password=password)
 
+    # 1. Valida primeiro se a conta do utilizador foi bloqueada pela administração
+    try:
+        user_obj = User.objects.get(username=username)
+        if not user_obj.is_active:
+            return Response({'error': 'A tua conta foi bloqueada pela administração do site.'},
+                            status=status.HTTP_403_FORBIDDEN)
+    except User.DoesNotExist:
+        pass
+
+    # 2. Faz a autenticação padrão do Django
+    user = authenticate(username=username, password=password)
     if user is not None:
         token, _ = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
             'user': UserSerializer(user).data
         }, status=status.HTTP_200_OK)
-    return Response({'error': 'Credenciais inválidas'}, status=status.HTTP_400_BAD_REQUEST)
 
+    return Response({'error': 'Credenciais inválidas'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -521,3 +531,15 @@ def api_apagar_comentario(request, filme_id):
 
     return Response({'error': 'Não foi possível encontrar a sua crítica neste filme.'},
                     status=status.HTTP_404_NOT_FOUND)
+
+# Alternar bloqueio da conta de um utilizador comum
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def api_toggle_bloqueio_utilizador(request, id):
+    u = get_object_or_404(User, id=id)
+    if u.is_superuser:
+        return Response({'error': 'Não é possível bloquear um Superutilizador.'}, status=status.HTTP_400_BAD_REQUEST)
+    u.is_active = not u.is_active
+    u.save()
+    status_str = 'bloqueado' if not u.is_active else 'desbloqueado'
+    return Response({'status': status_str, 'is_active': u.is_active}, status=status.HTTP_200_OK)

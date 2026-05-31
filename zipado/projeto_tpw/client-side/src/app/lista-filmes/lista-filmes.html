@@ -120,19 +120,26 @@
                     @for (filme of filmesFiltrados; track filme.id; let i = $index) {
                         <!-- Mostra apenas o slide correspondente ao índice ativo com animação suave de fadeIn -->
                         @if (i === activeSlideIndex) {
-                            <div class="item active" [routerLink]="['/filme', filme.id]" style="height: 400px; position: relative; cursor: pointer; animation: fadeIn 0.5s ease-in-out;">
+                          <div class="item active" style="height: 400px; position: relative; cursor: pointer; animation: fadeIn 0.5s ease-in-out;">
 
-                                <!-- Efeito de Fundo Desfocado -->
-                                @if (filme.cartaz) {
-                                    <div [style.background-image]="'url(' + filme.cartaz + ')'" style="position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.15; filter: blur(12px); transform: scale(1.1);"></div>
-                                }
-                                <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(to top, rgba(12,12,12,1) 0%, rgba(12,12,12,0.4) 60%, rgba(12,12,12,0.9) 100%);"></div>
+                              <!-- NOVO: ÍCONES DINÂMICOS DE FAVORITO E GUARDADO SOBREPOSTOS NO SLIDER -->
+                              @if (isLoggedIn && !isSuperuser) {
+                                  <div class="movie-actions" style="position: absolute; top: 25px; right: 25px; z-index: 30; display: flex; gap: 15px; cursor: pointer;">
+                                      <a (click)="toggleGuardado(filme.id); $event.stopPropagation();" style="text-decoration: none;">
+                                          <i class="fa-bookmark" [class.fas]="ids_guardados.includes(filme.id)" [class.far]="!ids_guardados.includes(filme.id)" style="color: white; font-size: 22px; text-shadow: 0 2px 8px rgba(0,0,0,0.8);"></i>
+                                      </a>
 
-                                <!-- Conteúdo (Poster, Nome, Média, Sinopse - Sem realizador!) -->
-                                <div class="container" style="position: relative; z-index: 10; display: flex; align-items: center; height: 100%; gap: 30px; padding: 40px;">
-                                    @if (filme.cartaz) {
-                                        <img [src]="filme.cartaz" [alt]="filme.titulo" style="width: 160px; height: 230px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); border: 1px solid #444;">
-                                    }
+                                      <a (click)="toggleFavorito(filme.id); $event.stopPropagation();" style="text-decoration: none;">
+                                          <i class="fa-heart" [class.fas]="ids_favoritos.includes(filme.id)" [class.far]="!ids_favoritos.includes(filme.id)"
+                                             style="font-size: 22px; color: #f39c12; text-shadow: 0 2px 8px rgba(0,0,0,0.8);"></i>
+                                      </a>
+                                  </div>
+                              }
+
+                              <!-- Efeito de Fundo Desfocado -->
+                              @if (filme.cartaz) {
+                                  <div [style.background-image]="'url(' + filme.cartaz + ')'" style="position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.15; filter: blur(12px); transform: scale(1.1);" [routerLink]="['/filme', filme.id]"></div>
+                              }
                                     <div style="color: white; max-width: 600px;">
                                         <h2 style="color: #f5c518 !important; font-size: 30px; font-weight: bold; margin-top: 0; border: none !important;">
                                             {{ filme.titulo }}

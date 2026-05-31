@@ -2,6 +2,7 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ToastService } from '../services/toast'; // Import do Toast de notificações persistentes
 
 @Component({
   selector: 'app-editar-perfil',
@@ -24,6 +25,7 @@ export class EditarPerfil implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
+  private toastService = inject(ToastService); // Injeta o serviço de Toasts
 
   async ngOnInit(): Promise<void> {
     // Deteta dados do utilizador ativo logado localmente
@@ -102,6 +104,8 @@ export class EditarPerfil implements OnInit {
           const updatedUser = { ...this.currentUser, username: this.username };
           localStorage.setItem('user', JSON.stringify(updatedUser));
         }
+        this.toastService.showPersistent('Perfil atualizado com sucesso!', 'success');
+
         window.location.href = `/perfil/${this.userId}`;
       } else {
         alert('Erro ao atualizar perfil.');

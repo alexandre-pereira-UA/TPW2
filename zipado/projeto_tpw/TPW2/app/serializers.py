@@ -5,18 +5,19 @@ from .models import Genero, Realizador, Ator, Filme, Avaliacao, Guardado, Favori
 
 # Serializer para Utilizadores (Corrigido!)
 class UserSerializer(serializers.ModelSerializer):
-    is_moderador = serializers.SerializerMethodField() # 1. Adicionado aqui!
+    is_moderador = serializers.SerializerMethodField()
+    is_staff_custom = serializers.SerializerMethodField() # Novo campo virtual de Staff
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_superuser', 'is_staff', 'is_moderador']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_superuser', 'is_staff_custom', 'is_moderador', 'is_active']
 
-    # 2. Corrigido o recuo (indentação) para ficar fora da classe Meta!
     def get_is_moderador(self, obj):
-        # 1. Verifica se é superuser
-        # 2. Verifica se tem o grupo 'coment' (sem acentos, apanha 'comentário', 'comentarios', etc)
-        # 3. Verifica se tem a permissão nativa de apagar avaliações
-        return obj.is_superuser or obj.groups.filter(name__icontains='coment').exists() or obj.has_perm('app.delete_avaliacao')
+        return obj.is_superuser or obj.groups.filter(name__icontains='coment').exists()
+
+    def get_is_staff_custom(self, obj):
+        # Se pertencer a qualquer grupo administrativo ou for staff/superuser, é considerado Staff!
+        return obj.is_staff or obj.is_superuser or obj.groups.exists()
 
 
 # Serializer para Géneros

@@ -58,6 +58,7 @@ urlpatterns = [
 # Rota de Importação automática de Filmes do TMDB via API
     path('ws/filmes/importar-api/', views.api_importar_filmes_api, name='api_importar_filmes_api'),
     path('ws/filmes/<int:filme_id>/comentario/apagar/', views.api_apagar_comentario, name='api_apagar_comentario'),
+    path('ws/utilizadores/toggle-bloqueio/<int:id>/', views.api_toggle_bloqueio_utilizador, name='api_toggle_bloqueio_utilizador'),
 
 
 ]

@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <!-- Tabela de Utilizadores -->
+    <!-- Tabela -->
     <div class="admin-table-container" style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
         <div class="table-responsive">
             <table class="table" style="color: white; border: none;">
@@ -45,7 +45,7 @@
                             <td>
                                 @if (u.is_superuser) {
                                     <span class="label label-danger" style="background-color: #d9534f; padding: 4px 8px; border-radius: 4px;">Superuser</span>
-                                } @else if (u.is_staff) {
+                                } @else if (u.is_staff_custom) { <!-- Corrigido para is_staff_custom! -->
                                     <span class="label label-info" style="background-color: #5bc0de; padding: 4px 8px; border-radius: 4px;">Staff</span>
                                 } @else {
                                     <span class="label label-default" style="background-color: #777; padding: 4px 8px; border-radius: 4px;">User</span>
@@ -53,17 +53,18 @@
                             </td>
                             <td style="color: #888;">{{ u.date_joined | date:"dd/MM/yyyy" }}</td>
                             <td style="text-align: right;">
-                                <!-- Olho Amarelo (Ver Perfil com origem de admin) -->
                                 <a [routerLink]="['/perfil', u.id]" [queryParams]="{ origem: 'admin' }" class="btn-acao" style="margin-right: 15px; color: #f5c518;"><i class="fas fa-eye"></i></a>
-
-                                <!-- Editar Perfil -->
                                 <a [routerLink]="['/perfil/editar', u.id]" class="btn-acao" style="margin-right: 15px; color: #5bc0de;"><i class="fas fa-user-edit"></i></a>
 
-                                <!-- Apagar Utilizador -->
                                 @if (!u.is_superuser) {
+                                    <!-- NOVO: Cadeado de Bloqueio Dinâmico (Verde se ativo, Vermelho se bloqueado) -->
+                                    <a (click)="toggleBloqueio(u.id)" class="btn-acao" style="margin-right: 15px; cursor: pointer;" [style.color]="u.is_active ? '#2ecc71' : '#ff4d4d'">
+                                        <i [class]="u.is_active ? 'fas fa-unlock' : 'fas fa-lock'"></i>
+                                    </a>
+
                                     <a (click)="apagarUtilizador(u.id)" class="btn-acao" style="color: #ff4d4d; cursor: pointer;"><i class="fas fa-trash"></i></a>
                                 } @else {
-                                    <span class="btn-acao" style="opacity: 0.3; cursor: not-allowed;" title="Superuser Protegido"><i class="fas fa-lock"></i></span>
+                                    <span class="btn-acao" style="opacity: 0.3; cursor: not-allowed;" title="Superuser Protegido"><i class="fas fa-lock" style="color: #555;"></i></span>
                                 }
                             </td>
                         </tr>

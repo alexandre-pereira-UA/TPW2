@@ -77,15 +77,15 @@
     <router-outlet></router-outlet>
 </div>
 
-<!-- No final do ficheiro, cole este bloco dinâmico do Toast -->
+<!-- Procure pelo @if (toastService.visible) no final do app.html e altere para isto: -->
 @if (toastService.visible) {
-    <div [class]="'alert alert-' + (toastService.type === 'success' ? 'success' : 'danger')"
-         style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; min-width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); animation: slideIn 0.3s ease-out; font-weight: bold; display: flex; align-items: center; gap: 10px; color: white !important; border: 1px solid #333;">
+    <div [class]="'toast-notification-style alert alert-' + toastService.type"
+         style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; min-width: 280px; animation: slideIn 0.3s ease-out; font-weight: bold; display: flex; align-items: center; gap: 10px;">
 
         @if (toastService.type === 'success') {
-            <i class="fas fa-check-circle" style="color: #2ecc71; font-size: 18px;"></i>
+            <i class="fas fa-check-circle" style="color: #f5c518; font-size: 18px;"></i>
         } @else {
-            <i class="fas fa-exclamation-circle" style="color: #e74c3c; font-size: 18px;"></i>
+            <i class="fas fa-exclamation-circle" style="color: #ff4d4d; font-size: 18px;"></i>
         }
         {{ toastService.message }}
     </div>

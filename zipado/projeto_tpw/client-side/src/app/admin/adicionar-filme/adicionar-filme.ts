@@ -133,6 +133,7 @@ export class AdicionarFilme implements OnInit {
       atores: this.atores_selecionados.map(Number)
     };
 
+    // Localize a função onSubmit() e substitua o bloco "try" por este:
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -144,7 +145,12 @@ export class AdicionarFilme implements OnInit {
       });
 
       if (response.ok) {
-        this.router.navigate(['/admin/filmes']);
+        // Se estivemos a EDITAR, volta ao próprio filme. Se estivemos a CRIAR, volta à lista do admin!
+        if (this.filmeId) {
+          this.router.navigate([`/filme/${this.filmeId}`]);
+        } else {
+          this.router.navigate(['/admin/filmes']);
+        }
       } else {
         alert('Erro ao guardar o filme.');
       }
