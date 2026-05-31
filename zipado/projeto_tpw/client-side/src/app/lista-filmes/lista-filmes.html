@@ -23,21 +23,25 @@
 
     <!-- Categorias / Géneros -->
     <div class="generos-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; align-items: center;">
-        <span style="color: #888; font-weight: bold; margin-right: 5px;">Categorias:</span>
-        <button (click)="filtrarPorGenero(null)" class="filtro-btn" [class.active]="generoSelecionadoId === null">Todos</button>
-        @for (g of generos; track g.id) {
-            <button (click)="filtrarPorGenero(g.id)" class="filtro-btn" [class.active]="generoSelecionadoId === g.id">{{ g.nome }}</button>
-        }
-    </div>
+        <!-- NOVO: Filtro Rápido por Categoria / Género (Navegação dinâmica e 100% CENTRADA) -->
+        <p style="text-align: center; color: #888; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
+            Categorias
+        </p>
+        <div class="generos-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; justify-content: center; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <button (click)="filtrarPorGenero(null)" class="filtro-btn" [class.active]="generoSelecionadoId === null">Todos</button>
+            @for (g of generos; track g.id) {
+                <button (click)="filtrarPorGenero(g.id)" class="filtro-btn" [class.active]="generoSelecionadoId === g.id">{{ g.nome }}</button>
+            }
+        </div>
 
-    <!-- Filtros rápidos por data -->
-    <div class="filtros-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
-        <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
-        <button (click)="ordenar('recentes')" class="filtro-btn" [class.active]="filtroAtivo === 'recentes'">Mais Recentes</button>
-        <button (click)="ordenar('antigos')" class="filtro-btn" [class.active]="filtroAtivo === 'antigos'">Mais Antigos</button>
-        <button (click)="ordenar('alfabetica')" class="filtro-btn" [class.active]="filtroAtivo === 'alfabetica'">A-Z</button>
-        <button (click)="limparPesquisa()" class="filtro-btn btn-limpar"><i class="fas fa-sync-alt"></i> Limpar</button>
-    </div>
+        <!-- Filtros por data (Também 100% CENTRADOS para total simetria visual) -->
+        <div class="filtros-container" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px;">
+            <span class="filtro-label" style="color: #888; font-weight: bold; margin-right: 5px;">Filtrar por:</span>
+            <button (click)="ordenar('recentes')" class="filtro-btn" [class.active]="filtroAtivo === 'recentes'">Mais Recentes</button>
+            <button (click)="ordenar('antigos')" class="filtro-btn" [class.active]="filtroAtivo === 'antigos'">Mais Antigos</button>
+            <button (click)="ordenar('alfabetica')" class="filtro-btn" [class.active]="filtroAtivo === 'alfabetica'">A-Z</button>
+            <button (click)="limparPesquisa()" class="filtro-btn btn-limpar"><i class="fas fa-sync-alt"></i> Limpar</button>
+        </div>
 
 
     <!-- ALTERNADOR DINÂMICO DE LAYOUT -->

@@ -64,7 +64,7 @@ export class Utilizadores implements OnInit {
     });
   }
 
-  async ejecutarApagarUtilizador(id: number): Promise<void> {
+  async executarApagarUtilizador(id: number): Promise<void> {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch(`https://escorcio.pythonanywhere.com/ws/utilizadores/apagar/${id}/`, {
