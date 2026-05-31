@@ -13,12 +13,13 @@ import { FormsModule } from '@angular/forms';
 export class AdicionarFilme implements OnInit {
   modo: string = 'Adicionar';
   filmeId: number | null = null;
+  origem: string | null = null; // Guardará se veio do catálogo ou admin
 
   titulo: string = '';
   data_lancamento: string = '';
   sinopse: string = '';
   cartaz: string = '';
-  realizador_id: any = ''; // Alterado para 'any' para aceitar o emparelhamento numérico do select
+  realizador_id: any = '';
   generos_selecionados: any[] = [];
   atores_selecionados: any[] = [];
 
@@ -33,28 +34,15 @@ export class AdicionarFilme implements OnInit {
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
-  origem: string | null = null;
-
-  // 2. Na sua função 'ngOnInit()', atualize o bloco para ler a origem:
   async ngOnInit(): Promise<void> {
     await this.carregarAuxiliares();
-    this.origem = this.route.snapshot.queryParamMap.get('origem'); // Lê se veio do catálogo ou admin
+    this.origem = this.route.snapshot.queryParamMap.get('origem'); // Lê se veio de catálogo ou admin
 
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.modo = 'Editar';
       this.filmeId = parseInt(idParam, 10);
       await this.carregarFilme(this.filmeId);
-    }
-  }
-
-  // 3. Na sua função 'onSubmit()', substitua o bloco de sucesso por este:
-  if (response.ok) {
-    // Se veio do catálogo, volta ao próprio filme. Se veio do dashboard, volta à lista do admin!
-    if (this.origem === 'catalogo' && this.filmeId) {
-      this.router.navigate([`/filme/${this.filmeId}`]);
-    } else {
-      this.router.navigate(['/admin/filmes']);
     }
   }
 
@@ -82,7 +70,7 @@ export class AdicionarFilme implements OnInit {
         this.data_lancamento = data.data_lancamento;
         this.sinopse = data.sinopse || '';
         this.cartaz = data.cartaz || '';
-        this.realizador_id = data.realizador.id; // Mantido como NÚMERO (sem .toString) para o select funcionar!
+        this.realizador_id = data.realizador.id;
         this.generos_selecionados = data.generos.map((g: any) => g.id);
         this.atores_selecionados = data.atores.map((a: any) => a.id);
         this.cdr.detectChanges();
@@ -92,7 +80,6 @@ export class AdicionarFilme implements OnInit {
     }
   }
 
-  // Usamos comparação flexível == para que o Angular encontre o nome mesmo com tipos diferentes
   getAtorNome(id: any): string {
     const ator = this.todosAtores.find(a => a.id == id);
     return ator ? ator.nome : '';
@@ -147,7 +134,6 @@ export class AdicionarFilme implements OnInit {
       atores: this.atores_selecionados.map(Number)
     };
 
-    // Localize a função onSubmit() e substitua o bloco "try" por este:
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -159,8 +145,8 @@ export class AdicionarFilme implements OnInit {
       });
 
       if (response.ok) {
-        // Se estivemos a EDITAR, volta ao próprio filme. Se estivemos a CRIAR, volta à lista do admin!
-        if (this.filmeId) {
+        // Se viemos do catálogo de detalhes, volta ao próprio filme. Caso contrário, vai para a lista do admin!
+        if (this.origem === 'catalogo' && this.filmeId) {
           this.router.navigate([`/filme/${this.filmeId}`]);
         } else {
           this.router.navigate(['/admin/filmes']);
