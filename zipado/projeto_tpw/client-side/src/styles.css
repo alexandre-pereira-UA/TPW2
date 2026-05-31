@@ -547,25 +547,6 @@ body.light-theme .admin-card-new h4 {
     color: #121212 !important;
 }
 
-/* ==========================================================================
-   NOTIFICAÇÕES FLUTUANTES (TOASTS) COM AS CORES DO MOVIEZ
-   ========================================================================== */
-.alert-success.toast-notification-style {
-    background-color: #1a1a1a !important;
-    border: 2px solid #f5c518 !important; /* Bordo Amarelo */
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.8) !important;
-}
-
-.alert-danger.toast-notification-style {
-    background-color: #1a1a1a !important;
-    border: 2px solid #ff4d4d !important; /* Bordo Vermelho */
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.8) !important;
-}
-
 body.light-theme .filtro-btn {
     background-color: #e6e6e6;
     color: #121212 !important;
