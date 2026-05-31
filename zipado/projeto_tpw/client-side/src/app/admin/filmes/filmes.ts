@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Filme } from '../../filme';
 import { FilmeService } from '../../services/filme';
+import { ToastService } from '../../services/toast'; // Import do Toast de notificações
+
 
 @Component({
   selector: 'app-filmes',
@@ -19,6 +21,7 @@ export class Filmes implements OnInit {
   mensagem: string = '';
   carregandoImport: boolean = false;
 
+  private toastService = inject(ToastService);
   private filmeService = inject(FilmeService);
   private cdr = inject(ChangeDetectorRef);
 

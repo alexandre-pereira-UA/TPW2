@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="ok">
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/avaliacoes/avaliacoes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/detalhe-grupo/detalhe-grupo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/grupos/grupos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/zipado/projeto_tpw/client-side/src/app/admin/filmes/filmes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,22 +196,6 @@
       <workItem from="1776039349854" duration="916000" />
       <workItem from="1776070497468" duration="3704000" />
       <workItem from="1776088803519" duration="40000" />
-    </task>
-    <task id="LOCAL-00016" summary="Tecnicamente está feito">
-      <option name="closed" value="true" />
-      <created>1775993841200</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1775993841200</updated>
-    </task>
-    <task id="LOCAL-00017" summary="voi la">
-      <option name="closed" value="true" />
-      <created>1776006885382</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1776006885382</updated>
     </task>
     <task id="LOCAL-00018" summary="voi la">
       <option name="closed" value="true" />
@@ -591,7 +573,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780241242878</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ok">
+      <option name="closed" value="true" />
+      <created>1780241504130</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1780241504130</updated>
+    </task>
+    <task id="LOCAL-00066" summary="ok">
+      <option name="closed" value="true" />
+      <created>1780241595053</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1780241595053</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
