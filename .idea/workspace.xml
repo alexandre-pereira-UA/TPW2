@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="ok" />
+    <list default="true" id="9e0c2cf0-6828-432f-861a-8ad6f9633a19" name="Changes" comment="YESSSSS" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,14 +194,6 @@
       <workItem from="1776039349854" duration="916000" />
       <workItem from="1776070497468" duration="3704000" />
       <workItem from="1776088803519" duration="40000" />
-    </task>
-    <task id="LOCAL-00019" summary="anda">
-      <option name="closed" value="true" />
-      <created>1776018118739</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1776018118739</updated>
     </task>
     <task id="LOCAL-00020" summary="yooo">
       <option name="closed" value="true" />
@@ -587,7 +579,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780241894043</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="YESSSSS">
+      <option name="closed" value="true" />
+      <created>1780242228939</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1780242228939</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +605,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="yooo" />
     <MESSAGE value="Feito" />
     <MESSAGE value="Feitoo" />
     <MESSAGE value="Client-side feito, meio-funciona" />
@@ -630,7 +629,8 @@
     <MESSAGE value="Feitooo" />
     <MESSAGE value="Agora sim" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="YESSSSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="YESSSSS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

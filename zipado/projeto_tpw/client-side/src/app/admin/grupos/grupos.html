@@ -5,12 +5,15 @@
             <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Grupos e Acessos</p>
         </div>
 
+        <!-- Procure pelo topo do ficheiro admin/grupos/grupos.html e mude o bloco de botões para: -->
+
         <div style="display: flex; gap: 10px; align-items: center;">
-            <!-- Botão Novo Grupo (Idêntico ao da imagem!) -->
-            <a routerLink="/admin/grupos/novo" class="btn btn-warning" style="background-color: #f5c518; color: black; font-weight: bold; border-radius: 50px; padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                <i class="fas fa-plus"></i> Novo Grupo
+            <!-- Novo Grupo (Corrigido para botão perfeito) -->
+            <a routerLink="/admin/grupos/novo" class="btn-moviez-action btn-yellow">
+                <i class="fas fa-plus" style="margin-right: 8px;"></i> Novo Grupo
             </a>
-            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+            <!-- Dashboard (Corrigido para botão perfeito) -->
+            <a routerLink="/admin/dashboard" class="btn-moviez-action btn-dark">Dashboard</a>
         </div>
     </div>
 

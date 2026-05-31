@@ -557,3 +557,48 @@ body.light-theme .filtro-btn:hover {
     background-color: #c99300 !important;
     color: #000000 !important;
 }
+
+/* ==========================================================================
+   BOTOES DE AÇÃO UNIFICADOS E PERFEITOS DO MOVIEZ (TP2)
+   ========================================================================== */
+.btn-moviez-action {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;            /* Altura idêntica para TODOS os botões */
+    padding: 0 22px !important;         /* Espaçamento interno uniforme */
+    border-radius: 50px !important;     /* Formato em pílula perfeito */
+    font-weight: bold !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+}
+
+/* Variação Amarela (Novo Grupo, Adicionar Filme, Importar) */
+.btn-moviez-action.btn-yellow {
+    background-color: #f5c518 !important;
+    color: #000000 !important;
+}
+
+.btn-moviez-action.btn-yellow:hover {
+    background-color: #ffc107 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 197, 24, 0.3);
+}
+
+/* Variação Escura (Dashboard, Cancelar, Voltar) */
+.btn-moviez-action.btn-dark {
+    background-color: #222222 !important;
+    color: #f5c518 !important;
+    border: 1px solid #444444 !important;
+}
+
+.btn-moviez-action.btn-dark:hover {
+    background-color: #333333 !important;
+    color: #ffc107 !important;
+    transform: scale(1.02);
+}

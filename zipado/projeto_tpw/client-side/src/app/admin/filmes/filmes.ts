@@ -55,8 +55,15 @@ export class Filmes implements OnInit {
   }
 
   // Comunica com a API de Importação do Django
-  async importarFilmes(): Promise<void> {
-    if (!confirm('Esta operação pode demorar alguns segundos. Continuar?')) return;
+  // Localize a função importarFilmes() e substitua-a por estas duas:
+  importarFilmes(): void {
+    // Abre o nosso modal personalizado do MOVIEZ!
+    this.toastService.askConfirmation('Esta operação de importação de 10 filmes populares do TMDB pode demorar alguns segundos. Deseja continuar?', () => {
+      this.executarImportarFilmes();
+    });
+  }
+
+  async executarImportarFilmes(): Promise<void> {
     this.carregandoImport = true;
     this.cdr.detectChanges();
 

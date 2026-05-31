@@ -6,18 +6,21 @@
             <p style="color: #666; margin: 5px 0 0 0; font-size: 13px;">Painel de Controlo > Filmes</p>
         </div>
 
+        <!-- Procure pelo topo do ficheiro admin/filmes/filmes.html e mude o bloco de botões para: -->
+
         <div style="display: flex; gap: 10px; align-items: center;">
-            <!-- Importar Filmes via API -->
-            <button (click)="importarFilmes()" class="btn btn-warning" [disabled]="carregandoImport" style="background-color: #444; color: #f5c518; font-weight: bold; border-radius: 50px;">
-                <i class="fas fa-cloud-download-alt"></i> {{ carregandoImport ? 'A importar...' : 'Importar 10 Filmes' }}
+            <!-- Importar Filmes (Corrigido para botão perfeito) -->
+            <button (click)="importarFilmes()" class="btn-moviez-action btn-yellow" [disabled]="carregandoImport">
+                <i class="fas fa-cloud-download-alt" style="margin-right: 8px;"></i> {{ carregandoImport ? 'A importar...' : 'Importar 10 Filmes' }}
             </button>
 
-            <!-- Adicionar Novo Filme (Corrigido para usar routerLink!) -->
-            <a routerLink="/admin/filmes/novo" class="btn-adicionar-custom" style="background-color: #f5c518; color: black; font-weight: bold; border-radius: 50px; padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                <i class="fas fa-plus"></i> Adicionar Filme
+            <!-- Adicionar Filme (Corrigido para botão perfeito) -->
+            <a routerLink="/admin/filmes/novo" class="btn-moviez-action btn-yellow">
+                <i class="fas fa-plus" style="margin-right: 8px;"></i> Adicionar Filme
             </a>
 
-            <a routerLink="/admin/dashboard" class="btn-voltar-custom" style="background: #333; color: white; padding: 8px 20px; border-radius: 50px; text-decoration: none;">Dashboard</a>
+            <!-- Dashboard (Corrigido para botão perfeito) -->
+            <a routerLink="/admin/dashboard" class="btn-moviez-action btn-dark">Dashboard</a>
         </div>
     </div>
 
