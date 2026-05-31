@@ -11,10 +11,12 @@ def gerar_apresentacao():
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
     
+    # Layout em branco para total controle dos shapes
+    blank_layout = prs.slide_layouts[6]
+    
     # -------------------------------------------------------------
     # SLIDE 1: Capa de Apresentação (Estilo Escuro / Gold Cinema)
     # -------------------------------------------------------------
-    blank_layout = prs.slide_layouts[6]
     slide = prs.slides.add_slide(blank_layout)
     
     # Adiciona fundo preto/indigo profundo
@@ -23,8 +25,8 @@ def gerar_apresentacao():
     bg.fill.fore_color.rgb = RGBColor(9, 9, 13)
     bg.line.fill.background()
     
-    # Adiciona caixa de título da Capa
-    title_box = slide.shapes.add_textbox(Inches(1.0), Inches(2.2), Inches(11.333), Inches(3.0))
+    # Caixa de título da Capa
+    title_box = slide.shapes.add_textbox(Inches(1.0), Inches(1.8), Inches(11.333), Inches(4.5))
     tf = title_box.text_frame
     tf.word_wrap = True
     
@@ -43,16 +45,23 @@ def gerar_apresentacao():
     p2.space_before = Pt(10)
     
     p3 = tf.add_paragraph()
-    p3.text = "Unidade Curricular: Tecnologias e Programação Web (TPW)\nEngenharia Informática, Universidade de Aveiro\nAno Letivo: 2025/2026"
+    p3.text = "Grupo de Trabalho:\n• Guilherme Escórcio — Nº 118648\n• Alexandre Pereira — Nº 119871\n• Alexandre Silva — Nº 119583"
     p3.font.name = 'Inter'
-    p3.font.size = Pt(14)
-    p3.font.color.rgb = RGBColor(160, 160, 180)
-    p3.space_before = Pt(30)
+    p3.font.size = Pt(15)
+    p3.font.color.rgb = RGBColor(210, 210, 225)
+    p3.space_before = Pt(25)
+    
+    p4 = tf.add_paragraph()
+    p4.text = "Tecnologias e Programação Web (TPW) | Engenharia Informática, Universidade de Aveiro\nAno Letivo: 2025/2026"
+    p4.font.name = 'Inter'
+    p4.font.size = Pt(12)
+    p4.font.color.rgb = RGBColor(140, 140, 160)
+    p4.space_before = Pt(30)
     
     # -------------------------------------------------------------
-    # HELPER: Adicionar Slides de Conteúdo com Estilo Consistente
+    # HELPER: Adicionar Slides de Conteúdo com Estilo Consistente e Split-Screen
     # -------------------------------------------------------------
-    def add_content_slide(title_text, items):
+    def add_content_slide(title_text, items, image_name=None):
         s = prs.slides.add_slide(blank_layout)
         
         # Fundo cinemático
@@ -72,8 +81,18 @@ def gerar_apresentacao():
         p_title.font.bold = True
         p_title.font.color.rgb = RGBColor(245, 197, 24)
         
+        # Definição das dimensões da caixa de texto conforme exista ou não imagem
+        if image_name:
+            text_width = Inches(6.2)
+            img_left = Inches(7.4)
+            img_top = Inches(1.8)
+            img_width = Inches(5.1)
+            img_height = Inches(4.2)
+        else:
+            text_width = Inches(11.733)
+            
         # Caixa de Texto Principal (Bullets)
-        b_box = s.shapes.add_textbox(Inches(0.8), Inches(1.7), Inches(11.733), Inches(5.0))
+        b_box = s.shapes.add_textbox(Inches(0.8), Inches(1.7), text_width, Inches(5.0))
         tf_body = b_box.text_frame
         tf_body.word_wrap = True
         
@@ -90,139 +109,133 @@ def gerar_apresentacao():
                 # Sub-item (Nível 2)
                 p_item.text = item.strip().lstrip("-").strip()
                 p_item.level = 2
-                p_item.font.size = Pt(15)
+                p_item.font.size = Pt(14)
                 p_item.font.color.rgb = RGBColor(160, 160, 180)
             elif item.startswith("  -") or item.startswith("  *"):
                 # Item Secundário (Nível 1)
                 p_item.text = item.strip().lstrip("-").lstrip("*").strip()
                 p_item.level = 1
-                p_item.font.size = Pt(17)
+                p_item.font.size = Pt(16)
                 p_item.font.color.rgb = RGBColor(210, 210, 225)
             else:
                 # Tópico Principal (Nível 0)
                 p_item.text = item.strip().lstrip("-").lstrip("*").strip()
                 p_item.level = 0
-                p_item.font.size = Pt(20)
+                p_item.font.size = Pt(18)
                 p_item.font.bold = True
                 p_item.font.color.rgb = RGBColor(255, 255, 255)
-    
+                
+        # Adiciona a Imagem se ela existir no disco
+        if image_name:
+            caminho_imagem = os.path.join("apresentacao_imagens", image_name)
+            if os.path.exists(caminho_imagem):
+                s.shapes.add_picture(caminho_imagem, img_left, img_top, img_width, img_height)
+            else:
+                print(f"Aviso: Imagem '{caminho_imagem}' não encontrada. Slide criado apenas com texto.")
+
     # -------------------------------------------------------------
-    # SLIDE 2: Introdução e Arquitetura do Sistema
+    # SLIDE 2: Introdução e Arquitetura
     # -------------------------------------------------------------
     add_content_slide(
         "1. Introdução e Arquitetura do Sistema",
         [
-            "Evolução da Plataforma Clássica (TP1) para N-Tier Desacoplada",
-            "  - Separação completa de responsabilidades entre o cliente e o servidor.",
-            "  - Comunicação exclusiva via protocolo HTTP trocando dados em formato JSON.",
-            "Tecnologias Utilizadas no Ecossistema",
-            "  - Back-end: Django REST Framework (DRF) atuando como API pura.",
-            "  - Front-end SPA: Angular (v21+) para uma interface rápida e reativa.",
-            "Vantagens e Desempenho",
-            "  - Independência total de código, modularidade e excelente fluidez de navegação."
-        ]
+            "Evolução para N-Tier Desacoplada (TP2)",
+            "  - Transição de templates no servidor para duas camadas autónomas.",
+            "  - Comunicação baseada exclusivamente em protocolo HTTP trocando JSON.",
+            "Separação Estrita de Responsabilidades",
+            "  - Servidor: API REST pura desenvolvida em Django REST Framework.",
+            "  - Cliente: Single Page Application (SPA) reativa construída com Angular.",
+            "Mais-Valias de Engenharia",
+            "  - Modularidade do código, escalabilidade e altíssima velocidade de renderização."
+        ],
+        "slide2.png"
     )
     
     # -------------------------------------------------------------
-    # SLIDE 3: Back-end - Django REST Framework (DRF)
+    # SLIDE 3: Back-end: Django REST Framework (DRF)
     # -------------------------------------------------------------
     add_content_slide(
         "2. Back-end: Robustez e RESTful APIs",
         [
-            "Modelos de Dados Otimizados (SQLite3)",
-            "  - Filmes, Atores, Realizadores, Géneros e Críticas/Avaliações.",
-            "  - Listas personalizadas através de relacionamentos N-para-N (Favoritos e Guardados).",
-            "Camada de Serialização Avançada (serializers.py)",
-            "  - Nested Serializers de Leitura: Detalhes aninhados de elenco, equipa e avaliações.",
-            "  - Serializers de Escrita: IDs simples e eficientes para gravação rápida.",
-            "Endpoints da API REST (/ws/)",
-            "  - CRUD completo para todas as entidades principais e controlo transacional de críticas."
-        ]
+            "Modelo de Dados Otimizado (SQLite3)",
+            "  - CRUD completo para Filmes, Atores, Realizadores e Géneros.",
+            "  - Relações N-para-N para Criticas/Avaliações e listas personalizadas.",
+            "Camada de Serialização Avançada",
+            "  - Nested Serializers de Leitura: Traz dados aninhados para poupar pedidos HTTP.",
+            "  - Serializers de Escrita: IDs de chave primária diretos para inserções velozes.",
+            "Endpoints REST Otimizados (/ws/)",
+            "  - Controlo transacional nativo com filtragem robusta e resposta em JSON puro."
+        ],
+        "slide3.png"
     )
     
     # -------------------------------------------------------------
-    # SLIDE 4: Front-end - SPA com Angular 21+
+    # SLIDE 4: Front-end: Angular SPA
     # -------------------------------------------------------------
     add_content_slide(
         "3. Front-end: SPA Moderna e Reativa",
         [
-            "Desenvolvimento Modular em Angular",
-            "  - Utilização de Standalone Components e injeção de dependências nativa.",
-            "  - Comunicação assíncrona robusta com a API via serviços dedicados.",
-            "Grelha de Filmes e Posters Dinâmicos",
-            "  - Cards modernos estilizados com Bootstrap flexível (mesma altura).",
-            "Alternador de Visualização Premium",
-            "  - Modo Grelha Clássica ou Modo Carrossel Nático com efeito blur de fundo.",
-            "Carregamento Otimizado por Scroll Infinito",
-            "  - Monitorização de scroll no browser para carregar filmes de 6 em 6 (HostListener)."
-        ]
+            "Arquitetura Reativa com Angular (v21+)",
+            "  - Componentes Standalone livres de módulos e injeção de dependências nativa.",
+            "  - Serviços dedicados para isolar toda a lógica de comunicação externa.",
+            "Scroll Infinito Progressivo (Performance)",
+            "  - Diretiva HostListener para carregar e renderizar os cards em lotes de 6 em 6.",
+            "Funcionalidades Visuais Premium",
+            "  - Modo Grelha Simétrica ou Modo Carrossel Automático com blur dinâmico.",
+            "  - Tratamento inteligente e centrado de estado vazio de pesquisa (sem resultados)."
+        ],
+        "slide4.png"
     )
     
     # -------------------------------------------------------------
-    # SLIDE 5: Segurança e Controlo de Acessos
+    # SLIDE 5: Alojamento e Integração TMDB
     # -------------------------------------------------------------
     add_content_slide(
-        "4. Segurança, Autenticação e Perfis",
+        "4. Alojamento em Produção e TMDB",
         [
-            "Autenticação Segura Baseada em Token",
-            "  - DRF TokenAuthentication integrado de forma nativa no login e registo.",
-            "  - Persistência no localStorage e anexo automático a pedidos protegidos.",
-            "Distinção Robusta de Perfis de Utilizador",
-            "  - Superutilizador (Admin): Acesso ao dashboard de estatísticas e gestão total.",
-            "  - Moderador (Membro de 'coment'): Permissão nativa para apagar críticas impróprias.",
-            "  - Utilizador Comum: Submete notas e comentários, e gere listas personalizadas.",
+            "Alojamento Distribuído em Produção Cloud",
+            "  - API Back-end: Publicada e a correr ativamente no PythonAnywhere.",
+            "  - SPA Front-end: Publicada e otimizada na plataforma cloud Vercel.",
+            "Integração de Valorização (TMDB API)",
+            "  - Rota administrativa dedicada para consumir a API externa do The Movie Database.",
+            "Importação e Normalização Dinâmica",
+            "  - Descarrega posters em alta qualidade, sinopses e detalhes sob demanda.",
+            "  - Cria registos locais sem duplicar realizadores ou atores existentes."
+        ],
+        "slide5.png"
+    )
+    
+    # -------------------------------------------------------------
+    # SLIDE 6: Segurança, Perfis e Acesso
+    # -------------------------------------------------------------
+    add_content_slide(
+        "5. Segurança, Autenticação e Perfis",
+        [
+            "Autenticação por Token Segura",
+            "  - TokenAuthentication integrado nas rotas protegidas e guardado em localStorage.",
+            "Controlo de Acessos por Perfis de Utilizador",
+            "  - Administrador (Superuser): Gestão total de estatísticas, grupos e importador TMDB.",
+            "  - Moderador (Membro de 'coment'): Exclusão rápida de comentários impróprios.",
+            "  - Utilizador Registado: Gere listas de Favoritos/Guardados e deixa notas por estrelas.",
             "  - Visitante Anónimo: Apenas leitura segura do catálogo de filmes."
-        ]
+        ],
+        "slide6.png"
     )
     
     # -------------------------------------------------------------
-    # SLIDE 6: Integração com API Externa (TMDB)
+    # SLIDE 7: Conclusão
     # -------------------------------------------------------------
     add_content_slide(
-        "5. Integração com a API Externa do TMDB",
+        "6. Conclusão",
         [
-            "Fator de Valorização e Exploração de APIs de Terceiros",
-            "  - Conexão em tempo real do Django REST à API pública do The Movie Database.",
-            "Importação Automática sob Demanda",
-            "  - O administrador pode descarregar 10 novos filmes de sucesso com um único clique.",
-            "Normalização de Dados Local",
-            "  - Descarrega posters em alta qualidade, sinopses e detalhes técnicos da API.",
-            "  - Cria de forma dinâmica Atores, Realizador e Géneros locais evitando registos duplicados."
-        ]
-    )
-    
-    # -------------------------------------------------------------
-    # SLIDE 7: Estética e Experiência de Utilizador
-    # -------------------------------------------------------------
-    add_content_slide(
-        "6. Design Visual e Interface Premium",
-        [
-            "Tema Dinâmico Escuro / Claro (Dark/Light Mode)",
-            "  - Transição perfeita de contrastes para a navbar superior, cards e tabelas.",
-            "  - Estado de tema persistido com segurança no browser do utilizador.",
-            "Efeito Glassmorphism de Alta Qualidade",
-            "  - Efeito de vidro fosco (blur) e elevação suave 3D nos cards no hover.",
-            "Classificação Interativa por Estrelas",
-            "  - Sistema visual de estrelas douradas clicáveis para atribuir notas nos detalhes.",
-            "Tipografia de Alto Nível",
-            "  - Fonte premium 'Inter' importada do Google Fonts em todo o projeto."
-        ]
-    )
-    
-    # -------------------------------------------------------------
-    # SLIDE 8: Conclusão
-    # -------------------------------------------------------------
-    add_content_slide(
-        "7. Conclusão",
-        [
-            "Conformidade Absoluta com o Guião do TP2",
-            "  - Todos os requisitos obrigatórios e sugestões de exploração cumpridos na totalidade.",
-            "Arquitetura de Produção Orientada a Serviços Moderna",
-            "  - Base de código modular, rápida, segura e perfeitamente organizada.",
-            "Pronto para Entrega e Demonstração Imediata",
-            "  - Base de dados SQLite pré-populada com 50 filmes de grande sucesso.",
-            "  - 5 contas de teste configuradas com perfis e permissões prontas a usar.",
-            "  - Relatório técnico RELATORIO.md completo incluído na raiz."
+            "Conformidade Absoluta com o Guião Prático",
+            "  - Todos os requisitos mínimos e tópicos de exploração concluídos com excelência.",
+            "Plataforma Pronta para Demonstração Imediata",
+            "  - Base de dados SQLite3 pré-populada com 50 filmes de grande sucesso.",
+            "  - 5 contas prontas com perfis de utilizador distintos pré-configurados.",
+            "  - Relatório técnico simplificado RELATORIO.md com capa oficial incluído.",
+            "Impacto do Desacoplamento N-Tier",
+            "  - Base sólida, modular, segura e preparada para futuras evoluções de mercado."
         ]
     )
     
