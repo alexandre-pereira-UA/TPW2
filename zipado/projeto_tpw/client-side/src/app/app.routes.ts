@@ -25,24 +25,24 @@ import { AdicionarFilme as AdminAdicionarFilme } from './admin/adicionar-filme/a
 // NOVO: Guarda de Rotas Funcional para proteger ecrãs de Administração
 // Substitua apenas a função "adminGuard" (perto da linha 25) por esta:
 
+// Procure por "const adminGuard = () => {" no topo de app.routes.ts e substitua por esta:
+
 const adminGuard = () => {
   const router = inject(Router);
   const userJson = localStorage.getItem('user');
 
   if (userJson) {
     const user = JSON.parse(userJson);
-    // Permite a entrada apenas se pertencer ao Staff ou for Admin
-    if (user.is_staff || user.is_superuser) {
+    // CORRIGIDO: Valida is_staff_custom em vez de is_staff!
+    if (user.is_staff_custom || user.is_superuser) {
       return true;
     }
   }
 
-  // SE TENTAR ACEDER SEM SER ADMIN:
-  // 1. Limpa os dados de login antigos do navegador por completo
+  // Se tentar aceder sem ser admin: limpa o login e força ir para o login
   localStorage.removeItem('token');
   localStorage.removeItem('user');
 
-  // 2. Força a ida para o ecrã de login limpando o estado do cabeçalho
   window.location.href = '/login';
   return false;
 };
