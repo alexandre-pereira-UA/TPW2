@@ -104,3 +104,4 @@ export class Filmes implements OnInit {
       console.error(e);
     }
   }
+}

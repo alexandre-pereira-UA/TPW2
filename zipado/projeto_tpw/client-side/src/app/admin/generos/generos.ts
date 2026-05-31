@@ -17,7 +17,7 @@ export class Generos implements OnInit {
   itensFiltrados: Genero[] = [];
   query: string = '';
 
-  private toastService = inject(ToastService);s
+  private toastService = inject(ToastService);
   private cdr = inject(ChangeDetectorRef);
 
   async ngOnInit(): Promise<void> {
